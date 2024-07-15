@@ -1,11 +1,12 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { Search } from 'src/svg/icon'
-import { Button, Tooltip } from 'flowbite-react'
 import { Link } from 'react-router-dom'
+import { Tooltip } from 'react-tooltip'
 export default function Header() {
   return (
     <div className='px-10 max-w-7xl w-full mx-auto'>
-      <div className='pl-10 lg:flex justify-between hidden items-center bg-[#000]/20 pr-20'>
+      <div className='pl-10 flex justify-between items-center bg-[#000]/20 pr-20'>
         <div>
           <Link to={'/'}>
             <p className='text-3xl text-[#c0854f] font-bold cursor-pointer'>Unix</p>
@@ -16,7 +17,25 @@ export default function Header() {
             about us
           </Link>
           <Link to={'/project'} className='uppercase cursor-pointer'>
-            project
+            <a id='clickable'>project</a>
+            <Tooltip anchorSelect='#clickable' clickable className='z-50 relative'>
+              <div className='bg-white px-6 py-2 z-50 relative'>
+                <ul className='text-[#000] flex flex-col'>
+                  <Link to={'/project/interior-rendering'} className='hover:bg-black/50 hover:text-white'>
+                    Interior Rendering
+                  </Link>
+                  <Link to={'/project/furniture-modeling'} className='hover:bg-black/50 hover:text-white'>
+                    Furniture Modeling
+                  </Link>
+                  <Link to={'/project/exterior-rendering'} className='hover:bg-black/50 hover:text-white'>
+                    Exterior Rendering
+                  </Link>
+                  <Link to={'/project/2d'} className='hover:bg-black/50 hover:text-white'>
+                    2D
+                  </Link>
+                </ul>
+              </div>
+            </Tooltip>
           </Link>
           <Link to={'/services'} className='uppercase cursor-pointer'>
             services
@@ -28,40 +47,6 @@ export default function Header() {
             <Search />
           </Link>
         </ul>
-      </div>
-      <div className='pl-10 lg:hidden justify-between flex items-center bg-[#000]/20 '>
-        <div>
-          <p className='text-3xl text-[#c0854f] font-bold cursor-pointer'>Unix</p>
-        </div>
-        <div>
-          <Tooltip
-            content={
-              <ul className=' gap-10 text-white text-lg'>
-                <li className='uppercase cursor-pointer'>about us</li>
-                <li className='uppercase cursor-pointer'>project</li>
-                <li className='uppercase cursor-pointer'>services</li>
-                <li className='uppercase cursor-pointer'>contact us</li>
-                <li className='uppercase cursor-pointer'>
-                  <Search />
-                </li>
-              </ul>
-            }
-            trigger='click'
-          >
-            <Button>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                strokeWidth={3}
-                stroke='currentColor'
-                className='h-6 w-6 text-white'
-              >
-                <path strokeLinecap='round' strokeLinejoin='round' d='M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5' />
-              </svg>
-            </Button>
-          </Tooltip>
-        </div>
       </div>
     </div>
   )
