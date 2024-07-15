@@ -54,7 +54,7 @@ export const project = [
 
 export const Home = () => {
   return (
-    <>
+    <div className='max-w-7xl w-full mx-auto'>
       <div className='pt-20 px-10'>
         <div className='grid grid-cols-10'>
           <div className='col-span-4'>
@@ -64,7 +64,7 @@ export const Home = () => {
             </div>
             <div className='flex flex-col'>
               <p className='text-white text-xl'>RENDER</p>
-              <p className='text-white text-9xl tracking-wider font-semibold'>Interior</p>
+              <p className='text-white text-8xl tracking-wider font-semibold'>Interior</p>
               <div className='flex flex-col w-1/2 text-white font-normal text-2xl'>
                 <p>Do you want to know how your Living room or your new interior will look?</p>
                 <p>We can create a beatiful Interior Render based on your floor plan</p>
@@ -166,6 +166,6 @@ export const Home = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

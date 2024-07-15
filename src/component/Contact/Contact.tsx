@@ -1,7 +1,7 @@
 import React from 'react'
 import slider from '../../assets/contact/background.png'
 import neb from '../../assets/contact/NEB.png'
-const content = {
+export const content = {
   name: 'NEB TRAN',
   position: 'CEO AND FOUNDER',
   email: 'Neb@Unixvisual.com',
