@@ -4,6 +4,10 @@ import foter from 'src/assets/foter.png'
 function Page2D() {
   return (
     <div>
+      <div className='flex mt-4 text-white gap-2 text-2xl'>
+        <p>2D PhotoShop</p>
+        <p className='text-[#c0854f]'>Project</p>
+      </div>
       <div className='grid grid-cols-2 gap-12'>
         {Array(2)
           .fill(0)

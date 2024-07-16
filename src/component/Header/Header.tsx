@@ -17,8 +17,8 @@ export default function Header() {
             about us
           </Link>
           <Link to={'/project'} className='uppercase cursor-pointer'>
-            <a id='clickable'>project</a>
-            <Tooltip anchorSelect='#clickable' clickable className='z-50 relative'>
+            <a id='clickable_project'>project</a>
+            <Tooltip anchorSelect='#clickable_project' clickable className='z-50 relative'>
               <div className='bg-white px-6 py-2 z-50 relative'>
                 <ul className='text-[#000] flex flex-col'>
                   <Link to={'/project/interior-rendering'} className='hover:bg-black/50 hover:text-white'>

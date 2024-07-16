@@ -68,4 +68,5 @@ img {
 }
 body {
   background: url('./assets/bg.png') no-repeat fixed center;
+  background-size: cover;
 }

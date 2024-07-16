@@ -58,7 +58,7 @@ function About() {
       </div>
       <div className='mt-20'>
         <h1 className='text-white text-center text-2xl'>Meet the team</h1>
-        <div className='grid grid-cols-4 mt-40 gap-8'>
+        <div className='grid grid-cols-4 mt-16 gap-8'>
           {Array(4)
             .fill(0)
             .map((_, index) => (

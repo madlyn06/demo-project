@@ -98,12 +98,12 @@ function TwoDService() {
           </div>
         </div>
       </div> */}
+      <Page2D />
       <div className='flex justify-center mt-4'>
-        <button type='submit' className='text-white bg-[#c0854f] px-16 mt-8 py-3 rounded-[80px] text-xl'>
-          More
+        <button type='submit' className='text-white bg-[#c0854f] px-6 mt-4 py-2 rounded-[80px] text-xl'>
+          Chat More
         </button>
       </div>
-      <Page2D />
     </div>
   )
 }
