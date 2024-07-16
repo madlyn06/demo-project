@@ -38,7 +38,25 @@ export default function Header() {
             </Tooltip>
           </Link>
           <Link to={'/services'} className='uppercase cursor-pointer'>
-            services
+            <a id='clickable'>services</a>
+            <Tooltip anchorSelect='#clickable' clickable className='z-50 relative'>
+              <div className='bg-white px-6 py-2 z-50 relative'>
+                <ul className='text-[#000] flex flex-col'>
+                  <Link to={'/services/interior-rendering'} className='hover:bg-black/50 hover:text-white'>
+                    Interior Rendering
+                  </Link>
+                  <Link to={'/services/furniture-modeling'} className='hover:bg-black/50 hover:text-white'>
+                    Furniture Modeling
+                  </Link>
+                  <Link to={'/services/exterior-rendering'} className='hover:bg-black/50 hover:text-white'>
+                    Exterior Rendering
+                  </Link>
+                  <Link to={'/services/2d'} className='hover:bg-black/50 hover:text-white'>
+                    2D
+                  </Link>
+                </ul>
+              </div>
+            </Tooltip>
           </Link>
           <Link to={'/contact-us'} className='uppercase cursor-pointer'>
             contact us

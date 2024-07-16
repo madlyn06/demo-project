@@ -10,6 +10,11 @@ import Interior from 'src/component/Project/Interior'
 import Furniture from 'src/component/Project/Furniture'
 import Exterior from 'src/component/Project/Exterior'
 import Page2D from 'src/component/Project/2D'
+import PageTwoD from 'src/component/Project/2D'
+import InteriorService from 'src/component/Service/InteriorService'
+import ExteriorService from 'src/component/Service/ExteriorService'
+import TwoDService from 'src/component/Service/TwoDService'
+import FurnitureService from 'src/component/Service/FurnitureService'
 const useRouterElements = () => {
   const elements = useRoutes([
     {
@@ -48,7 +53,7 @@ const useRouterElements = () => {
         },
         {
           path: '2d',
-          element: <Page2D />
+          element: <PageTwoD />
         }
       ]
     },
@@ -56,9 +61,32 @@ const useRouterElements = () => {
       path: 'services',
       element: (
         <MainLayout>
-          <Services />
+          <Outlet />
         </MainLayout>
-      )
+      ),
+      children: [
+        {
+          path: '',
+          index: true,
+          element: <Services />
+        },
+        {
+          path: 'interior-rendering',
+          element: <InteriorService />
+        },
+        {
+          path: 'furniture-modeling',
+          element: <FurnitureService />
+        },
+        {
+          path: 'exterior-rendering',
+          element: <ExteriorService />
+        },
+        {
+          path: '2d',
+          element: <TwoDService />
+        }
+      ]
     },
     {
       path: 'about-us',

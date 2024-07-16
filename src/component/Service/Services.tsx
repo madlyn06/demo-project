@@ -7,7 +7,7 @@ import p6 from 'src/assets/p6.png'
 import p5 from 'src/assets/p5.png'
 import { project } from '../Home'
 import foter from 'src/assets/foter.png'
-const service = [
+export const service = [
   {
     image: s1,
     desc1: 'INTERIOR',
