@@ -6,7 +6,7 @@ interface Props {
 }
 const MainLayout = ({ children }: Props) => {
   return (
-    <div className='bg-slate-900 h-full  pt-5 '>
+    <div className='  pt-5 '>
       <Header />
       {children}
       <Footer />

@@ -66,3 +66,6 @@ img {
   max-width: 100%;
   height: auto;
 }
+body {
+  background: url('./assets/bg.png') no-repeat fixed center;
+}
