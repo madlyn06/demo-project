@@ -1,6 +1,6 @@
 import React from 'react'
 import foter from 'src/assets/foter.png'
-function Page2D({ data }: { data: any }) {
+function Page2D({ data }: any) {
   return (
     <div>
       <div className='flex mt-4 text-white gap-2 text-2xl font-copper font-extrabold'>
