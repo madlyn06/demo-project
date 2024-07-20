@@ -5,6 +5,32 @@ import InteriorRendering from '../components/InteriorRendering'
 import FurnitureModeling from '../components/FurnitureModeling'
 import ExteriorRendering from '../components/ExteriorRendering'
 import Page2D from '../components/Page2D'
+const data = [
+  {
+    name: 'Living’ MINH'
+  },
+  {
+    name: 'Living’ MINH'
+  },
+  {
+    name: 'Living’ MINH'
+  },
+  {
+    name: 'Living’ MINH'
+  },
+  {
+    name: 'Living’ MINH'
+  },
+  {
+    name: 'Living’ MINH'
+  },
+  {
+    name: 'Living’ MINH'
+  },
+  {
+    name: 'Living’ MINH'
+  }
+]
 function Exterior() {
   return (
     <div className='px-10 mx-auto max-w-7xl'>
@@ -34,7 +60,7 @@ function Exterior() {
         <ExteriorRendering />
         <InteriorRendering />
         <FurnitureModeling />
-        <Page2D />
+        <Page2D data={data} />
       </div>
     </div>
   )
