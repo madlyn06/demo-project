@@ -5,7 +5,7 @@ import p6 from 'src/assets/p6.png'
 function ExteriorRendering() {
   return (
     <div>
-      <div className='flex mt-4 text-white gap-2 text-2xl'>
+      <div className='flex mt-4 text-white gap-2 text-2xl font-copper font-extrabold'>
         <p>Exterior Rendering</p>
         <p className='text-[#c0854f]'>Project</p>
       </div>
@@ -16,7 +16,7 @@ function ExteriorRendering() {
               <img src={p6} alt='' />
             </div>
             <div className='text-white text-base text-center mt-4'>
-              <p>{"Exx' DAT"}</p>
+              <p className='font-copper font-black'>{"Exx' DAT"}</p>
               <div className='text-start'>
                 <p>Client:</p>
                 <p>Addrest</p>

@@ -2,26 +2,88 @@ import React from 'react'
 import p5 from 'src/assets/p5.png'
 import sofa from 'src/assets/project/sofa.png'
 import sofamini from 'src/assets/project/sofa-mini.png'
-import { project } from '../Home'
 import InteriorRendering from '../components/InteriorRendering'
 import FurnitureModeling from '../components/FurnitureModeling'
 import ExteriorRendering from '../components/ExteriorRendering'
 import Page2D from '../components/Page2D'
+import p1 from 'src/assets/p1.png'
+import p2 from 'src/assets/p2.png'
+import p3 from 'src/assets/p3.png'
+import p4 from 'src/assets/p4.png'
+import Line from '../components/Line'
+const data = [
+  {
+    name: 'Living’ MINH'
+  },
+  {
+    name: 'Living’ MINH'
+  }
+]
+const project_furniture = [
+  {
+    image: p1,
+    desc: "Living' DAT"
+  },
+  {
+    image: p2,
+    desc: "Living' SON"
+  },
+  {
+    image: p3,
+    desc: "Living' MINH"
+  },
+  {
+    image: p4,
+    desc: "Living' THAO"
+  },
+  {
+    image: p1,
+    desc: "Living' DAT"
+  },
+  {
+    image: p2,
+    desc: "Living' SON"
+  },
+  {
+    image: p3,
+    desc: "Living' MINH"
+  },
+  {
+    image: p4,
+    desc: "Living' THAO"
+  },
+  {
+    image: p1,
+    desc: "Living' DAT"
+  },
+  {
+    image: p2,
+    desc: "Living' SON"
+  },
+  {
+    image: p3,
+    desc: "Living' MINH"
+  },
+  {
+    image: p4,
+    desc: "Living' THAO"
+  }
+]
 function Furniture() {
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>
         <div className='grid grid-cols-5'>
           <div className='col-span-1 text-white mt-24 '>
-            <h1 className='text-3xl tracking-widest'>Furniture</h1>
-            <h1 className='text-3xl tracking-widest'>Modeling</h1>
+            <h1 className='text-3xl tracking-widest font-banmethuot'>Furniture</h1>
+            <h1 className='text-3xl tracking-widest font-banmethuot'>Modeling</h1>
             <p className='text-base pr-10 tracking-wide'>
               Do you want to know how your Living room or your new interiors will look? We can create a beautiful
               Interior Render based on your floor plan.
             </p>
           </div>
           <div className='col-span-4'>
-            <div className='text-white text-lg font-semibold'>Living’ Dat</div>
+            <div className='text-white text-lg font-semibold font-copper'>Living’ Dat</div>
             <div className='flex gap-6 h-[600px]'>
               <div className='flex gap-4 flex-col'>
                 {Array(3)
@@ -47,10 +109,19 @@ function Furniture() {
             <p className='flex-1 text-center'>Client’s Website:</p>
           </div>
         </div>
-        <FurnitureModeling />
+        <FurnitureModeling data={project_furniture} />
+        <div className='mt-12'>
+          <Line />
+        </div>
         <InteriorRendering />
+        <div className='mt-12'>
+          <Line />
+        </div>
         <ExteriorRendering />
-        <Page2D />
+        <div className='mt-12'>
+          <Line />
+        </div>
+        <Page2D data={data} />
       </div>
     </div>
   )

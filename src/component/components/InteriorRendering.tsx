@@ -1,22 +1,43 @@
 import React from 'react'
 import { project } from '../Home'
 import p5 from 'src/assets/p5.png'
-
-function InteriorRendering() {
+import p1 from 'src/assets/p1.png'
+import p2 from 'src/assets/p2.png'
+import p3 from 'src/assets/p3.png'
+import p4 from 'src/assets/p4.png'
+const project_interior = [
+  {
+    image: p1,
+    desc: "Living' DAT"
+  },
+  {
+    image: p2,
+    desc: "Living' SON"
+  },
+  {
+    image: p3,
+    desc: "Living' MINH"
+  },
+  {
+    image: p4,
+    desc: "Living' THAO"
+  }
+]
+function InteriorRendering({ data = project_interior }: any) {
   return (
     <div>
-      <div className='flex mt-4 text-white gap-2 text-2xl'>
+      <div className='flex mt-4 text-white gap-2 text-2xl font-copper font-extrabold'>
         <p>Interior Rendering</p>
         <p className='text-[#c0854f]'>Project</p>
       </div>
       <div className='grid grid-cols-4 gap-8 pl-5 mt-8'>
-        {project.map((item, index) => (
+        {data.map((item: any, index: any) => (
           <div className='col-span-1' key={index}>
             <div>
               <img src={p5} alt='' />
             </div>
             <div className='text-white text-base text-center mt-4'>
-              <p>{item.desc}</p>
+              <p className='font-copper font-extrabold'>{item.desc}</p>
               <div className='text-start'>
                 <p>Client:</p>
                 <p>Addrest</p>

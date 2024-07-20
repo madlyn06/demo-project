@@ -6,13 +6,13 @@ import { Tooltip } from 'react-tooltip'
 export default function Header() {
   return (
     <div className='px-10 max-w-7xl w-full mx-auto'>
-      <div className='pl-10 flex justify-between items-center bg-[#000]/20 pr-20'>
+      <div className='pl-10 flex justify-between items-center bg-[#232522] pr-20'>
         <div>
           <Link to={'/'}>
-            <p className='text-3xl text-[#c0854f] font-bold cursor-pointer'>Unix</p>
+            <p className='text-3xl text-[#c0854f] font-bold font-copper cursor-pointer'>Unix</p>
           </Link>
         </div>
-        <ul className='flex gap-10 text-white text-lg'>
+        <ul className='flex gap-10 text-white text-lg font-copper font-semibold'>
           <Link to={'/about-us'} className='uppercase cursor-pointer'>
             about us
           </Link>

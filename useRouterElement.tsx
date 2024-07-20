@@ -37,7 +37,7 @@ const useRouterElements = () => {
         {
           path: '',
           index: true,
-          element: <Project />
+          element: <Services />
         },
         {
           path: 'interior-rendering',

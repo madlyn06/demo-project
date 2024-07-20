@@ -70,3 +70,19 @@ body {
   background: url('./assets/bg.png') no-repeat fixed center;
   background-size: cover;
 }
+@font-face {
+  font-family: 'copperplate';
+  src: url('./fonts/copperplategothiclight.ttf');
+}
+@font-face {
+  font-family: 'banmethuot';
+  src: local('banmethuot'), url('./fonts/BANMEN.TTF');
+}
+@font-face {
+  font-family: 'bauhaus93';
+  src: url('./fonts/Bauhaus93Regular.ttf');
+}
+@font-face {
+  font-family: 'century';
+  src: url('./fonts/CenturyGothicPaneuropeanLight.ttf');
+}

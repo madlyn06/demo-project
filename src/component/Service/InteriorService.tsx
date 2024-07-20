@@ -6,6 +6,11 @@ import calendar from 'src/assets/project/calender.png'
 import star from 'src/assets/project/star.png'
 import { project } from '../Home'
 import p5 from 'src/assets/p5.png'
+import Offer from '../components/Offer'
+import BigDeal from '../components/BigDeal'
+import Button from '../components/Button'
+import InteriorRendering from '../components/InteriorRendering'
+import Line from '../components/Line'
 const project1 = [
   {
     img: coin,
@@ -24,17 +29,19 @@ function InteriorService() {
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>
-        <h1 className='text-center flex gap-2 justify-center font-semibold text-white text-2xl'>
+        <h1 className='text-center flex gap-2 justify-center font-semibold font-copper uppercase text-white text-2xl'>
           Interior Rendering <h1 className='text-[#c1984f]'>Service</h1>
         </h1>
         <div className='grid grid-cols-5'>
           <div className='col-span-1  mt-6 ml-2'>
-            <p className='text-[#fff] text-xl'>Let’s Start</p>
+            <p className='text-[#fff] text-xl font-century'>Let’s Start</p>
           </div>
           <div className='col-span-4 relative'>
             <img src={banner} alt='' />
             <div className='absolute top-20 left-10 -translate-x-1/2 w-[535px]'>
-              <p className=' text-white font-medium text-6xl '>Realistic Interior Close-Up Views Rendering</p>
+              <p className=' text-white font-medium text-6xl font-banmethuot'>
+                Realistic Interior Close-Up Views Rendering
+              </p>
               <p className='text-white text-xl pr-72 mt-4'>
                 Do you want to know how your Living room or your new interiors will look? We can create a beautiful
                 Interior Render based on your floor plan.
@@ -45,7 +52,7 @@ function InteriorService() {
               className='absolute bottom-0 translate-y-1/2 max-w-[250px] -translate-x-1/2 left-1/2'
               alt=''
             />
-            <div className='absolute -bottom-[171px] pb-32 text-[#fff]/40 text-white w-[350px] pr-20 right-12 bg-[#000]/70 pl-2 pt-2'>
+            <div className='absolute -bottom-[171px] pb-32 text-[#fff]/40  w-[350px] pr-20 right-12 bg-[#000]/70 pl-2 pt-2'>
               <h1 className='font-bold text-2xl '>SAMPLE”</h1>
               <p className='text-lg  '>
                 Do you want to know how your Living room or your new interiors will look? We can create a beautiful
@@ -53,73 +60,20 @@ function InteriorService() {
               </p>
             </div>
 
-            <p className='text-[#c1984f] text-base -rotate-90 absolute left-[-92px] bottom-[-35px]'>
+            <p className='text-[#c1984f] font-century text-base -rotate-90 absolute left-[-92px] bottom-[-35px]'>
               {'<----  SCROLL DOWN'}
             </p>
           </div>
         </div>
       </div>
-      <div className='mt-64 text-white text-center'>
-        <h1 className='text-xl'>What we can offer you</h1>
-        <p className=''>
-          Additional view in a room at just only $30 to showcase meticulously every detail in your space
-        </p>
-        <div className='text-white flex justify-between items-center'>
-          {project1.map((item, index) => (
-            <div key={index} className='flex flex-col items-center gap-4'>
-              <img src={item.img} className='w-16 h-16 object-contain' alt='' />
-              <h1 className='text-center'>{item.title}</h1>
-            </div>
-          ))}
-        </div>
+      <Offer />
+      <BigDeal banner={banner} />
+      <div className='flex justify-center'>
+        <Button name='Chat More' classnamesButton='!p-2 !text-xl' />
       </div>
-      <div className='mt-16'>
-        <div className='grid grid-cols-4'>
-          <div className='col-span-3 relative'>
-            <div className='absolute bg-[#000]/50 py-3 top-1/2  -translate-y-1/2 translate-x-1/2 pl-10 pr-24 rounded-2xl right-0 text-white'>
-              <h1 className='font-semibold m-0 text-lg italic'>BIG DEAL</h1>
-              <p>A Faceage rendering start an $200</p>
-            </div>
-            <img src={banner} alt='' />
-          </div>
-          <div className='col-span-1'></div>
-        </div>
-        <div className='grid grid-cols-4'>
-          <div className='col-span-1'></div>
-          <div className='col-span-3 relative'>
-            <div className='absolute bg-[#000]/50 py-3 top-1/2  -translate-y-1/2 -translate-x-1/2 pl-10 pr-24 rounded-2xl left-0 text-white'>
-              <h1 className='font-semibold m-0 text-lg italic'>BIG DEAL</h1>
-              <p>A Faceage rendering start an $200</p>
-            </div>
-            <img src={banner} alt='' />
-          </div>
-        </div>
-      </div>
-      <div className='flex justify-center mt-4'>
-        <button type='submit' className='text-white bg-[#c0854f] px-16 mt-8 py-3 rounded-[80px] text-xl'>
-          More
-        </button>
-      </div>
-      <div className='flex mt-4 text-white gap-2 text-2xl'>
-        <p>Interior Rendering</p>
-        <p className='text-[#c0854f]'>Project</p>
-      </div>
-      <div className='grid grid-cols-4 gap-8 pl-5 mt-8'>
-        {project.map((item, index) => (
-          <div className='col-span-1' key={index}>
-            <div>
-              <img src={p5} alt='' />
-            </div>
-            <div className='text-white text-base text-center mt-4'>
-              <p>{item.desc}</p>
-              <div className='text-start'>
-                <p>Client:</p>
-                <p>Addrest</p>
-                <p>{"Client's Website:"}</p>
-              </div>
-            </div>
-          </div>
-        ))}
+      <InteriorRendering />
+      <div className='my-14 pl-5'>
+        <Line />
       </div>
     </div>
   )

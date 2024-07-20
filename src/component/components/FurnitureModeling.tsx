@@ -1,21 +1,40 @@
-import React from 'react'
-import { project } from '../Home'
-
-function FurnitureModeling() {
+import p1 from 'src/assets/p1.png'
+import p2 from 'src/assets/p2.png'
+import p3 from 'src/assets/p3.png'
+import p4 from 'src/assets/p4.png'
+const project_furniture = [
+  {
+    image: p1,
+    desc: "Living' DAT"
+  },
+  {
+    image: p2,
+    desc: "Living' SON"
+  },
+  {
+    image: p3,
+    desc: "Living' MINH"
+  },
+  {
+    image: p4,
+    desc: "Living' THAO"
+  }
+]
+function FurnitureModeling({ data = project_furniture }: any) {
   return (
     <div>
-      <div className='flex mt-4 text-white gap-2 text-2xl'>
+      <div className='flex mt-4 text-white gap-2 font-copper font-extrabold text-2xl'>
         <p>Furniture Modeling</p>
         <p className='text-[#c0854f]'>Project</p>
       </div>
       <div className='grid grid-cols-4 gap-8 pl-5 mt-8'>
-        {project.map((item, index) => (
+        {data.map((item: any, index: any) => (
           <div className='col-span-1' key={index}>
             <div>
               <img src={item.image} alt='' />
             </div>
             <div className='text-white text-base text-center mt-4'>
-              <p>{item.desc}</p>
+              <p className='font-copper font-extrabold'>{item.desc}</p>
               <div className='text-start'>
                 <p>Client:</p>
                 <p>Addrest</p>
