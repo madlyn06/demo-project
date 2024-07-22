@@ -7,6 +7,7 @@ module.exports = {
       century: ['century'],
       banmethuot: ['banmethuot']
     },
+
     extend: {}
   },
   plugins: []

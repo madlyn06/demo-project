@@ -2,10 +2,10 @@ import React from 'react'
 
 function Button({ name, classnamesButton }: { name?: string; classnamesButton?: string }) {
   return (
-    <div>
+    <div className=''>
       <button
         type='submit'
-        className={`text-white uppercase font-banmethuot font-normal bg-[#c0854f] px-16 mt-8 py-3 rounded-[80px] text-2xl ${classnamesButton}`}
+        className={`text-white uppercase font-banmethuot font-normal bg-[#c0854f] rounded-[80px] ${classnamesButton}`}
       >
         {name}
       </button>

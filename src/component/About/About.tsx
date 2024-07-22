@@ -4,49 +4,50 @@ import layerbanner from 'src/assets/about/layer-banner.png'
 import home2 from 'src/assets/about/home2.png'
 import neb from 'src/assets/about/NEB.png'
 import { content } from '../Contact/Contact'
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 function About() {
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>
         <div className='grid grid-cols-5'>
           <div className='col-span-4 relative'>
-            <img src={banner} alt='' />
-            <p className='absolute text-white font-banmethuot font-medium text-7xl top-20 right-6 translate-x-1/2 w-[535px]'>
+            <img src={banner} alt='' className='w-full h-full' />
+            <p className='absolute text-white font-banmethuot font-medium md:text-4xl text-base lg:text-7xl lg:top-20 md:top-10 lg:right-6 md:right-0 right-0 top-10 w-28 translate-x-1/2 lg:w-[535px] md:w-[300px]'>
               WHO WE ARE ABOUT US
             </p>
             <img
               src={layerbanner}
-              className='absolute bottom-0 translate-y-1/2 max-w-[250px] -translate-x-1/2 left-1/2'
+              className='absolute bottom-0 translate-y-1/2 w-1/5 -translate-x-1/2 left-1/2'
               alt=''
             />
-            <div className='absolute text-white -bottom-16 w-52 left-6'>
-              <h1 className='font-bold text-2xl'>SAMPLE”</h1>
-              <p className='text-lg'>
+            <div className='absolute text-white md:-bottom-12 -bottom-8 lg:-bottom-16 md:w-44 w-32 lg:w-52 left-2 lg:left-6 md:left-4'>
+              <h1 className='font-bold md:text-xl lg:text-2xl text-sm'>SAMPLE”</h1>
+              <p className='md:text-sm lg:text-lg text-[8px]'>
                 Do you want to know how your Living room or your new interiors will look? We can create a beautiful
                 Interior Render based on your floor plan.
               </p>
             </div>
-            <p className='text-[#c1984f] font-century text-base -rotate-90 absolute right-[-92px] bottom-[-35px]'>
+            <p className='text-[#c1984f] font-century md:text-sm lg:text-base text-sm -rotate-90 lg:right-[-92px] absolute md:right-[-80px] bottom-[-35px] right-[-78px]'>
               {'<----  SCROLL DOWN'}
             </p>
           </div>
-          <div className='col-span-1  mt-6 ml-2'>
-            <p className='text-[#c1984f] text-xl font-extrabold font-century'>SINCE 2019</p>
-            <p className='text-white text-lg mt-48'>
+          <div className='col-span-1 md:mt-4 mt-2 lg:mt-6 ml-2'>
+            <p className='text-[#c1984f] md:text-sm text-xs lg:text-xl font-extrabold font-century'>SINCE 2019</p>
+            <p className='text-white md:text-sm text-[8px] lg:text-lg lg:mt-48 md:mt-24 mt-20'>
               Do you want to know how your Living room or your new interiors will look? We can create a beautiful
               Interior Render based on your floor plan.
             </p>
           </div>
         </div>
       </div>
-      <div className='mt-64'>
+      <div className=' md:mt-32 lg:mt-64 mt-24'>
         <div className='grid grid-cols-6'>
-          <div className='col-span-4 relative mt-16'>
-            <img src={home2} alt='' />
+          <div className='col-span-4 relative lg:mt-16 mt-8 md:mt-12'>
+            <img src={home2} alt='' className='w-full h-full' />
           </div>
           <div className='col-span-2 ml-4'>
-            <p className='text-white font-bold text-2xl'>Building dream spaces</p>
-            <p className='text-white text-lg mt-6 pr-20'>
+            <p className='text-white font-bold lg:text-2xl md:text-xl text-sm'>Building dream spaces</p>
+            <p className='text-white lg:text-lg md:text-base text-xs lg:mt-6 md:mt-4 mt-2 md:pr-12 pr-8 lg:pr-20'>
               When it comes to interior rendering, we understand the importance of creating a space that reflects your
               personal style and meets your functional needs. Whether you’re looking to update a single room or renovate
               an entire home or office, our skilled team will work closely with you to bring your vision to life. From
@@ -56,8 +57,8 @@ function About() {
           </div>
         </div>
       </div>
-      <div className='mt-20'>
-        <h1 className='text-white text-center text-3xl font-banmethuot'>Meet the team</h1>
+      <div className='lg:mt-20 md:mt-12 mt-8'>
+        <h1 className='text-white text-center lg:text-3xl md:text-x2 text-lg font-banmethuot'>Meet the team</h1>
         <div className='grid grid-cols-4 mt-8 gap-8'>
           {Array(4)
             .fill(0)

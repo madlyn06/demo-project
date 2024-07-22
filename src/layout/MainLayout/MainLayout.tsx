@@ -9,7 +9,7 @@ const MainLayout = ({ children }: Props) => {
     <div className='  pt-5 '>
       <Header />
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
