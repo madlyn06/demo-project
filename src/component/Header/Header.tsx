@@ -9,10 +9,10 @@ export default function Header() {
       <div className='pl-2 md:pl-4 lg:pl-10 flex justify-between items-center bg-[#232522] pr-4 md:pr-10 lg:pr-20'>
         <div>
           <Link to={'/'}>
-            <p className='text-3xl text-[#c0854f] font-bold font-copper cursor-pointer'>Unix</p>
+            <p className='text-2xl md:text-3xl  text-[#c0854f] font-bold font-copper cursor-pointer'>Unix</p>
           </Link>
         </div>
-        <ul className='flex gap-2 md:gap-6 lg:gap-10 text-white md:text-base text-xs lg:text-lg font-copper font-semibold'>
+        <ul className='flex gap-2 pl-4 sm:pl-0 md:gap-6 lg:gap-10 text-white md:text-base text-xs lg:text-lg font-copper font-semibold'>
           <Link to={'/about-us'} className='uppercase cursor-pointer'>
             about us
           </Link>

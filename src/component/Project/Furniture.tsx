@@ -73,17 +73,17 @@ function Furniture() {
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>
-        <div className='grid grid-cols-5'>
-          <div className='col-span-1 text-white mt-24 '>
-            <h1 className='text-3xl tracking-widest font-banmethuot'>Furniture</h1>
-            <h1 className='text-3xl tracking-widest font-banmethuot'>Modeling</h1>
-            <p className='text-base pr-10 tracking-wide'>
+        <div className='grid  md:grid-cols-5 mb-10 md:mb-0'>
+          <div className='col-span-1 text-white lg:mt-24 md:pr-4 mb-4 md:mb-0 '>
+            <h1 className='text-2xl  md:text-3xl lg:text-3xl tracking-widest font-banmethuot'>Furniture</h1>
+            <h1 className='text-2xl md:text-3xl lg:text-3xl tracking-widest font-banmethuot'>Modeling</h1>
+            <p className='text-sm md:text-base lg:pr-10 tracking-wide md:mt-6'>
               Do you want to know how your Living room or your new interiors will look? We can create a beautiful
               Interior Render based on your floor plan.
             </p>
           </div>
           <div className='col-span-4'>
-            <div className='text-white text-lg font-semibold font-copper'>Living’ Dat</div>
+            <div className='text-white text-lg font-semibold font-copper mb-2 md:mb-0'>Living’ Dat</div>
             <div className='flex gap-6 h-[600px]'>
               <div className='flex gap-4 flex-col'>
                 {Array(3)
@@ -100,7 +100,7 @@ function Furniture() {
             </div>
           </div>
         </div>
-        <div className='grid grid-cols-5 text-white mt-4 text-lg'>
+        <div className='grid grid-cols-5 text-white mt-4 text-base md:text-lg'>
           <div className='col-span-1'>
             <p>Client:</p>
           </div>

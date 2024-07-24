@@ -88,7 +88,7 @@ export const Home = () => {
               <p className='text-white md:text-base text-sm lg:text-xl font-century'>RENDER</p>
               <p
                 style={{ fontFamily: 'banmethuot' }}
-                className='text-white lg:text-8xl tracking-wider font-semibold text-4xl md:text-6xl'
+                className=' text-white lg:text-8xl tracking-wider font-semibold text-4xl md:text-6xl '
               >
                 Interior
               </p>
@@ -120,7 +120,7 @@ export const Home = () => {
           <h3 className='flex gap-2 md:text-2xl text-xl lg:text-3xl text-center justify-center text-white'>
             Our <h3 className='text-[#c0854f]'>Project</h3>
           </h3>
-          <div className='grid grid-cols-4 gap-8 pl-5 lg:mt-8 md:mt-4 mt-2'>
+          <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 lg:mt-8 md:mt-4 mt-2'>
             {project.map((item, index) => (
               <div className='col-span-1' key={index}>
                 <div>
@@ -137,7 +137,7 @@ export const Home = () => {
               </div>
             ))}
           </div>
-          <div className='grid grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
+          <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
             {project.map((item, index) => (
               <div className='col-span-1' key={index}>
                 <div>
@@ -154,7 +154,7 @@ export const Home = () => {
               </div>
             ))}
           </div>
-          <div className='grid grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
+          <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
             {project.map((item, index) => (
               <div className='col-span-1' key={index}>
                 <div>

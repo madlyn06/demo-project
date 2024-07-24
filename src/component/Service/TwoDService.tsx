@@ -35,27 +35,28 @@ function TwoDService() {
         </h1>
         <div className='grid grid-cols-5'>
           <div className='col-span-1  mt-6 ml-2'>
-            <p className='text-[#fff] text-xl font-century'>Visualize Your Ideas</p>
+            <p className='text-[#fff] md:text-xl lg:text-2xl  font-century'>Visualize Your Ideas</p>
           </div>
           <div className='col-span-4 relative'>
             <img src={banner} alt='' />
-            <div className='absolute top-20 left-10 -translate-x-1/2 w-[535px]'>
-              <p className=' text-white font-medium text-6xl font-banmethuot'>
-                Create Stunning Furniture with 3D Modeling
-              </p>
-              <p className='text-white text-xl pr-72 mt-4'>
-                Do you want to know how your Living room or your new interiors will look? We can create a beautiful
-                Interior Render based on your floor plan.
-              </p>
-            </div>
             <img
               src={layerbanner}
               className='absolute bottom-0 translate-y-1/2 max-w-[250px] -translate-x-1/2 left-1/2'
               alt=''
             />
-            <div className='absolute -bottom-[171px] pb-32 text-[#fff]/40  w-[350px] pr-20 right-12 bg-[#000]/70 pl-2 pt-2'>
+            <div className='absolute lg:top-20 lg:left-10 md:top-18 md:left-32 left-48 top-20 -translate-x-1/2 w-[535px]'>
+              <p className=' text-white font-medium text-3xl  md:text-4xl lg:text-5xl font-banmethuot'>
+                Create Stunning Furniture with 3D Modeling
+              </p>
+              <p className='text-white text-base  md:text-lg lg:text-xl  pr-72 mt-4'>
+                Do you want to know how your Living room or your new interiors will look? We can create a beautiful
+                Interior Render based on your floor plan.
+              </p>
+            </div>
+           
+            <div className='hidden md:block absolute -bottom-[171px] pb-32 text-[#fff]/40  w-[350px] pr-20 right-12 bg-[#000]/70 pl-2 pt-2'>
               <h1 className='font-bold text-2xl text-white'>SAMPLE”</h1>
-              <p className='text-lg  '>
+              <p className='text-base  md:text-lg lg:text-xl   '>
                 Do you want to know how your Living room or your new interiors will look? We can create a beautiful
                 Interior Render based on your floor plan.
               </p>

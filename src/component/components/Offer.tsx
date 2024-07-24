@@ -19,8 +19,8 @@ const offer = [
 function Offer() {
   return (
     <div className='mt-64 text-white text-center'>
-      <h1 className='text-xl font-banmethuot'>What we can offer you</h1>
-      <p className='font-century'>
+      <h1 className='text-xl md:text-2xl font-banmethuot'>What we can offer you</h1>
+      <p className='font-century text-lg md:text-xl'>
         Additional view in a room at just only $30 to showcase meticulously every detail in your space
       </p>
       <div className='text-white flex justify-between items-center mt-16'>
