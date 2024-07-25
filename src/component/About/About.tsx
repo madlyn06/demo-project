@@ -7,45 +7,45 @@ import { content } from '../Contact/Contact'
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 function About() {
   return (
-    <div className='px-10 mx-auto max-w-7xl'>
+    <div className='px-10 mx-auto md:max-w-7xl'>
       <div className='mt-8'>
-        <div className='grid grid-cols-5'>
-          <div className='col-span-4 relative'>
-            <img src={banner} alt='' className='w-full h-full' />
-            <p className='absolute text-white font-banmethuot font-medium md:text-4xl text-xl lg:text-7xl lg:top-20 md:top-10 lg:right-6 md:right-0 right-0 top-10 w-28 translate-x-1/2 lg:w-[535px] md:w-[300px] w-[200px]'>
+        <div className='md:grid md:grid-cols-5'>
+          <div className='md:col-span-4 relative'>
+            <p className='md:absolute text-white font-banmethuot font-medium md:text-4xl text-xl lg:text-7xl lg:top-20 md:top-10 lg:right-6 md:right-0 right-0 top-10 w-28 md:translate-x-1/2 lg:w-[535px] md:w-[300px]  w-[300px] mb-4 md:mb-0'>
               WHO WE ARE ABOUT US
             </p>
+            <img src={banner} alt='' className='w-full md:h-full' />
             <img
               src={layerbanner}
-              className='absolute bottom-0 translate-y-1/2 w-1/5 -translate-x-1/2 left-1/2'
+              className='md:absolute bottom-0 translate-y-1/2 w-1/5 -translate-x-1/2 left-1/2 hidden md:block'
               alt=''
             />
-            <div className='absolute text-white md:-bottom-12 -bottom-8 lg:-bottom-16 md:w-44 w-32 lg:w-52 left-2 lg:left-6 md:left-4'>
-              <h1 className='font-bold md:text-xl lg:text-2xl text-sm'>SAMPLE”</h1>
-              <p className='md:text-sm lg:text-lg text-[8px]'>
+            <div className='md:absolute text-white md:-bottom-12 mt-4 -bottom-8 lg:-bottom-16 md:w-44 lg:w-52 left-2 lg:left-6 md:left-4'>
+              <h1 className='font-bold md:text-xl lg:text-2xl text-lg'>SAMPLE”</h1>
+              <p className='md:text-sm lg:text-lg text-sm'>
                 Do you want to know how your Living room or your new interiors will look? We can create a beautiful
                 Interior Render based on your floor plan.
               </p>
             </div>
-            <p className='text-[#c1984f] font-century md:text-sm lg:text-base text-sm -rotate-90 lg:right-[-92px] absolute md:right-[-80px] bottom-[-35px] right-[-78px]'>
+            <p className='text-[#c1984f] font-century md:text-sm lg:text-base text-sm -rotate-90 lg:right-[-92px] absolute md:right-[-80px] bottom-[-35px] right-[-78px] hidden md:block'>
               {'<----  SCROLL DOWN'}
             </p>
           </div>
-          <div className='col-span-1 md:mt-4 mt-2 lg:mt-6 ml-2'>
-            <p className='text-[#c1984f] md:text-sm text-xs lg:text-xl font-extrabold font-century'>SINCE 2019</p>
-            <p className='text-white lg:text-xl   md:text-lg text-[10px] lg:mt-48 md:mt-24 mt-20'>
+          <div className='md:col-span-1 md:mt-4 mt-10 lg:mt-6 md:ml-2'>
+            <p className='text-[#c1984f] md:text-sm text-lg lg:text-xl font-extrabold font-century'>SINCE 2019</p>
+            <p className='text-white lg:text-xl text-sm   md:text-lg  lg:mt-48 md:mt-24 mt-2'>
               Do you want to know how your Living room or your new interiors will look? We can create a beautiful
               Interior Render based on your floor plan.
             </p>
           </div>
         </div>
       </div>
-      <div className=' md:mt-32 lg:mt-64 mt-24'>
+      <div className=' md:mt-32 lg:mt-64 md:mt-24'>
         <div className='grid lg:grid-cols-6'>
           <div className='col-span-4 relative lg:mt-16 mt-8 md:mt-12'>
             <img src={home2} alt='' className='w-full h-full' />
           </div>
-          <div className='col-span-2  mt-4 md:ml-4'>
+          <div className='col-span-2  mt-10 md:ml-4'>
             <p className='text-white font-bold mt-4 md:mt-0 lg:text-3xl md:text-2xl text-xl'>Building dream spaces</p>
             <p className='text-white lg:text-xl   md:text-lg text-sm text-justify md:text-left   lg:mt-6 md:mt-4 mt-2 md:pr-12 md:pr-8 lg:pr-20'>
               When it comes to interior rendering, we understand the importance of creating a space that reflects your

@@ -88,11 +88,11 @@ export const Home = () => {
               <p className='text-white md:text-base text-sm lg:text-xl font-century'>RENDER</p>
               <p
                 style={{ fontFamily: 'banmethuot' }}
-                className=' text-white lg:text-8xl tracking-wider font-semibold text-4xl md:text-6xl '
+                className=' text-white lg:text-8xl tracking-wider font-semibold text-2xl md:text-6xl '
               >
                 Interior
               </p>
-              <div className='flex flex-col md:pr-32 pr-10 lg:pr-44 text-white md:text-base text-sm font-normal lg:text-2xl'>
+              <div className='flex flex-col md:pr-32 pr-10 lg:pr-44 text-white md:text-base text-xs font-normal lg:text-2xl'>
                 <p>Do you want to know how your Living room or your new interior will look?</p>
                 <p>We can create a beatiful Interior Render based on your floor plan.</p>
               </div>

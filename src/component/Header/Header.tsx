@@ -12,7 +12,7 @@ export default function Header() {
             <p className='text-2xl md:text-3xl  text-[#c0854f] font-bold font-copper cursor-pointer'>Unix</p>
           </Link>
         </div>
-        <ul className='flex gap-2 pl-4 sm:pl-0 md:gap-6 lg:gap-10 text-white md:text-base text-xs lg:text-lg font-copper font-semibold'>
+        <ul className='flex gap-2 pl-4 sm:pl-0 md:gap-6 lg:gap-10 text-white sm:text-sm md:text-base text-[9px]  lg:text-lg font-copper font-semibold'>
           <Link to={'/about-us'} className='uppercase cursor-pointer'>
             about us
           </Link>

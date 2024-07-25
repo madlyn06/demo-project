@@ -73,7 +73,7 @@ function Furniture() {
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>
-        <div className='grid  md:grid-cols-5 mb-10 md:mb-0'>
+        <div className='md:grid  md:grid-cols-5 mb-10 md:mb-0'>
           <div className='col-span-1 text-white lg:mt-24 md:pr-4 mb-4 md:mb-0 '>
             <h1 className='text-2xl  md:text-3xl lg:text-3xl tracking-widest font-banmethuot'>Furniture</h1>
             <h1 className='text-2xl md:text-3xl lg:text-3xl tracking-widest font-banmethuot'>Modeling</h1>
@@ -84,19 +84,20 @@ function Furniture() {
           </div>
           <div className='col-span-4'>
             <div className='text-white text-lg font-semibold font-copper mb-2 md:mb-0'>Living’ Dat</div>
-            <div className='flex gap-6 h-[600px]'>
+            <div className='md:flex gap-6 md:h-[600px]'>
+            <div>
+                <img src={sofa} className='w-full h-full mb-4' alt='' />
+              </div>
               <div className='flex gap-4 flex-col'>
                 {Array(3)
                   .fill(0)
                   .map((_, index) => (
-                    <div key={index} className='w-[189px]'>
-                      <img className='w-full h-full' src={sofamini} alt='' />
+                    <div key={index} className='md:w-[189px]'>
+                      <img className='w-full h-full ' src={sofamini} alt='' />
                     </div>
                   ))}
               </div>
-              <div>
-                <img src={sofa} className='w-full h-full' alt='' />
-              </div>
+             
             </div>
           </div>
         </div>

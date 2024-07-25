@@ -13,13 +13,13 @@ function Contact() {
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>
         <h1 className='text-center text-[#c1984f] text-2xl mb-3 font-copper font-extrabold'>Contact Us</h1>
-        <div className='grid md:grid-cols-5 mx-10 flex justify-center'>
+        <div className='grid md:grid-cols-5 md:mx-10 flex justify-center'>
           <div className=' mx-2 md:col-span-4 md:relative'>
             <img src={slider} alt='' className='w-full'/>
-            <p className=' lg:absolute font-banmethuot text-white font-bold text-4xl md:text-5xl lg:text-7xl top-20 right-0 lg:translate-x-1/2 sm:w-[535px] w-[360px]'>
+            <p className=' lg:absolute font-banmethuot mt-8 md:mt-0 text-white font-bold text-4xl md:text-5xl lg:text-7xl top-20 right-0 lg:translate-x-1/2 sm:w-[535px] w-[360px]'>
               Contact us via email or phone
             </p>
-            <p className='text-[#c1984f] font-century text-base -rotate-90 absolute right-[-92px] bottom-[-35px]'>
+            <p className='text-[#c1984f] font-century text-base -rotate-90 absolute right-[-92px] bottom-[-35px] hidden md:block'>
               {'<----  SCROLL DOWN'}
             </p>
           </div>
@@ -31,17 +31,17 @@ function Contact() {
             </p>
           </div>
         </div>
-        <div className='grid  grid-cols-2 lg:grid-cols-4 mt-40 gap-8'>
+        <div className='grid  grid-cols-2 lg:grid-cols-4 mt-10 md:mt-40 gap-8'>
           {Array(4)
             .fill(0)
             .map((_, index) => (
               <div className='col-span-1 font-copper relative w-full flex justify-center' key={index}>
                 <img src={neb} alt='' className='lg:w-full md:w-2/3  ' />
-                <div className=' font-copper absolute text-dark top-[260px]   md:top-[260px] lg:top-[240px] xl:top-[280px] w-full -translate-x-1/2 left-1/2 text-center'>
-                  <p className='font-bold text-base  md:text-xl lg:text-2xl'>{content.name}</p>
-                  <p className='font-bold text-base md:text-lg lg:text-xl  mt-4'>{content.position}</p>
-                  <p className='text-base md:text-lg lg:text-xl '>{content.email}</p>
-                  <p className='mt-4 text-base md:text-lg lg:text-xl '>{content.phone}</p>
+                <div className=' font-copper absolute text-dark translate-y-1/2   md:top-[220px] lg:top-[240px] xl:top-[280px] w-full -translate-x-1/2 left-1/2 text-center'>
+                  <p className='font-bold text-sm  md:text-xl lg:text-2xl'>{content.name}</p>
+                  <p className='font-bold text-sn md:text-lg lg:text-xl  mt-4'>{content.position}</p>
+                  <p className='text-xs md:text-lg lg:text-xl '>{content.email}</p>
+                  <p className='mt-4 text-sm md:text-lg lg:text-xl '>{content.phone}</p>
                 </div>
               </div>
             ))}
