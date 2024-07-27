@@ -31,17 +31,17 @@ function Contact() {
             </p>
           </div>
         </div>
-        <div className='grid  grid-cols-2 lg:grid-cols-4 mt-10 md:mt-40 gap-8'>
+        <div className='grid  grid-cols-1 lg:grid-cols-4 mt-10 md:mt-40 gap-8'>
           {Array(4)
             .fill(0)
             .map((_, index) => (
               <div className='col-span-1 font-copper relative w-full flex justify-center' key={index}>
-                <img src={neb} alt='' className='lg:w-full md:w-2/3  ' />
-                <div className=' font-copper absolute text-dark translate-y-1/2   md:top-[220px] lg:top-[240px] xl:top-[280px] w-full -translate-x-1/2 left-1/2 text-center'>
-                  <p className='font-bold text-sm  md:text-xl lg:text-2xl'>{content.name}</p>
-                  <p className='font-bold text-sn md:text-lg lg:text-xl  mt-4'>{content.position}</p>
-                  <p className='text-xs md:text-lg lg:text-xl '>{content.email}</p>
-                  <p className='mt-4 text-sm md:text-lg lg:text-xl '>{content.phone}</p>
+                <img src={neb} alt='' className='lg:w-full md:w-1/2 w-2/3  ' />
+                <div className=' font-copper absolute text-dark translate-y-1/2 top-1/2  w-full -translate-x-1/2 left-1/2 text-center'>
+                  <p className='font-bold text-sm  md:text-2xl lg:text-2xl'>{content.name}</p>
+                  <p className='font-bold text-sm md:text-2xl lg:text-xl  mt-4'>{content.position}</p>
+                  <p className='text-xs md:text-xl lg:text-xl '>{content.email}</p>
+                  <p className='mt-4 text-sm md:text-xl lg:text-xl '>{content.phone}</p>
                 </div>
               </div>
             ))}

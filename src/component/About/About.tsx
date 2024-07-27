@@ -59,21 +59,21 @@ function About() {
       </div>
       <div className='lg:mt-20 md:mt-12 mt-8'>
         <h1 className='text-white text-center lg:text-3xl md:text-x2 text-lg font-banmethuot'>Meet the team</h1>
-        <div className='grid grid-cols-2 md:grid-cols-4 mt-8 gap-8'>
+        <div className='grid grid-cols-1 lg:grid-cols-4 mt-8 gap-8'>
           {Array(4)
             .fill(0)
             .map((_, index) => (
               <div className='col-span-1 relative w-full flex justify-center' key={index}>
-                <img src={neb} alt='' className='w-full lg:w-full md:w-2/3 ' />
-                <div className='absolute text-dark top-[120px] md:top-[70px] w-full -translate-x-1/2 left-1/2 text-center'>
-                  <p className='font-bold text-sm  lg:text-2xl font-copper'>{content.name}</p>
-                  <p className='text-xs lg:text-xl  font-century font-extrabold mt-2'>{content.position}</p>
+                <img src={neb} alt='' className='w-full lg:w-full md:w-1/2 w-1/2' />
+                <div className='absolute text-dark translate-y-1/2 top-2/3  w-full -translate-x-1/2 left-1/2 text-center'>
+                  <p className='font-bold text-sm md:text-xl  lg:text-2xl font-copper'>{content.name}</p>
+                  <p className='text-xs lg:text-xl md:text-xl  font-century font-extrabold mt-2'>{content.position}</p>
                 </div>
-                <div className='flex justify-center font-extrabold absolute bottom-[10px] w-full gap-4'>
+                <div className='flex justify-center font-extrabold absolute bottom-[10px] w-full gap-4 lg:flex hidden'>
                   {Array(4)
                     .fill(0)
                     .map((_, index) => (
-                      <div className=' bg-white w-6 h-6 rounded-full' key={index}></div>
+                      <div className=' bg-white md:w-6 md:h-6 w-3 h-3 rounded-full' key={index}></div>
                     ))}
                 </div>
               </div>
@@ -116,8 +116,8 @@ function About() {
       </div>
       <div className='md:mt-16 mt-4 flex justify-center cursor-pointer'>
         <div className='bg-[#c0854f] rounded-2xl text-center inline-block px-12 py-2'>
-          <h1 className='text-white mb-4 font-medium tracking-widest md:text-2xl text-xl lg:text-3xl font-banmethuot'>Let s get in touch!</h1>
-          <p className='font-extrabold text-base lg:text-lg font-century'>---GO TO CONTACT---</p>
+          <h1 className='text-white mb-4 font-medium tracking-widest md:text-2xl text-lg lg:text-3xl font-banmethuot'>Let s get in touch!</h1>
+          <p className='font-extrabold text-sm md:text-base lg:text-lg font-century'>---GO TO CONTACT---</p>
         </div>
       </div>
     </div>

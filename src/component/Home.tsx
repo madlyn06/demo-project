@@ -78,8 +78,8 @@ export const Home = () => {
   return (
     <div className='max-w-7xl w-full mx-auto'>
       <div className='lg:pt-20 md:pt-10 pt-4 lg:px-10 px-4 md:px-6'>
-        <div className='grid grid-cols-10'>
-          <div className='col-span-4'>
+        <div className='md:grid md:grid-cols-10 '>
+          <div className='md:col-span-4 col-span-10 '>
             <div className='flex gap-4 md:gap-6 lg:gap-8 text-4xl md:text-6xl lg:text-8xl text-white/20 font-black items-start'>
               <p className='font-bauhaus'>0</p>
               <p className='font-bauhaus'>1</p>
@@ -99,11 +99,11 @@ export const Home = () => {
             </div>
             <Button name='More' classnamesButton='py-2 px-4 text-sm md:text-base mt-3 md:mt-5 lg:mt-8 lg:text-xl' />
           </div>
-          <div className='col-span-6'>
+          <div className='md:col-span-6 mt-10 md:mt-0  '>
             <Slide {...properties} easing='ease' infinite={false} transitionDuration={500} indicators={true}>
               {images.map((image, index) => (
                 <div className='each-slide-effect' key={index}>
-                  <div style={{ backgroundImage: `url(${home})` }}></div>
+                  <div style={{ backgroundImage: `url(${home})`, }}></div>
                 </div>
               ))}
             </Slide>
