@@ -27,7 +27,7 @@ const service = [
 ]
 function Ourr() {
   return (
-    <div className='grid grid-cols-4 gap-8 pl-5 lg:mt-8 md:mt-6 mt-2'>
+    <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4  gap-8 pl-5 lg:mt-8 md:mt-6 mt-2'>
       {service.map((item, index) => (
         <div className='col-span-1' key={index}>
           <div>

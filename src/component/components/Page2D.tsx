@@ -11,7 +11,7 @@ const data_2d = [
 function Page2D({ data = data_2d }: any) {
   return (
     <div>
-      <div className='flex mt-4 text-white gap-2 text-2xl font-copper font-extrabold'>
+      <div className='flex mt-4 text-white gap-2 md:text-2xl text-lg font-copper font-extrabold'>
         <p>2D PhotoShop</p>
         <p className='text-[#c0854f]'>Project</p>
       </div>
@@ -19,7 +19,7 @@ function Page2D({ data = data_2d }: any) {
         {data.map((_: any, index: any) => (
           <div key={index}>
             <img src={foter} alt='' />
-            <div className='text-white text-base text-start mt-4'>
+            <div className='text-white text-sm sm:text-base lg:text-lg  text-start mt-4'>
               <p className='mb-2 font-copper font-extrabold'>{_.name}</p>
               <div className='text-start'>
                 <p>Client:</p>

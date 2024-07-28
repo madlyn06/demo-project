@@ -78,8 +78,8 @@ export const Home = () => {
   return (
     <div className='max-w-7xl w-full mx-auto'>
       <div className='lg:pt-20 md:pt-10 pt-4 lg:px-10 px-4 md:px-6'>
-        <div className='grid grid-cols-10'>
-          <div className='col-span-4'>
+        <div className='md:grid md:grid-cols-10 '>
+          <div className='md:col-span-4 col-span-10 '>
             <div className='flex gap-4 md:gap-6 lg:gap-8 text-4xl md:text-6xl lg:text-8xl text-white/20 font-black items-start'>
               <p className='font-bauhaus'>0</p>
               <p className='font-bauhaus'>1</p>
@@ -88,22 +88,22 @@ export const Home = () => {
               <p className='text-white md:text-base text-sm lg:text-xl font-century'>RENDER</p>
               <p
                 style={{ fontFamily: 'banmethuot' }}
-                className='text-white lg:text-8xl tracking-wider font-semibold text-4xl md:text-6xl'
+                className=' text-white lg:text-8xl tracking-wider font-semibold text-2xl md:text-6xl '
               >
                 Interior
               </p>
-              <div className='flex flex-col md:pr-32 pr-10 lg:pr-44 text-white md:text-base text-sm font-normal lg:text-2xl'>
+              <div className='flex flex-col md:pr-32 pr-10 lg:pr-44 text-white md:text-base text-xs font-normal lg:text-2xl'>
                 <p>Do you want to know how your Living room or your new interior will look?</p>
                 <p>We can create a beatiful Interior Render based on your floor plan.</p>
               </div>
             </div>
             <Button name='More' classnamesButton='py-2 px-4 text-sm md:text-base mt-3 md:mt-5 lg:mt-8 lg:text-xl' />
           </div>
-          <div className='col-span-6'>
+          <div className='md:col-span-6 mt-10 md:mt-0  '>
             <Slide {...properties} easing='ease' infinite={false} transitionDuration={500} indicators={true}>
               {images.map((image, index) => (
                 <div className='each-slide-effect' key={index}>
-                  <div style={{ backgroundImage: `url(${home})` }}></div>
+                  <div style={{ backgroundImage: `url(${home})`, }}></div>
                 </div>
               ))}
             </Slide>
@@ -120,7 +120,7 @@ export const Home = () => {
           <h3 className='flex gap-2 md:text-2xl text-xl lg:text-3xl text-center justify-center text-white'>
             Our <h3 className='text-[#c0854f]'>Project</h3>
           </h3>
-          <div className='grid grid-cols-4 gap-8 pl-5 lg:mt-8 md:mt-4 mt-2'>
+          <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 lg:mt-8 md:mt-4 mt-2'>
             {project.map((item, index) => (
               <div className='col-span-1' key={index}>
                 <div>
@@ -137,7 +137,7 @@ export const Home = () => {
               </div>
             ))}
           </div>
-          <div className='grid grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
+          <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
             {project.map((item, index) => (
               <div className='col-span-1' key={index}>
                 <div>
@@ -154,7 +154,7 @@ export const Home = () => {
               </div>
             ))}
           </div>
-          <div className='grid grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
+          <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
             {project.map((item, index) => (
               <div className='col-span-1' key={index}>
                 <div>
