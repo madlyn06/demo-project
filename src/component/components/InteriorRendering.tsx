@@ -39,9 +39,9 @@ function InteriorRendering({ data = project_interior }: any) {
             <div className='text-white text-sm sm:text-base lg:text-lg  text-center mt-4'>
               <p className='font-copper font-extrabold'>{item.desc}</p>
               <div className='text-start'>
-                <p>Client:</p>
+                <p>Design by:</p>
                 <p>Addrest</p>
-                <p>{"Client's Website:"}</p>
+                <p>Space</p>
               </div>
             </div>
           </div>

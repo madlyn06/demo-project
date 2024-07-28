@@ -24,7 +24,6 @@ function Page2D({ data = data_2d }: any) {
               <div className='text-start'>
                 <p>Client:</p>
                 <p>Addrest</p>
-                <p>{"Client's Website:"}</p>
               </div>
             </div>
           </div>

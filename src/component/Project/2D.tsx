@@ -52,11 +52,11 @@ function PageTwoD() {
         </div>
         <div className='grid grid-cols-5 text-white mt-4 text-base md:text-lg'>
           <div className='col-span-1'>
-            <p>Client:</p>
+            <p>Design by:</p>
           </div>
           <div className='col-span-4 flex'>
             <p>Addrest:</p>
-            <p className='flex-1 text-center'>Client’s Website:</p>
+            <p className='flex-1 text-center'>Space:</p>
           </div>
         </div>
         <Page2D data={data} />

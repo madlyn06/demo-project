@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import s1 from 'src/assets/s-1.png'
 import s2 from 'src/assets/s-2.png'
 import s3 from 'src/assets/s-3.png'
@@ -29,7 +30,7 @@ function Ourr() {
   return (
     <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4  gap-8 pl-5 lg:mt-8 md:mt-6 mt-2'>
       {service.map((item, index) => (
-        <div className='col-span-1' key={index}>
+        <Link to='interior-rendering' className='col-span-1' key={index}>
           <div>
             <img src={item.image} alt='' />
           </div>
@@ -37,7 +38,7 @@ function Ourr() {
             <p className='font-bold'>{item.desc1}</p>
             <p className='font-bold'>{item.desc2}</p>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   )

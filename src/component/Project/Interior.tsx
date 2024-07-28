@@ -90,7 +90,9 @@ function Interior() {
       <div className='mt-2 mt-8'>
         <div className='grid md:grid-cols-5'>
           <div className='col-span-1 mb-6 lg:mb-0 text-white lg:mt-24 mr-6 md:mr-0'>
-            <h1 className='lg:text-3xl md:text-2xl text-xl  tracking-widest font-banmethuot font-black'>Interior Rendering</h1>
+            <h1 className='lg:text-3xl md:text-2xl text-xl  tracking-widest font-banmethuot font-black'>
+              Interior Rendering
+            </h1>
             <p className='text-sm lg:text-base mt-2 md:pr-10 tracking-wide '>
               Do you want to know how your Living room or your new interiors will look? We can create a beautiful
               Interior Render based on your floor plan.
@@ -103,11 +105,11 @@ function Interior() {
         </div>
         <div className='grid grid-cols-5 text-white mt-4 text-base md:text-lg'>
           <div className='col-span-1 '>
-            <p>Client:</p>
+            <p>Design by:</p>
           </div>
           <div className='col-span-4 flex'>
             <p>Addrest:</p>
-            <p className='flex-1 text-center'>Client’s Website:</p>
+            <p className='flex-1 text-center'>Space:</p>
           </div>
         </div>
         <InteriorRendering data={project_interior} />

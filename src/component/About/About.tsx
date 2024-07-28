@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react'
 import banner from 'src/assets/about/banner.png'
 import layerbanner from 'src/assets/about/layer-banner.png'
@@ -5,7 +7,9 @@ import home2 from 'src/assets/about/home2.png'
 import neb from 'src/assets/about/NEB.png'
 import { content } from '../Contact/Contact'
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
+import { useNavigate } from 'react-router-dom'
 function About() {
+  const navigate = useNavigate()
   return (
     <div className='px-10 mx-auto md:max-w-7xl'>
       <div className='mt-8'>
@@ -65,7 +69,10 @@ function About() {
             .map((_, index) => (
               <div className='col-span-1 relative w-full flex justify-center' key={index}>
                 <img src={neb} alt='' className=' lg:w-full md:w-1/2 w-1/2' />
-                <div style={{top:'65%'}} className='absolute text-dark translate-y-1/2 top-2/3  w-full -translate-x-1/2 left-1/2 text-center'>
+                <div
+                  style={{ top: '65%' }}
+                  className='absolute text-dark translate-y-1/2 top-2/3  w-full -translate-x-1/2 left-1/2 text-center'
+                >
                   <p className='font-bold text-sm md:text-xl  lg:text-2xl font-copper'>{content.name}</p>
                   <p className='text-xs lg:text-xl md:text-xl  font-century font-extrabold mt-2'>{content.position}</p>
                 </div>
@@ -83,7 +90,9 @@ function About() {
       <div className='md:mt-16 mt-4'>
         <div className='grid lg:grid-cols-6'>
           <div className='col-span-2 mr-6'>
-            <p className='text-[#fff] font-bold lg:text-3xl md:text-2xl text-xl md:pr-32'>Let’s plan your next rendering</p>
+            <p className='text-[#fff] font-bold lg:text-3xl md:text-2xl text-xl md:pr-32'>
+              Let’s plan your next rendering
+            </p>
             <p className='text-white lg:text-xl text-justify md:text-left md:text-lg text-sm mt-6 '>
               We know that first impressions matter. Whether you’re a homeowner or a business owner, we can help
               transform the exterior of your property into an eye-catching and inviting space. Our team is experienced
@@ -102,7 +111,9 @@ function About() {
             <img src={home2} alt='' />
           </div>
           <div className='col-span-2 mt-4 md:ml-4'>
-            <p className='text-[#fff] font-bold lg:text-3xl md:text-2xl mt-4 md:mt-0 text-xl pr-20'>About our company</p>
+            <p className='text-[#fff] font-bold lg:text-3xl md:text-2xl mt-4 md:mt-0 text-xl pr-20'>
+              About our company
+            </p>
             <p className='text-white  lg:text-xl text-justify md:text-left  md:text-lg text-sm mt-4 md:pr-20'>
               We are a professional team specializing in rendering services for both interior and exterior spaces. With
               our expertise and attention to detail, we aim to provide the highest quality finishes that will enhance
@@ -114,9 +125,11 @@ function About() {
           </div>
         </div>
       </div>
-      <div className='md:mt-16 mt-4 flex justify-center cursor-pointer'>
+      <div onClick={() => navigate('/contact-us')} className='md:mt-16 mt-4 flex justify-center cursor-pointer'>
         <div className='bg-[#c0854f] rounded-2xl text-center inline-block px-12 py-2'>
-          <h1 className='text-white mb-4 font-medium tracking-widest md:text-2xl text-lg lg:text-3xl font-banmethuot'>Let s get in touch!</h1>
+          <h1 className='text-white mb-4 font-medium tracking-widest md:text-2xl text-lg lg:text-3xl font-banmethuot'>
+            Let s get in touch!
+          </h1>
           <p className='font-extrabold text-sm md:text-base lg:text-lg font-century'>---GO TO CONTACT---</p>
         </div>
       </div>

@@ -38,7 +38,6 @@ function FurnitureModeling({ data = project_furniture }: any) {
               <div className='text-start'>
                 <p>Client:</p>
                 <p>Addrest</p>
-                <p>{"Client's Website:"}</p>
               </div>
             </div>
           </div>
