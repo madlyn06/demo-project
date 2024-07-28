@@ -95,8 +95,8 @@ function ExteriorService() {
           </div>
         </div>
       </div>
-      <div className='flex justify-center'>
-        <Button name='Chat More' classnamesButton='!p-2 !text-xl mt-4' />
+      <div className='flex justify-center  items-center'>
+        <Button name='Chat More' classnamesButton='!p-2 !text-xl mt-4 md:mt-8' />
       </div>
       <ExteriorRendering />
       <div className='mt-12'>

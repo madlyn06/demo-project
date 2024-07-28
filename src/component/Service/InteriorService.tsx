@@ -69,7 +69,7 @@ function InteriorService() {
       </div>
       <Offer />
       <BigDeal banner={banner} />
-      <div className='flex justify-center'>
+      <div className='flex justify-center md:mt-10'>
         <Button name='Chat More' classnamesButton='!p-2 !text-xl' />
       </div>
       <InteriorRendering />
