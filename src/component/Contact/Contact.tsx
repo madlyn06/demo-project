@@ -37,7 +37,7 @@ function Contact() {
             .map((_, index) => (
               <div className='col-span-1 font-copper relative w-full flex justify-center' key={index}>
                 <img src={neb} alt='' className='lg:w-full md:w-1/2 w-2/3  ' />
-                <div className=' font-copper absolute text-dark translate-y-1/2 top-1/2  w-full -translate-x-1/2 left-1/2 text-center'>
+                <div style={{top:'46%'}} className=' font-copper absolute text-dark translate-y-1/2 top-1/2  w-full -translate-x-1/2 left-1/2 text-center'>
                   <p className='font-bold text-sm  md:text-2xl lg:text-2xl'>{content.name}</p>
                   <p className='font-bold text-sm md:text-2xl lg:text-xl  mt-4'>{content.position}</p>
                   <p className='text-xs md:text-xl lg:text-xl '>{content.email}</p>

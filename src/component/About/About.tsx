@@ -64,12 +64,12 @@ function About() {
             .fill(0)
             .map((_, index) => (
               <div className='col-span-1 relative w-full flex justify-center' key={index}>
-                <img src={neb} alt='' className='w-full lg:w-full md:w-1/2 w-1/2' />
-                <div className='absolute text-dark translate-y-1/2 top-2/3  w-full -translate-x-1/2 left-1/2 text-center'>
+                <img src={neb} alt='' className=' lg:w-full md:w-1/2 w-1/2' />
+                <div style={{top:'65%'}} className='absolute text-dark translate-y-1/2 top-2/3  w-full -translate-x-1/2 left-1/2 text-center'>
                   <p className='font-bold text-sm md:text-xl  lg:text-2xl font-copper'>{content.name}</p>
                   <p className='text-xs lg:text-xl md:text-xl  font-century font-extrabold mt-2'>{content.position}</p>
                 </div>
-                <div className='flex justify-center font-extrabold absolute bottom-[10px] w-full gap-4 lg:flex hidden'>
+                <div className='flex justify-center font-extrabold absolute bottom-[10px] w-full gap-4 '>
                   {Array(4)
                     .fill(0)
                     .map((_, index) => (
