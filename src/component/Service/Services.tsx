@@ -13,6 +13,7 @@ import FurnitureModeling from '../components/FurnitureModeling'
 import ExteriorRendering from '../components/ExteriorRendering'
 import Page2D from '../components/Page2D'
 import Ourr from '../components/Ourr'
+import { useLocation } from 'react-router-dom'
 const data = [
   {
     name: 'Living’ MINH'
@@ -45,12 +46,14 @@ export const service = [
 ]
 
 function Services() {
+  const pathname = useLocation().pathname
+  console.log(pathname)
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>
         <div className='flex font-copper font-black justify-center text-white gap-2 text-2xl'>
           <p>Our</p>
-          <p className='text-[#c0854f]'>Services</p>
+          <p className='text-[#c0854f]'>{pathname === '/project' ? 'Project' : 'Services'}</p>
         </div>
         <Ourr></Ourr>
         <InteriorRendering />

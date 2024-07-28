@@ -8,29 +8,33 @@ const service = [
   {
     image: s1,
     desc1: 'INTERIOR',
-    desc2: 'RENDERING'
+    desc2: 'RENDERING',
+    route: 'interior-rendering'
   },
   {
     image: s2,
     desc1: 'EXTERIOR',
-    desc2: 'RENDERING'
+    desc2: 'RENDERING',
+    route: 'exterior-rendering'
   },
   {
     image: s3,
     desc1: 'FURNITURE',
-    desc2: 'MODELING'
+    desc2: 'MODELING',
+    route: 'furniture-modeling'
   },
   {
     image: s4,
     desc1: '2D',
-    desc2: 'PHOTOSHOP'
+    desc2: 'PHOTOSHOP',
+    route: '2d'
   }
 ]
-function Ourr() {
+function Ourr({ data = service }: any) {
   return (
     <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4  gap-8 pl-5 lg:mt-8 md:mt-6 mt-2'>
-      {service.map((item, index) => (
-        <Link to='interior-rendering' className='col-span-1' key={index}>
+      {data.map((item: any, index: any) => (
+        <Link to={item.route} className='col-span-1' key={index}>
           <div>
             <img src={item.image} alt='' />
           </div>

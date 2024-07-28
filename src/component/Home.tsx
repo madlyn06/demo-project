@@ -34,6 +34,10 @@ const images = [
   'https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80',
   'https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'
 ]
+import s1 from 'src/assets/s-1.png'
+import s2 from 'src/assets/s-2.png'
+import s3 from 'src/assets/s-3.png'
+import s4 from 'src/assets/s-4.png'
 import './home.css'
 const buttonStyle = {
   width: '30px',
@@ -71,7 +75,32 @@ const properties = {
     </button>
   )
 }
-
+const service = [
+  {
+    image: s1,
+    desc1: 'INTERIOR',
+    desc2: 'RENDERING',
+    route: 'services/interior-rendering'
+  },
+  {
+    image: s2,
+    desc1: 'EXTERIOR',
+    desc2: 'RENDERING',
+    route: 'services/exterior-rendering'
+  },
+  {
+    image: s3,
+    desc1: 'FURNITURE',
+    desc2: 'MODELING',
+    route: 'services/furniture-modeling'
+  },
+  {
+    image: s4,
+    desc1: '2D',
+    desc2: 'PHOTOSHOP',
+    route: 'services/2d'
+  }
+]
 export const Home = () => {
   const indicators = (index: any) => <div className='indicator h-1 w-1 rounded-full'></div>
 
@@ -99,22 +128,21 @@ export const Home = () => {
             </div>
             <Button name='More' classnamesButton='py-2 px-4 text-sm md:text-base mt-3 md:mt-5 lg:mt-8 lg:text-xl' />
           </div>
-          <div className='md:col-span-6 mt-10 md:mt-0  '>
+          <div className='md:col-span-6 mt-10 md:mt-0'>
             <Slide {...properties} easing='ease' infinite={false} transitionDuration={500} indicators={true}>
               {images.map((image, index) => (
                 <div className='each-slide-effect' key={index}>
-                  <div style={{ backgroundImage: `url(${home})`, }}></div>
+                  <div style={{ backgroundImage: `url(${home})` }}></div>
                 </div>
               ))}
             </Slide>
-            {/* <img src={home} alt='' /> */}
           </div>
         </div>
         <div>
           <h3 className='flex gap-2 text-xl md:text-2xl lg:text-3xl text-center justify-center text-white'>
             Our <h3 className='text-[#c0854f]'>Services and Workflow</h3>
           </h3>
-          <Ourr />
+          <Ourr data={service} />
         </div>
         <div className='lg:mt-8 md:mt-6 mt-4'>
           <h3 className='flex gap-2 md:text-2xl text-xl lg:text-3xl text-center justify-center text-white'>
@@ -131,7 +159,6 @@ export const Home = () => {
                   <div className='text-start'>
                     <p>Client:</p>
                     <p>Addrest</p>
-                    <p>{"Client's Website:"}</p>
                   </div>
                 </div>
               </div>
@@ -146,9 +173,9 @@ export const Home = () => {
                 <div className='text-white text-xs md:text-base text-center mt-4'>
                   <p className='font-copper font-bold'>{item.desc}</p>
                   <div className='text-start'>
-                    <p>Client:</p>
+                    <p>Design by:</p>
                     <p>Addrest</p>
-                    <p>{"Client's Website:"}</p>
+                    <p>Space:</p>
                   </div>
                 </div>
               </div>
@@ -179,7 +206,6 @@ export const Home = () => {
             <div className='text-start'>
               <p>Client:</p>
               <p>Addrest</p>
-              <p>{"Client's Website:"}</p>
             </div>
           </div>
         </div>
