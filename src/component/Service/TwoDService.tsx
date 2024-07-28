@@ -92,7 +92,7 @@ function TwoDService() {
         </div>
       </div> */}
       <Page2D data={data} />
-      <div className='flex justify-center'>
+      <div className='flex justify-center  mt-10'>
         <Button name='Chat More' classnamesButton='!p-2 !text-xl' />
       </div>
     </div>
