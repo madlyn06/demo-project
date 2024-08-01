@@ -5,6 +5,7 @@ import p1 from 'src/assets/p1.png'
 import p2 from 'src/assets/p2.png'
 import p3 from 'src/assets/p3.png'
 import p4 from 'src/assets/p4.png'
+import { REACT_APP_BASE_URL } from 'src/ultils/api'
 const project_interior = [
   {
     image: p1,
@@ -34,14 +35,14 @@ function InteriorRendering({ data = project_interior }: any) {
         {data.map((item: any, index: any) => (
           <div className='col-span-1' key={index}>
             <div>
-              <img src={p5} alt='' />
+              <img src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`}  alt='' />
             </div>
             <div className='text-white text-sm sm:text-base lg:text-lg  text-center mt-4'>
               <p className='font-copper font-extrabold'>{item.desc}</p>
               <div className='text-start'>
-                <p>Design by:</p>
-                <p>Addrest</p>
-                <p>Space</p>
+              <p>Design by: {item.design}</p>
+              <p>Addrest: {item.address}</p>
+              <p>Space: {item.space}</p>
               </div>
             </div>
           </div>

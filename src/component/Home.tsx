@@ -103,11 +103,13 @@ const service = [
     route: 'services/2d'
   }
 ]
-//  api
+//  api roi do code trên nahnhs ni luôn đi
 export const Home = () => {
   const [homeData,setHomeData]:any = useState([]);
   const [interiorData,setInterior]:any = useState([])
   const [furnitureData,setFurnitureData]:any = useState([])
+  const [exteriorData,setExteriorData]:any = useState([])
+  const [towDData,setTowDData]:any = useState([])
   const callApi = async()=>{
       const res = await API.get('/api/pages/1?populate[Section][populate]=*');
       if(res){
@@ -116,12 +118,26 @@ export const Home = () => {
         })
         const furniture  = res?.data?.data.attributes.Section.filter((item:any)=>{
           return item.__component == "home.furniture"
-    })
+          
+        })
+      const exterior  = res?.data?.data.attributes.Section.filter((item:any)=>{
+        return item.__component == "home.exterior"
+        })
+        const towD  = res?.data?.data.attributes.Section.filter((item:any)=>{
+          return item.__component == "home.2d"
+          
+      })
         if(dataInter){
           setInterior(dataInter);
         }
         if(furniture){
           setFurnitureData(furniture);
+        }
+        if(exterior){
+          setExteriorData(exterior);
+        }
+        if(towD){
+          setTowDData(towD);
         }
         console.log("dataInter",dataInter)
         console.log("daa",res?.data);
@@ -178,24 +194,24 @@ export const Home = () => {
             Our <h3 className='text-[#c0854f]'>Project</h3>
           </h3>
           <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 lg:mt-8 md:mt-4 mt-2'>
-            {interiorData?.map((item:any, index:number) => (
+            {furnitureData?.map((item:any, index:number) => (
               <div className='col-span-1' key={index}>
                 <div>
-                  <img src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`} alt='' />
+                <img style={{width:"100%",height:"100%"}} className='w-100 h-100' src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`} alt='' />
+
                 </div>
                 <div className='text-white text-xs md:text-base text-center mt-2 md:mt-4'>
                   <p className='font-copper font-semibold'>{item.title}</p>
                   <div className='text-start'>
-                    <p>Client: {item?.space}</p>
+                    <p>Client: {item?.client}</p>
                     <p>Addrest: {item?.address}</p>
-                    <p>{"Client's Website:"}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
           <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
-            {furnitureData?.map((item:any, index:number) => (
+            {interiorData?.map((item:any, index:number) => (
               <div className='col-span-1' key={index}>
                 <div>
                   <img style={{width:"100%",height:"100%"}} className='w-100 h-100' src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`} alt='' />
@@ -203,42 +219,50 @@ export const Home = () => {
                 <div className='text-white text-xs md:text-base text-center mt-4'>
                   <p className='font-copper font-bold'>{item.title}</p>
                   <div className='text-start'>
-                    <p>Design by:</p>
-                    <p>Addrest</p>
-                    <p>Space:</p>
+                    <p>Design by: {item.design}</p>
+                    <p>Addrest: {item.address}</p>
+                    <p>Space: {item.space}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
           <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
-            {project.map((item, index) => (
+            {exteriorData.map((item:any, index:number) => (
               <div className='col-span-1' key={index}>
                 <div>
-                  <img src={p6} alt='' />
+                <img style={{width:"100%",height:"100%"}} className='w-100 h-100' src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`} alt='' />
                 </div>
                 <div className='text-white text-xs md:text-base text-center mt-4'>
-                  <p className=''>{"Exx' DAT"}</p>
+                  <p className=''>{item.title}</p>
                   <div className='text-start'>
-                    <p>Client:</p>
-                    <p>Addrest</p>
-                    <p>{"Client's Website:"}</p>
+                    <p>Client: {item.client}</p>
+                    <p>Addrest: {item.address}</p>
+                    <p>Client's Website: {item.clientWebsite}</p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-        <div className='lg:mt-10 md:mt-8 mt-4 ml-5'>
-          <img src={foter} alt='' />
-          <div className='text-white text-xs md:text-base text-start mt-2 md:mt-4'>
-            <p className='mb-2'>{'Living’ MINH'}</p>
-            <div className='text-start'>
-              <p>Client:</p>
-              <p>Addrest</p>
+        <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
+
+        {towDData.map((item:any,index:any)=>{
+          return (
+            <div  key={index} className='lg:mt-10 md:mt-8 mt-4 ml-5'>
+            <img src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`} alt='' />
+            <div className='text-white text-xs md:text-base text-start mt-2 md:mt-4'>
+              <p className='mb-2'>{item.title}</p>
+              <div className='text-start'>
+                <p>Clientd: {item.client}</p>
+                <p>Addrest: {item.address}</p>
+              </div>
             </div>
           </div>
+          )
+        })}
         </div>
+       
       </div>
     </div>
   )
