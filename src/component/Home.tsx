@@ -103,6 +103,7 @@ const service = [
     route: 'services/2d'
   }
 ]
+//  api
 export const Home = () => {
   const [homeData,setHomeData]:any = useState([]);
   const [interiorData,setInterior]:any = useState([])
@@ -185,8 +186,9 @@ export const Home = () => {
                 <div className='text-white text-xs md:text-base text-center mt-2 md:mt-4'>
                   <p className='font-copper font-semibold'>{item.title}</p>
                   <div className='text-start'>
-                    <p>Client:</p>
-                    <p>Addrest</p>
+                    <p>Client: {item?.space}</p>
+                    <p>Addrest: {item?.address}</p>
+                    <p>{"Client's Website:"}</p>
                   </div>
                 </div>
               </div>
