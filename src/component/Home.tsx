@@ -35,6 +35,8 @@ const images = [
   'https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'
 ]
 import './home.css'
+import { useEffect, useState } from 'react'
+import { API, REACT_APP_BASE_URL } from 'src/ultils/api'
 const buttonStyle = {
   width: '30px',
   background: 'none',
@@ -73,6 +75,33 @@ const properties = {
 }
 
 export const Home = () => {
+  const [homeData,setHomeData]:any = useState([]);
+  const [interiorData,setInterior]:any = useState([])
+  const [furnitureData,setFurnitureData]:any = useState([])
+  const callApi = async()=>{
+      const res = await API.get('/api/pages/1?populate[Section][populate]=*');
+      if(res){
+        const dataInter  = res?.data?.data.attributes.Section.filter((item:any)=>{
+              return item.__component == "home.interior"
+        })
+        const furniture  = res?.data?.data.attributes.Section.filter((item:any)=>{
+          return item.__component == "home.furniture"
+    })
+        if(dataInter){
+          setInterior(dataInter);
+        }
+        if(furniture){
+          setFurnitureData(furniture);
+        }
+        console.log("dataInter",dataInter)
+        console.log("daa",res?.data);
+        setHomeData(res.data);
+    }
+  }
+  useEffect(()=>{
+    callApi();
+  },[])
+  console.log("check pro",homeData)
   const indicators = (index: any) => <div className='indicator h-1 w-1 rounded-full'></div>
 
   return (
@@ -93,8 +122,7 @@ export const Home = () => {
                 Interior
               </p>
               <div className='flex flex-col md:pr-32 pr-10 lg:pr-44 text-white md:text-base text-xs font-normal lg:text-2xl'>
-                <p>Do you want to know how your Living room or your new interior will look?</p>
-                <p>We can create a beatiful Interior Render based on your floor plan.</p>
+                {/* <p>{homeData?.data?.attributes.Section}</p> */}
               </div>
             </div>
             <Button name='More' classnamesButton='py-2 px-4 text-sm md:text-base mt-3 md:mt-5 lg:mt-8 lg:text-xl' />
@@ -121,16 +149,16 @@ export const Home = () => {
             Our <h3 className='text-[#c0854f]'>Project</h3>
           </h3>
           <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 lg:mt-8 md:mt-4 mt-2'>
-            {project.map((item, index) => (
+            {interiorData?.map((item:any, index:number) => (
               <div className='col-span-1' key={index}>
                 <div>
-                  <img src={item.image} alt='' />
+                  <img src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`} alt='' />
                 </div>
                 <div className='text-white text-xs md:text-base text-center mt-2 md:mt-4'>
-                  <p className='font-copper font-semibold'>{item.desc}</p>
+                  <p className='font-copper font-semibold'>{item.title}</p>
                   <div className='text-start'>
-                    <p>Client:</p>
-                    <p>Addrest</p>
+                    <p>Client: {item?.space}</p>
+                    <p>Addrest: {item?.address}</p>
                     <p>{"Client's Website:"}</p>
                   </div>
                 </div>
@@ -138,13 +166,13 @@ export const Home = () => {
             ))}
           </div>
           <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
-            {project.map((item, index) => (
+            {furnitureData?.map((item:any, index:number) => (
               <div className='col-span-1' key={index}>
                 <div>
-                  <img src={p5} alt='' />
+                  <img style={{width:"100%",height:"100%"}} className='w-100 h-100' src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`} alt='' />
                 </div>
                 <div className='text-white text-xs md:text-base text-center mt-4'>
-                  <p className='font-copper font-bold'>{item.desc}</p>
+                  <p className='font-copper font-bold'>{item.title}</p>
                   <div className='text-start'>
                     <p>Client:</p>
                     <p>Addrest</p>
