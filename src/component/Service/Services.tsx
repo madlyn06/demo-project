@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import s1 from 'src/assets/s-1.png'
 import s2 from 'src/assets/s-2.png'
 import s3 from 'src/assets/s-3.png'
@@ -14,6 +14,7 @@ import ExteriorRendering from '../components/ExteriorRendering'
 import Page2D from '../components/Page2D'
 import Ourr from '../components/Ourr'
 import { useLocation } from 'react-router-dom'
+import { API } from 'src/ultils/api'
 const data = [
   {
     name: 'Living’ MINH'
@@ -46,6 +47,48 @@ export const service = [
 ]
 
 function Services() {
+  const [homeData,setHomeData] = useState<any>([]);
+  const [interiorData,setInterior] = useState<any>([])
+  const [furnitureData,setFurnitureData] = useState<any>([])
+  const [exteriorData,setExteriorData] = useState<any>([])
+  const [towDData,setTowDData] = useState<any>([])
+  const callApi = async()=>{
+      const res = await API.get('/api/pages/3?populate[Section][populate]=*');
+      if(res){
+        const dataInter  = res?.data?.data.attributes.Section.filter((item:any)=>{
+              return item.__component == "home.interior"
+        })
+        const furniture  = res?.data?.data.attributes.Section.filter((item:any)=>{
+          return item.__component == "home.furniture"
+          
+        })
+      const exterior  = res?.data?.data.attributes.Section.filter((item:any)=>{
+        return item.__component == "home.exterior"
+        })
+        const towD  = res?.data?.data.attributes.Section.filter((item:any)=>{
+          return item.__component == "home.2d"
+          
+      })
+        if(dataInter){
+          setInterior(dataInter);
+        }
+        if(furniture){
+          setFurnitureData(furniture);
+        }
+        if(exterior){
+          setExteriorData(exterior);
+        }
+        if(towD){
+          setTowDData(towD);
+        }
+        console.log("dataInter",dataInter)
+        console.log("daa",res?.data);
+        setHomeData(res.data);
+    }
+  }
+  useEffect(()=>{
+    callApi();
+  },[])
   const pathname = useLocation().pathname
   console.log(pathname)
   return (
@@ -56,19 +99,19 @@ function Services() {
           <p className='text-[#c0854f]'>{pathname === '/project' ? 'Project' : 'Services'}</p>
         </div>
         <Ourr></Ourr>
-        <InteriorRendering />
+        <InteriorRendering data={interiorData} />
         <div className='mt-12'>
           <Line />
         </div>
-        <FurnitureModeling />
+        <FurnitureModeling data={furnitureData}/>
         <div className='mt-12'>
           <Line />
         </div>
-        <ExteriorRendering />
+        <ExteriorRendering data={exteriorData}/>
         <div className='mt-12'>
           <Line />
         </div>
-        <Page2D data={data} />
+        <Page2D data={towDData} />
       </div>
     </div>
   )

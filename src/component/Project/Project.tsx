@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import banner from 'src/assets/about/banner.png'
 import layerbanner from 'src/assets/about/layer-banner.png'
 import coin from 'src/assets/project/coin.png'
@@ -10,6 +10,7 @@ import { project } from '../Home'
 import p5 from 'src/assets/p5.png'
 import { service } from '../Service/Services'
 import foter from 'src/assets/foter.png'
+import { API } from 'src/ultils/api'
 
 const project1 = [
   {
@@ -26,12 +27,54 @@ const project1 = [
   }
 ]
 function Project() {
+  const [homeData,setHomeData] = useState<any>([]);
+  const [interiorData,setInterior] = useState<any>([])
+  const [furnitureData,setFurnitureData] = useState<any>([])
+  const [exteriorData,setExteriorData] = useState<any>([])
+  const [towDData,setTowDData] = useState<any>([])
+  const callApi = async()=>{
+      const res = await API.get('/api/pages/2?populate[Section][populate]=*');
+      if(res){
+        const dataInter  = res?.data?.data.attributes.Section.filter((item:any)=>{
+              return item.__component == "home.interior"
+        })
+        const furniture  = res?.data?.data.attributes.Section.filter((item:any)=>{
+          return item.__component == "home.furniture"
+          
+        })
+      const exterior  = res?.data?.data.attributes.Section.filter((item:any)=>{
+        return item.__component == "home.exterior"
+        })
+        const towD  = res?.data?.data.attributes.Section.filter((item:any)=>{
+          return item.__component == "home.2d"
+          
+      })
+        if(dataInter){
+          setInterior(dataInter);
+        }
+        if(furniture){
+          setFurnitureData(furniture);
+        }
+        if(exterior){
+          setExteriorData(exterior);
+        }
+        if(towD){
+          setTowDData(towD);
+        }
+        console.log("dataInter",dataInter)
+        console.log("daa",res?.data);
+        setHomeData(res.data);
+    }
+  }
+  useEffect(()=>{
+    callApi();
+  },[])
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>
         <div className='flex justify-center text-white gap-2 text-2xl'>
           <p>Our</p>
-          <p className='text-[#c0854f]'>Project</p>
+          <p className='text-[#c0854f]'>{homeData?.data?.attributes?.Section[0]?.title}</p>
         </div>
         <div className='grid grid-cols-4 gap-8 pl-5 mt-8'>
           {service.map((item, index) => (
@@ -64,7 +107,7 @@ function Project() {
               <div className='text-white text-base text-center mt-4'>
                 <p>{item.desc}</p>
                 <div className='text-start'>
-                  <p>Client:</p>
+                  <p>Clienprojectt:</p>
                   <p>Addrest</p>
                   <p>{"Client's Website:"}</p>
                 </div>

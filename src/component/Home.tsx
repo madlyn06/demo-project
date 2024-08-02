@@ -41,6 +41,11 @@
   import './home.css'
   import { useEffect, useState } from 'react'
   import { API, REACT_APP_BASE_URL } from 'src/ultils/api'
+import InteriorRendering from './components/InteriorRendering'
+import FurnitureModeling from './components/FurnitureModeling'
+import ExteriorRendering from './components/ExteriorRendering'
+import Page2D from './components/Page2D'
+import { Link } from 'react-router-dom'
   const buttonStyle = {
     width: '30px',
     background: 'none',
@@ -105,13 +110,14 @@
   ]
   //  api roi do code trên nahnhs ni luôn đi
   export const Home = () => {
-    const [homeData,setHomeData]:any = useState([]);
-    const [interiorData,setInterior]:any = useState([])
-    const [furnitureData,setFurnitureData]:any = useState([])
-    const [exteriorData,setExteriorData]:any = useState([])
-    const [towDData,setTowDData]:any = useState([])
-    const [bannerData,setBannerData]:any = useState([])
-    const [bannerIndex,setBannerindex]:any = useState(0)
+    const [homeData,setHomeData] = useState<any>([]);
+    const [interiorData,setInterior] = useState<any>([])
+    const [furnitureData,setFurnitureData] = useState<any>([])
+    const [exteriorData,setExteriorData] = useState<any>([])
+    const [towDData,setTowDData] = useState<any>([])
+    const [bannerData,setBannerData] = useState<any>([])
+    const [bannerIndex,setBannerindex] = useState(0)
+    const arrayPath = ['project/interior-rendering','project/exterior-rendering','project/furniture-modeling','project/2d']
     const callApi = async()=>{
         const res = await API.get('/api/pages/1?populate[Section][populate]=*');
         if(res){
@@ -167,7 +173,7 @@
         <div className='lg:pt-20 md:pt-10 pt-4 lg:px-10 px-4 md:px-6'>
           <div className='md:grid md:grid-cols-10 '>
             <div className='md:col-span-4 col-span-10 '>
-              <div className='flex gap-4 md:gap-6 lg:gap-8 text-4xl md:text-6xl lg:text-8xl text-white/20 font-black items-start'>
+              <div className='flex gap-2 md:gap-6 lg:gap-8 text-4xl md:text-6xl lg:text-8xl text-white/20 font-black items-start'>
                 <p className='font-bauhaus'>0</p>
                 <p className='font-bauhaus'>1</p>
               </div>
@@ -185,8 +191,9 @@
                 </div>
                 </div>
               ) :""}           
-             
+             <Link to={`${arrayPath[bannerIndex]}`}>
               <Button name='More' classnamesButton='py-2 px-4 text-sm md:text-base mt-3 md:mt-5 lg:mt-8 lg:text-xl' />
+             </Link>
             </div>
             <div className='md:col-span-6 mt-10 md:mt-0'>
               <Slide {...properties} easing='ease' onChange={handleSlideChange} infinite={false} transitionDuration={500} indicators={true}>
@@ -208,7 +215,7 @@
             <h3 className='flex gap-2 md:text-2xl text-xl lg:text-3xl text-center justify-center text-white'>
               Our <h3 className='text-[#c0854f]'>Project</h3>
             </h3>
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 lg:mt-8 md:mt-4 mt-2'>
+            {/* <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 lg:mt-8 md:mt-4 mt-2'>
               {furnitureData?.map((item:any, index:number) => (
                 <div className='col-span-1' key={index}>
                   <div>
@@ -224,8 +231,9 @@
                   </div>
                 </div>
               ))}
-            </div>
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
+            </div> */}
+             <FurnitureModeling data={furnitureData}/>
+            {/* <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
               {interiorData?.map((item:any, index:number) => (
                 <div className='col-span-1' key={index}>
                   <div>
@@ -241,8 +249,9 @@
                   </div>
                 </div>
               ))}
-            </div>
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
+            </div> */}
+             <InteriorRendering data={interiorData} />
+            {/* <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
               {exteriorData.map((item:any, index:number) => (
                 <div className='col-span-1' key={index}>
                   <div>
@@ -258,9 +267,10 @@
                   </div>
                 </div>
               ))}
-            </div>
+            </div> */}
+              <ExteriorRendering data={exteriorData} />
           </div>
-          <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
+        {/* <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-4 md:mt-8'>
 
           {towDData.map((item:any,index:any)=>{
             return (
@@ -276,7 +286,8 @@
             </div>
             )
           })}
-          </div>
+          </div> */}
+            <Page2D data={towDData} />
         
         </div>
       </div>

@@ -11,6 +11,7 @@ import ExteriorRendering from '../components/ExteriorRendering'
 import Page2D from '../components/Page2D'
 import Offer from '../components/Offer'
 import Button from '../components/Button'
+import Line from '../components/Line'
 
 const data = [
   {
@@ -92,6 +93,9 @@ function TwoDService() {
         </div>
       </div> */}
       <Page2D data={data} />
+      <div className='md:mt-16 my-8'>
+     <Line />
+     </div>
       <div className='flex justify-center  mt-10 text-lg md:text-xl'>
         <Button name='Chat More' classnamesButton='!p-2' />
       </div>

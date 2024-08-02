@@ -95,6 +95,9 @@ function ExteriorService() {
           </div>
         </div>
       </div>
+      <div className='md:mt-16 my-8'>
+     <Line />
+     </div>
       <div className='flex justify-center  items-center   md:mt-8 text-lg md:text-xl '>
         <Button name='Chat More' classnamesButton='!p-2 !text-xl' />
       </div>
