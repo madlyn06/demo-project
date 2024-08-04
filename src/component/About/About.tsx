@@ -30,6 +30,7 @@ function About() {
                 Do you want to know how your Living room or your new interiors will look? We can create a beautiful
                 Interior Render based on your floor plan.
               </p>
+              <div className='absolute bg-black/20 h-full w-[700px] top-0 -left-[200%]'></div>
             </div>
             <p className='text-[#c1984f] font-century md:text-sm lg:text-base text-sm -rotate-90 lg:right-[-92px] absolute md:right-[-80px] bottom-[-35px] right-[-78px] hidden md:block'>
               {'<----  SCROLL DOWN'}

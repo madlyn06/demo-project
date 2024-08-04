@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import banner from 'src/assets/about/banner.png'
 import layerbanner from 'src/assets/about/layer-banner.png'
 import coin from 'src/assets/project/coin.png'
@@ -11,6 +11,7 @@ import BigDeal from '../components/BigDeal'
 import Button from '../components/Button'
 import InteriorRendering from '../components/InteriorRendering'
 import Line from '../components/Line'
+import { API } from 'src/ultils/api'
 const project1 = [
   {
     img: coin,
@@ -26,6 +27,28 @@ const project1 = [
   }
 ]
 function InteriorService() {
+  const [interior, setInterior] = useState<any>([])
+  const [bigDeal, setBigDeal] = useState<any>([])
+  useEffect(() => {
+    callApi()
+  }, [])
+  const callApi = async () => {
+    const res = await API.get('/api/pages/6?populate[Section][populate]=*')
+    if (res?.data?.data?.attributes?.Section) {
+      const arr = res.data.data.attributes.Section.filter((item: any) => {
+        if (item.__component === 'home.big-deal') {
+          return item
+        }
+      })
+      const interiorArr = res.data.data.attributes.Section.filter((item: any) => {
+        if (item.__component === 'home.interior') {
+          return item
+        }
+      })
+      setBigDeal(arr)
+      setInterior(interiorArr)
+    }
+  }
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>
@@ -52,13 +75,14 @@ function InteriorService() {
                 Interior Render based on your floor plan.
               </p>
             </div>
-          
+
             <div className='hidden lg:block md:absolute -bottom-[171px] pb-32 text-[#fff]/40  w-[350px] pr-20 right-12 bg-[#000]/70 pl-2 pt-2'>
               <h1 className='font-bold text-xl md:text-2xl '>SAMPLE”</h1>
               <p className=' text-base  md:text-lg lg:text-xl '>
                 Do you want to know how your Living room or your new interiors will look? We can create a beautiful
                 Interior Render based on your floor plan.
               </p>
+              <div className='absolute bg-black/20 h-full w-[700px] top-0 -left-[200%]'></div>
             </div>
 
             <p className='text-[#c1984f] font-century text-base -rotate-90 absolute left-[-92px] bottom-[-35px]'>
@@ -68,11 +92,14 @@ function InteriorService() {
         </div>
       </div>
       <Offer />
-      <BigDeal banner={banner} />
-      <div className='flex justify-center'>
-        <Button name='Chat More' classnamesButton='!p-2 !text-xl' />
+      <BigDeal banner={bigDeal} />
+      <div className='md:mt-16 my-8'>
+        <Line />
       </div>
-      <InteriorRendering />
+      <div className='flex justify-center md:mt-10 text-lg md:text-xl'>
+        <Button name='Chat More' classnamesButton='!p-2 ' />
+      </div>
+      <InteriorRendering data={interior} />
       <div className='my-14 pl-5'>
         <Line />
       </div>
