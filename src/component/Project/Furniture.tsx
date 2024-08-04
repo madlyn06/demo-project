@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react'
 import p5 from 'src/assets/p5.png'
 import sofa from 'src/assets/project/sofa.png'
@@ -11,7 +13,8 @@ import p2 from 'src/assets/p2.png'
 import p3 from 'src/assets/p3.png'
 import p4 from 'src/assets/p4.png'
 import Line from '../components/Line'
-import { API } from 'src/ultils/api'
+import { API, REACT_APP_BASE_URL } from 'src/ultils/api'
+import { Slide } from 'react-slideshow-image'
 const data = [
   {
     name: 'Living’ MINH'
@@ -76,8 +79,10 @@ function Furniture() {
   const [furnitureData, setFurnitureData]: any = useState([])
   const [exteriorData, setExteriorData]: any = useState([])
   const [towDData, setTowDData]: any = useState([])
+  const [sliderData, setSliderData]: any = useState([])
+  const [imagePreview, setImagePreview]: any = useState('')
   const callApi = async () => {
-    const res = await API.get('/api/pages/1?populate[Section][populate]=*')
+    const res = await API.get('/api/pages/10?populate[Section][populate]=*')
     if (res) {
       const dataInter = res?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.interior'
@@ -91,6 +96,11 @@ function Furniture() {
       const towD = res?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.2d'
       })
+      const slider = res?.data?.data.attributes.Section.filter((item: any) => {
+        return item.__component == 'home.slider'
+      })
+      const arr = [slider[0]?.img1, slider[0]?.img2, slider[0]?.img3]
+      setSliderData(arr)
       if (dataInter) {
         setInterior(dataInter)
       }
@@ -123,18 +133,35 @@ function Furniture() {
           </div>
           <div className='col-span-4'>
             <div className='text-white text-lg font-semibold font-copper mb-2 md:mb-0'>Living’ Dat</div>
-            <div className='md:flex gap-6 md:h-[600px]'>
-              <div>
-                <img src={sofa} className='w-full h-full mb-4' alt='' />
+            <div className='md:flex  gap-6 md:h-[600px]'>
+              <div className='max-w-[60%] w-full'>
+                <img
+                  src={
+                    imagePreview
+                      ? `${REACT_APP_BASE_URL}${imagePreview}`
+                      : `${REACT_APP_BASE_URL}${sliderData[0]?.data?.attributes?.url}`
+                  }
+                  className='w-full h-full mb-4 object-cover aspect-square'
+                  alt=''
+                />
               </div>
               <div className='flex gap-4 flex-col'>
-                {Array(3)
-                  .fill(0)
-                  .map((_, index) => (
-                    <div key={index} className='md:w-[189px]'>
-                      <img className='w-full h-full ' src={sofamini} alt='' />
-                    </div>
-                  ))}
+                {sliderData.length > 0 &&
+                  sliderData.map((item: any, index: any) => {
+                    return (
+                      <div
+                        key={index}
+                        className='md:w-[189px]'
+                        onClick={() => setImagePreview(item?.data?.attributes?.url)}
+                      >
+                        <img
+                          className='w-full h-full cursor-pointer aspect-square object-cover'
+                          src={`${REACT_APP_BASE_URL}${item?.data?.attributes?.url}`}
+                          alt=''
+                        />
+                      </div>
+                    )
+                  })}
               </div>
             </div>
           </div>
