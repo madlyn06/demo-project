@@ -20,31 +20,31 @@ export default function Header() {
             <a id='clickable_project'>project</a>
             <Tooltip
               anchorSelect='#clickable_project'
-              style={{ backgroundColor: '#000', opacity: '0.5 !important' }}
+              // style={{ backgroundColor: '#000', opacity: '0.5 !important' }}
               clickable
-              className='z-50 relative p-0 shadow-2xl'
+              className='z-50 relative bg-[#000]/10'
             >
               <div className='z-50 relative shadow-2xl'>
                 <ul className='text-[#fff] flex flex-col'>
                   <Link
                     to={'/project/interior-rendering'}
-                    className='hover:bg-white/50 px-4 hover:shadow-2xl  rounded-md text-base hover:text-white'
+                    className='hover:bg-white/50 px-4 hover:shadow-2xl  rounded-md hover:text-white'
                   >
                     Interior Rendering
                   </Link>
                   <Link
                     to={'/project/furniture-modeling'}
-                    className='hover:bg-white/50 px-4 rounded-md text-base hover:text-white'
+                    className='hover:bg-white/50 px-4 rounded-md hover:text-white'
                   >
                     Furniture Modeling
                   </Link>
                   <Link
                     to={'/project/exterior-rendering'}
-                    className='hover:bg-white/50 px-4 rounded-md text-base hover:text-white'
+                    className='hover:bg-white/50 px-4 rounded-md hover:text-white'
                   >
                     Exterior Rendering
                   </Link>
-                  <Link to={'/project/2d'} className='hover:bg-white/50 px-4 rounded-md text-base hover:text-white'>
+                  <Link to={'/project/2d'} className='hover:bg-white/50 px-4 rounded-md hover:text-white'>
                     2D
                   </Link>
                 </ul>
@@ -53,13 +53,8 @@ export default function Header() {
           </Link>
           <Link to={'/services'} className='uppercase cursor-pointer'>
             <a id='clickable'>services</a>
-            <Tooltip
-              anchorSelect='#clickable'
-              // style={{ backgroundColor: '#000', opacity: '0.5 !important' }}
-              clickable
-              className='z-50 relative bg-[#000]/10'
-            >
-              <div className=' z-50 relative'>
+            <Tooltip anchorSelect='#clickable' clickable className='z-50 relative bg-[#000]/10'>
+              <div className='z-50 relative'>
                 <ul className='text-[#fff] flex flex-col'>
                   <Link
                     to={'/services/interior-rendering'}

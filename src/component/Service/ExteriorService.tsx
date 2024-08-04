@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import banner from 'src/assets/about/banner.png'
 import layerbanner from 'src/assets/about/layer-banner.png'
 import coin from 'src/assets/project/coin.png'
@@ -11,6 +11,8 @@ import ExteriorRendering from '../components/ExteriorRendering'
 import Offer from '../components/Offer'
 import Button from '../components/Button'
 import Line from '../components/Line'
+import { API, REACT_APP_BASE_URL } from 'src/ultils/api'
+import BigDeal from '../components/BigDeal'
 const project1 = [
   {
     img: coin,
@@ -26,13 +28,34 @@ const project1 = [
   }
 ]
 function ExteriorService() {
+  const [exterior, setExterior] = useState([])
+  const [bigDeal, setBigDeal] = useState<any>([])
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+  const fetchData = async () => {
+    const res = await API.get('/api/pages/8?populate[Section][populate]=*')
+    const arr = res.data.data.attributes.Section.filter((item: any) => {
+      if (item.__component === 'home.exterior') {
+        return item
+      }
+    })
+    const arr2 = res.data.data.attributes.Section.filter((item: any) => {
+      if (item.__component === 'home.big-deal') {
+        return item
+      }
+    })
+    setExterior(arr)
+    setBigDeal(arr2)
+  }
+  console.log(bigDeal)
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>
-       
         <h1 className='text-center flex gap-2 justify-center font-semibold font-copper uppercase text-white text-xl  md:text-2xl lg:text-3xl '>
-        Exterior Rendering <h1 className='text-[#c1984f]'>Service</h1>
-                </h1>
+          Exterior Rendering <h1 className='text-[#c1984f]'>Service</h1>
+        </h1>
         <div className='grid lg:grid-cols-5'>
           <div className='col-span-1  mt-6 ml-2'>
             <p className='text-[#fff] text-lg  md:text-xl lg:text-2xl  font-century'>Let’s Start</p>
@@ -46,20 +69,21 @@ function ExteriorService() {
             />
             <div className='lg:absolute lg:ml-20 lg:top-20 lg:left-10 md:top-16 md:left-32 left-48 top-20 lg:-translate-x-1/2 lg:w-[535px]'>
               <p className=' mt-8 text-white font-medium text-3xl  md:text-4xl lg:text-5xl font-banmethuot'>
-              Realistic Interior Close-Up Views Rendering
+                Realistic Interior Close-Up Views Rendering
               </p>
               <p className='text-white font-medium text-base  md:text-lg lg:text-xl  mt-4'>
                 Do you want to know how your Living room or your new interiors will look? We can create a beautiful
                 Interior Render based on your floor plan.
               </p>
             </div>
-          
+
             <div className='hidden lg:block md:absolute -bottom-[171px] pb-32 text-[#fff]/40  w-[350px] pr-20 right-12 bg-[#000]/70 pl-2 pt-2'>
               <h1 className='font-bold text-xl md:text-2xl '>SAMPLE”</h1>
               <p className=' text-base  md:text-lg lg:text-xl '>
                 Do you want to know how your Living room or your new interiors will look? We can create a beautiful
                 Interior Render based on your floor plan.
               </p>
+              <div className='absolute bg-black/20 h-full w-[700px] top-0 -left-[200%]'></div>
             </div>
 
             <p className='text-[#c1984f] text-base -rotate-90 absolute left-[-92px] bottom-[-35px]'>
@@ -72,36 +96,40 @@ function ExteriorService() {
       <div className='mt-16'>
         <div className='grid md:grid-cols-4'>
           <div className='col-span-3 relative flex items-center flex-col justify-center md:block mt-4'>
-            <img src={p6} alt='' />
+            <img
+              src={`${REACT_APP_BASE_URL}${bigDeal[0]?.image?.data?.attributes?.url}`}
+              className='w-full h-full'
+              alt=''
+            />
             <div className='md:absolute bg-[#000]/50 py-3 md:top-1/2  w-10/12 md:w-fit  md:mt-0 -translate-y-1/3 md:-translate-y-1/2 md:translate-x-1/2 pl-10 pr-24 rounded-2xl md:right-6 md:right-0 text-white'>
-              <h1 className='font-semibold m-0 text-base md:text-lg italic'>BIG DEAL</h1>
-              <p className="md:w-[300px] w-[160px] text-sm md:text-base">A Faceage rendering start an $200</p>
+              <h1 className='font-semibold m-0 text-base md:text-lg italic'>{bigDeal[0]?.title}</h1>
+              <p className='md:w-[300px] w-[160px] text-sm md:text-base'>{bigDeal[0]?.description}</p>
             </div>
           </div>
           <div className='col-span-1'></div>
-          
-          
         </div>
         <div className='md:grid md:grid-cols-4 mt-4'>
           <div className='col-span-1'></div>
           <div className='col-span-3 relative flex items-center flex-col justify-center md:block'>
-            <img src={p6} alt='' />
+            <img
+              src={`${REACT_APP_BASE_URL}${bigDeal[1]?.image?.data?.attributes?.url}`}
+              className='w-full h-full'
+              alt=''
+            />
             <div className='md:absolute bg-[#000]/50 py-3 top-1/2  w-10/12 md:w-fit  md:-translate-y-1/2 -translate-y-1/3  md:-translate-x-1/2 pl-10 md:pr-24 rounded-2xl left-20 md:left-0 text-white'>
-              <h1 className='font-semibold m-0 text-base md:text-lg italic'>BIG DEAL</h1>
-              <p className='md:w-[300px] w-[200px] text-sm md:text-base'>
-                Custom furnishing modeling piece just from $50 – $150 in the rendering package
-              </p>
+              <h1 className='font-semibold m-0 text-base md:text-lg italic'>{bigDeal[1]?.title}</h1>
+              <p className='md:w-[300px] w-[200px] text-sm md:text-base'>{bigDeal[1]?.description}</p>
             </div>
           </div>
         </div>
       </div>
       <div className='md:mt-16 my-8'>
-     <Line />
-     </div>
+        <Line />
+      </div>
       <div className='flex justify-center  items-center   md:mt-8 text-lg md:text-xl '>
         <Button name='Chat More' classnamesButton='!p-2 !text-xl' />
       </div>
-      <ExteriorRendering />
+      <ExteriorRendering data={exterior} />
       <div className='mt-12'>
         <Line />
       </div>

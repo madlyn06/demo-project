@@ -47,50 +47,45 @@ export const service = [
 ]
 
 function Services() {
-  const [homeData,setHomeData] = useState<any>([]);
-  const [interiorData,setInterior] = useState<any>([])
-  const [furnitureData,setFurnitureData] = useState<any>([])
-  const [exteriorData,setExteriorData] = useState<any>([])
-  const [towDData,setTowDData] = useState<any>([])
-  const callApi = async()=>{
-      const res = await API.get('/api/pages/3?populate[Section][populate]=*');
-      if(res){
-        const dataInter  = res?.data?.data.attributes.Section.filter((item:any)=>{
-              return item.__component == "home.interior"
-        })
-        const furniture  = res?.data?.data.attributes.Section.filter((item:any)=>{
-          return item.__component == "home.furniture"
-          
-        })
-      const exterior  = res?.data?.data.attributes.Section.filter((item:any)=>{
-        return item.__component == "home.exterior"
-        })
-        const towD  = res?.data?.data.attributes.Section.filter((item:any)=>{
-          return item.__component == "home.2d"
-          
+  const [homeData, setHomeData] = useState<any>([])
+  const [interiorData, setInterior] = useState<any>([])
+  const [furnitureData, setFurnitureData] = useState<any>([])
+  const [exteriorData, setExteriorData] = useState<any>([])
+  const [towDData, setTowDData] = useState<any>([])
+  const callApi = async () => {
+    const res = await API.get('/api/pages/3?populate[Section][populate]=*')
+    if (res) {
+      const dataInter = res?.data?.data.attributes.Section.filter((item: any) => {
+        return item.__component == 'home.interior'
       })
-        if(dataInter){
-          setInterior(dataInter);
-        }
-        if(furniture){
-          setFurnitureData(furniture);
-        }
-        if(exterior){
-          setExteriorData(exterior);
-        }
-        if(towD){
-          setTowDData(towD);
-        }
-        console.log("dataInter",dataInter)
-        console.log("daa",res?.data);
-        setHomeData(res.data);
+      const furniture = res?.data?.data.attributes.Section.filter((item: any) => {
+        return item.__component == 'home.furniture'
+      })
+      const exterior = res?.data?.data.attributes.Section.filter((item: any) => {
+        return item.__component == 'home.exterior'
+      })
+      const towD = res?.data?.data.attributes.Section.filter((item: any) => {
+        return item.__component == 'home.2d'
+      })
+      if (dataInter) {
+        setInterior(dataInter)
+      }
+      if (furniture) {
+        setFurnitureData(furniture)
+      }
+      if (exterior) {
+        setExteriorData(exterior)
+      }
+      if (towD) {
+        setTowDData(towD)
+      }
+      setHomeData(res.data)
     }
   }
-  useEffect(()=>{
-    callApi();
-  },[])
+  useEffect(() => {
+    callApi()
+  }, [])
   const pathname = useLocation().pathname
-  console.log(pathname)
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>
@@ -103,11 +98,11 @@ function Services() {
         <div className='mt-12'>
           <Line />
         </div>
-        <FurnitureModeling data={furnitureData}/>
+        <FurnitureModeling data={furnitureData} />
         <div className='mt-12'>
           <Line />
         </div>
-        <ExteriorRendering data={exteriorData}/>
+        <ExteriorRendering data={exteriorData} />
         <div className='mt-12'>
           <Line />
         </div>

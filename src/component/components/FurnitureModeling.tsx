@@ -31,11 +31,15 @@ function FurnitureModeling({ data = project_furniture }: any) {
       </div>
       <div className='grid md:grid-cols-4 grid-cols-2 gap-8 pl-5 mt-8'>
         {data.map((item: any, index: any) => (
-           <Link to="/project/furniture-modeling">
-              <div className='col-span-1' key={index}>
+          <Link to='/project/furniture-modeling' key={index}>
+            <div className='col-span-1' key={index}>
               <div>
-              <img style={{width:"100%",height:"100%"}} className='w-100 h-100' src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`} alt='' />
-
+                <img
+                  style={{ width: '100%', height: '100%' }}
+                  className='w-100 h-100'
+                  src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`}
+                  alt=''
+                />
               </div>
               <div className='text-white text-xs md:text-base text-center mt-2 md:mt-4'>
                 <p className='font-copper font-semibold'>{item.title}</p>
@@ -45,7 +49,7 @@ function FurnitureModeling({ data = project_furniture }: any) {
                 </div>
               </div>
             </div>
-           </Link>
+          </Link>
         ))}
       </div>
     </div>

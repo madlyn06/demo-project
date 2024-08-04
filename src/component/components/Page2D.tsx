@@ -19,9 +19,13 @@ function Page2D({ data = data_2d }: any) {
       </div>
       <div className='grid grid-cols-2 gap-x-12 gap-y-4 pl-8'>
         {data.map((item: any, index: any) => (
-           <Link to="/project/2d">
-              <div  key={index} className='lg:mt-10 md:mt-8 mt-4 ml-5'>
-              <img src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`} alt='' />
+          <Link to='/project/2d' key={index}>
+            <div key={index} className='lg:mt-10 md:mt-8 mt-4 ml-5'>
+              <img
+                src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`}
+                alt=''
+                className='w-full h-full aspect-video'
+              />
               <div className='text-white text-xs md:text-base text-start mt-2 md:mt-4'>
                 <p className='mb-2'>{item.title}</p>
                 <div className='text-start'>
@@ -30,8 +34,7 @@ function Page2D({ data = data_2d }: any) {
                 </div>
               </div>
             </div>
-           </Link>
-
+          </Link>
         ))}
       </div>
     </div>

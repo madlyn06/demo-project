@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import banner from 'src/assets/about/banner.png'
 import layerbanner from 'src/assets/about/layer-banner.png'
 import coin from 'src/assets/project/coin.png'
@@ -12,29 +12,30 @@ import Page2D from '../components/Page2D'
 import Offer from '../components/Offer'
 import Button from '../components/Button'
 import Line from '../components/Line'
+import { API } from 'src/ultils/api'
 
-const data = [
-  {
-    name: 'Living’ MINH'
-  },
-  {
-    name: 'Living’ MINH'
-  },
-  {
-    name: 'Living’ MINH'
-  },
-  {
-    name: 'Living’ MINH'
-  }
-]
 function TwoDService() {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+  const fetchData = async () => {
+    const res = await API.get('/api/pages/9?populate[Section][populate]=*')
+    const arr = res.data.data.attributes.Section.filter((item: any) => {
+      if (item.__component === 'home.2d') {
+        return item
+      }
+    })
+
+    setData(arr)
+  }
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>
-       
         <h1 className='text-center flex gap-2 justify-center font-semibold font-copper uppercase text-white text-xl  md:text-2xl lg:text-3xl '>
-        2D PhotoShop <h1 className='text-[#c1984f]'>Service</h1>
-                </h1>
+          2D PhotoShop <h1 className='text-[#c1984f]'>Service</h1>
+        </h1>
         <div className='grid lg:grid-cols-5'>
           <div className='col-span-1  mt-6 ml-2'>
             <p className='text-[#fff] text-lg  md:text-xl lg:text-2xl  font-century'>Visualize Your Ideas</p>
@@ -48,20 +49,21 @@ function TwoDService() {
             />
             <div className='lg:absolute lg:ml-20 lg:top-20 lg:left-10 md:top-16 md:left-32 left-48 top-20 lg:-translate-x-1/2 lg:w-[535px]'>
               <p className=' mt-8 text-white font-medium text-3xl  md:text-4xl lg:text-5xl font-banmethuot'>
-              Create Stunning Furniture with 3D Modeling
+                Create Stunning Furniture with 3D Modeling
               </p>
               <p className='text-white font-medium text-base  md:text-lg lg:text-xl  mt-4'>
                 Do you want to know how your Living room or your new interiors will look? We can create a beautiful
                 Interior Render based on your floor plan.
               </p>
             </div>
-          
+
             <div className='hidden lg:block md:absolute -bottom-[171px] pb-32 text-[#fff]/40  w-[350px] pr-20 right-12 bg-[#000]/70 pl-2 pt-2'>
               <h1 className='font-bold text-xl md:text-2xl '>SAMPLE”</h1>
               <p className=' text-base  md:text-lg lg:text-xl '>
                 Do you want to know how your Living room or your new interiors will look? We can create a beautiful
                 Interior Render based on your floor plan.
               </p>
+              <div className='absolute bg-black/20 h-full w-[700px] top-0 -left-[200%]'></div>
             </div>
             <p className='text-[#c1984f] text-base -rotate-90 absolute left-[-92px] bottom-[-35px]'>
               {'<----  SCROLL DOWN'}
@@ -94,8 +96,8 @@ function TwoDService() {
       </div> */}
       <Page2D data={data} />
       <div className='md:mt-16 my-8'>
-     <Line />
-     </div>
+        <Line />
+      </div>
       <div className='flex justify-center  mt-10 text-lg md:text-xl'>
         <Button name='Chat More' classnamesButton='!p-2' />
       </div>

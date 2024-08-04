@@ -34,20 +34,24 @@ function InteriorRendering({ data = project_interior }: any) {
       </div>
       <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-8'>
         {data.map((item: any, index: any) => (
-          <Link to="/project/interior-rendering">
-          <div className='col-span-1' key={index}>
-            <div>
-              <img src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`}  alt='' />
-            </div>
-            <div className='text-white text-sm sm:text-base lg:text-lg  text-center mt-4'>
-              <p className='font-copper font-extrabold'>{item.desc}</p>
-              <div className='text-start'>
-              <p>Design by: {item.design}</p>
-              <p>Addrest: {item.address}</p>
-              <p>Space: {item.space}</p>
+          <Link to='/project/interior-rendering' key={index}>
+            <div className='col-span-1' key={index}>
+              <div>
+                <img
+                  src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`}
+                  alt=''
+                  className='aspect-video w-full h-full'
+                />
+              </div>
+              <div className='text-white text-sm sm:text-base lg:text-lg  text-center mt-4'>
+                <p className='font-copper font-extrabold'>{item.title}</p>
+                <div className='text-start'>
+                  <p>Design by: {item.design}</p>
+                  <p>Addrest: {item.address}</p>
+                  <p>Space: {item.space}</p>
+                </div>
               </div>
             </div>
-          </div>
           </Link>
         ))}
       </div>
