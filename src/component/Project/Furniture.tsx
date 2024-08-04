@@ -134,7 +134,7 @@ function Furniture() {
           <div className='col-span-4'>
             <div className='text-white text-lg font-semibold font-copper mb-2 md:mb-0'>Living’ Dat</div>
             <div className='md:flex  gap-6 md:h-[600px]'>
-              <div className='max-w-[60%] w-full'>
+              <div className='md:max-w-[60%] w-full'>
                 <img
                   src={
                     imagePreview

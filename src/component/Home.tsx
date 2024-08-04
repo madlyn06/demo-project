@@ -166,9 +166,9 @@ export const Home = () => {
       <div className='lg:pt-20 md:pt-10 pt-4 lg:px-10 px-4 md:px-6'>
         <div className='md:grid md:grid-cols-10 '>
           <div className='md:col-span-4 col-span-10 '>
-            <div className='flex gap-2 md:gap-4 lg:gap-6 text-4xl md:text-6xl lg:text-8xl text-white/20 font-black items-start'>
+            <div className='flex lg:gap-2 text-4xl md:text-6xl lg:text-8xl text-white/20 font-black items-start'>
               <p className='font-bauhaus'>0</p>
-              <p className='font-bauhaus'>1</p>
+              <p className='font-bauhaus'>{bannerIndex+1}</p>
             </div>
             {bannerData[bannerIndex] ? (
               <div className='flex flex-col'>

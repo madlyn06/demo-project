@@ -13,14 +13,14 @@ const data_2d = [
 function Page2D({ data = data_2d }: any) {
   return (
     <div>
-      <div className='flex mt-4 text-white gap-2 md:text-2xl text-lg font-copper font-extrabold'>
+      <div className='flex mt-4 text-white gap-2 md:text-2xl text-lg font-copper font-extrabold '>
         <p>2D PhotoShop</p>
         <p className='text-[#c0854f]'>Project</p>
       </div>
-      <div className='grid grid-cols-2 gap-x-12 gap-y-4 pl-8'>
+      <div className='grid grid-cols-2 gap-x-8 gap-y-4 pl-5'>
         {data.map((item: any, index: any) => (
           <Link to='/project/2d' key={index}>
-            <div key={index} className='lg:mt-10 md:mt-8 mt-4 ml-5'>
+            <div key={index} className='lg:mt-10 md:mt-8 mt-4 '>
               <img
                 src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`}
                 alt=''

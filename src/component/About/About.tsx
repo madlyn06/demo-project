@@ -7,7 +7,48 @@ import home2 from 'src/assets/about/home2.png'
 import neb from 'src/assets/about/NEB.png'
 import { content } from '../Contact/Contact'
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'
+import { BiLogoLinkedinSquare } from 'react-icons/bi'
+
+const item:any =[
+  {
+    background:'bg-[#3b5996]',
+    content:<Link
+    className={`text-center text-white md:text-lg text-xs`}
+    to='#'
+    >
+    <FaFacebookF  />
+    </Link>
+  },
+  {
+    background:'bg-[#007bbf]',
+    content:<Link
+    className={`text-center text-white md:text-lg text-xs`}
+    to='#'
+    >
+    <BiLogoLinkedinSquare/>
+    </Link>
+  },
+  {
+    background:'bg-[#5daff0]',
+    content:<Link
+    className={`text-center text-white text-lg text-xs`}
+    to='#'
+    >
+    <FaTwitter  />
+    </Link>
+  },
+  {
+    background:'bg-[#714f40]',
+    content:<Link
+    className={`text-center text-white text-lg text-xs`}
+    to='#'
+    >
+    <FaInstagram />
+    </Link>
+  }
+]
 function About() {
   const navigate = useNavigate()
   return (
@@ -71,17 +112,19 @@ function About() {
               <div className='col-span-1 relative w-full flex justify-center' key={index}>
                 <img src={neb} alt='' className=' lg:w-full md:w-1/2 w-1/2' />
                 <div
-                  style={{ top: '65%' }}
-                  className='absolute text-dark translate-y-1/2 top-2/3  w-full -translate-x-1/2 left-1/2 text-center'
+                  style={{ top: '63%' }}
+                  className='absolute text-dark translate-y-1/2 top-2/3 w-full -translate-x-1/2 left-1/2 text-center'
                 >
                   <p className='font-bold text-sm md:text-xl  lg:text-2xl font-copper'>{content.name}</p>
-                  <p className='text-xs lg:text-xl md:text-xl  font-century font-extrabold mt-2'>{content.position}</p>
+                  <p className='text-xs lg:text-xl md:text-xl  font-century font-extrabold md:mt-2'>{content.position}</p>
                 </div>
-                <div className='flex justify-center font-extrabold absolute bottom-[10px] w-full gap-4 '>
+                <div className='flex justify-center font-extrabold absolute md:bottom-[16px] bottom-[6px] w-full gap-4 '>
                   {Array(4)
                     .fill(0)
                     .map((_, index) => (
-                      <div className=' bg-white md:w-6 md:h-6 w-3 h-3 rounded-full' key={index}></div>
+                      <div className={`${item[index].background} color-white md:w-7 md:h-7 w-4 h-4 rounded-full flex items-center justify-center`} key={index}>
+                          {item[index].content}
+                      </div>
                     ))}
                 </div>
               </div>
