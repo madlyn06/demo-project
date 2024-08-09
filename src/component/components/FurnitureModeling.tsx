@@ -36,7 +36,7 @@ function FurnitureModeling({ data = project_furniture }: any) {
               <div>
                 <img
                   style={{ width: '100%', height: '100%' }}
-                  className='w-100 h-100'
+                  className='w-full h-full aspect-video object-cover'
                   src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`}
                   alt=''
                 />

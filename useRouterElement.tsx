@@ -15,6 +15,7 @@ import InteriorService from 'src/component/Service/InteriorService'
 import ExteriorService from 'src/component/Service/ExteriorService'
 import TwoDService from 'src/component/Service/TwoDService'
 import FurnitureService from 'src/component/Service/FurnitureService'
+import DetailProduct from 'src/component/components/DetailProduct'
 const useRouterElements = () => {
   const elements = useRoutes([
     {
@@ -54,6 +55,10 @@ const useRouterElements = () => {
         {
           path: '2d',
           element: <PageTwoD />
+        },
+        {
+          path: ':slug',
+          element: <DetailProduct />
         }
       ]
     },

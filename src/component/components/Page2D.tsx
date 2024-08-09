@@ -24,7 +24,7 @@ function Page2D({ data = data_2d }: any) {
               <img
                 src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`}
                 alt=''
-                className='w-full h-full aspect-video'
+                className='w-full h-full aspect-video aspect-video'
               />
               <div className='text-white text-xs md:text-base text-start mt-2 md:mt-4'>
                 <p className='mb-2'>{item.title}</p>
