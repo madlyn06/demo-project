@@ -21,7 +21,7 @@ const properties = {
         fill='none'
         viewBox='0 0 24 24'
         strokeWidth={1.5}
-        stroke='currentColor'
+        stroke='white'
         className='size-6'
       >
         <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5 8.25 12l7.5-7.5' />
@@ -35,7 +35,7 @@ const properties = {
         fill='none'
         viewBox='0 0 24 24'
         strokeWidth={1.5}
-        stroke='currentColor'
+        stroke='white'
         className='size-6'
       >
         <path strokeLinecap='round' strokeLinejoin='round' d='m8.25 4.5 7.5 7.5-7.5 7.5' />
@@ -56,7 +56,6 @@ function Dynamic2D() {
   useEffect(() => {
     if (location.state) setData(location.state)
   }, [location])
-  console.log(data, 'cc')
   const callApi = async () => {
     // const { state } = props.location
     const res = await API.get('/api/pages/1?populate[Section][populate]=*')
@@ -91,7 +90,6 @@ function Dynamic2D() {
   useEffect(() => {
     callApi()
   }, [])
-  console.log("check",data?.images?.data);
   const handleSlideChange = (previous: any, next: any) => {
     setBannerindex(next)
   }
@@ -112,29 +110,29 @@ function Dynamic2D() {
               alt=''
               className='w-full'
             /> */}
-              <div className='md:col-span-6 col-span-3 mt-10 md:mt-0'>
-            {data?.images?.data &&  data?.images?.data.length > 0 && (
-              <Slide
-                {...properties}
-                easing='ease'
-                onChange={handleSlideChange}
-                infinite={true}
-                transitionDuration={500}
-                indicators={true}
-              >
-                {data?.images?.data.map((item: any, index: number) => (
-                  <div className='each-slide-effect' key={index}>
-                    <div
-                      style={{
-                        backgroundImage: `url(${REACT_APP_BASE_URL}${item?.attributes?.formats?.thumbnail?.url})`
-                      }}
-                      className='aspect-video w-full h-full'
-                    ></div>
-                  </div>
-                ))}
-              </Slide>
-            )}
-          </div>
+            <div className='md:col-span-6 col-span-3 mt-10 md:mt-0'>
+              {data?.images?.data && data?.images?.data.length > 0 && (
+                <Slide
+                  {...properties}
+                  easing='ease'
+                  onChange={handleSlideChange}
+                  infinite={true}
+                  transitionDuration={500}
+                  indicators={true}
+                >
+                  {data?.images?.data.map((item: any, index: number) => (
+                    <div className='each-slide-effect' key={index}>
+                      <div
+                        style={{
+                          backgroundImage: `url(${REACT_APP_BASE_URL}${item?.attributes?.formats?.large?.url})`
+                        }}
+                        className='aspect-video w-full h-full'
+                      ></div>
+                    </div>
+                  ))}
+                </Slide>
+              )}
+            </div>
           </div>
         </div>
         <div className='grid grid-cols-5 text-white mt-4 text-base md:text-lg'>
@@ -159,7 +157,6 @@ function Dynamic2D() {
           <Line />
         </div>
         <InteriorRendering data={interiorData} />
-       
       </div>
     </div>
   )

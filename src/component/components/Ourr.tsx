@@ -33,17 +33,20 @@ const service = [
 function Ourr({ data = service }: any) {
   return (
     <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4  gap-8 pl-5 lg:mt-8 md:mt-6 mt-2'>
-      {data.map((item: any, index: any) => (
-        <Link to={item.route} className='col-span-1' key={index}>
-          <div>
-            <img src={item.image} alt='' />
-          </div>
-          <div className='text-white md:text-base text-xs text-center mt-2 md:mt-4 font-century'>
-            <p className='font-bold'>{item.desc1}</p>
-            <p className='font-bold'>{item.desc2}</p>
-          </div>
-        </Link>
-      ))}
+      {data.map((item: any, index: any) => {
+        console.log(item)
+        return (
+          <Link to={item.route} className='col-span-1' key={index}>
+            <div>
+              <img src={item.image} alt='' />
+            </div>
+            <div className='text-white md:text-base text-xs text-center mt-2 md:mt-4 font-century'>
+              <p className='font-bold'>{item.desc1}</p>
+              <p className='font-bold'>{item.desc2}</p>
+            </div>
+          </Link>
+        )
+      })}
     </div>
   )
 }

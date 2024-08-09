@@ -71,7 +71,6 @@ const useRouterElements = () => {
               element: <DynamicFurniture />
             }
           ]
-         
         },
         {
           path: 'exterior-rendering',
@@ -86,7 +85,6 @@ const useRouterElements = () => {
               element: <DynamicExterior />
             }
           ]
-         
         },
         {
           path: '2d',
@@ -94,14 +92,14 @@ const useRouterElements = () => {
             {
               path: '',
               index: true,
-              element:<PageTwoD />
+              element: <PageTwoD />
             },
             {
               path: ':name',
               element: <Dynamic2D />
             }
           ]
-        },
+        }
         // {
         //   path: ':slug',
         //   element: <DetailProduct />

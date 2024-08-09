@@ -38,7 +38,7 @@ function InteriorRendering({ data = project_interior }: any) {
             <div className='col-span-1' key={index}>
               <div>
                 <img
-                  src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`}
+                  src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.small?.url}`}
                   alt=''
                   className='aspect-video w-full h-full aspect-video'
                 />

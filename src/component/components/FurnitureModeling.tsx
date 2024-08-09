@@ -30,27 +30,30 @@ function FurnitureModeling({ data = project_furniture }: any) {
         <p className='text-[#c0854f]'>Project</p>
       </div>
       <div className='grid md:grid-cols-4 grid-cols-2 gap-8 pl-5 mt-8'>
-        {data.map((item: any, index: any) => (
-          <Link to='/project/furniture-modeling/detail' state={item} key={index}>
-            <div className='col-span-1' key={index}>
-              <div>
-                <img
-                  style={{ width: '100%', height: '100%' }}
-                  className='w-full h-full aspect-video object-cover'
-                  src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`}
-                  alt=''
-                />
-              </div>
-              <div className='text-white text-xs md:text-base text-center mt-2 md:mt-4'>
-                <p className='font-copper font-semibold'>{item.title}</p>
-                <div className='text-start'>
-                  <p>Client: {item?.client}</p>
-                  <p>Addrest: {item?.address}</p>
+        {data.map((item: any, index: any) => {
+          console.log(item)
+          return (
+            <Link to='/project/furniture-modeling/detail' state={item} key={index}>
+              <div className='col-span-1' key={index}>
+                <div>
+                  <img
+                    style={{ width: '100%', height: '100%' }}
+                    className='w-full h-full aspect-video object-cover'
+                    src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.small?.url}`}
+                    alt=''
+                  />
+                </div>
+                <div className='text-white text-xs md:text-base text-center mt-2 md:mt-4'>
+                  <p className='font-copper font-semibold'>{item.title}</p>
+                  <div className='text-start'>
+                    <p>Client: {item?.client}</p>
+                    <p>Addrest: {item?.address}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          )
+        })}
       </div>
     </div>
   )
