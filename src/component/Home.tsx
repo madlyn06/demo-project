@@ -161,6 +161,7 @@ export const Home = () => {
   const handleSlideChange = (previous: any, next: any) => {
     setBannerindex(next)
   }
+  console.log("check baner",bannerData);
   return (
     <div className='max-w-7xl w-full mx-auto'>
       <div className='lg:pt-20 md:pt-10 pt-4 lg:px-10 px-4 md:px-6'>

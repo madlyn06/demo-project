@@ -13,7 +13,7 @@ function ExteriorRendering({ data }: any) {
       </div>
       <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-8'>
         {data?.map((item: any, index: number) => (
-          <Link to='/project/exterior-rendering' key={index}>
+          <Link to='/project/exterior-rendering/detail' state={item} key={index}>
             <div className='col-span-1' key={index}>
               <div>
                 <img

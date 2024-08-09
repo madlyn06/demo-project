@@ -19,7 +19,7 @@ function Page2D({ data = data_2d }: any) {
       </div>
       <div className='grid grid-cols-2 gap-x-8 gap-y-4 pl-5'>
         {data.map((item: any, index: any) => (
-          <Link to='/project/2d' key={index}>
+          <Link to='/project/2d/detail'  state={item} key={index}>
             <div key={index} className='lg:mt-10 md:mt-8 mt-4 '>
               <img
                 src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`}

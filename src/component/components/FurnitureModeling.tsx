@@ -31,7 +31,7 @@ function FurnitureModeling({ data = project_furniture }: any) {
       </div>
       <div className='grid md:grid-cols-4 grid-cols-2 gap-8 pl-5 mt-8'>
         {data.map((item: any, index: any) => (
-          <Link to='/project/furniture-modeling' key={index}>
+          <Link to='/project/furniture-modeling/detail' state={item} key={index}>
             <div className='col-span-1' key={index}>
               <div>
                 <img

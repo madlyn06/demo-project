@@ -91,8 +91,9 @@ function Interior() {
   const [furnitureData, setFurnitureData]: any = useState([])
   const [exteriorData, setExteriorData]: any = useState([])
   const [towDData, setTowDData]: any = useState([])
+  // pass data through Link
   const callApi = async () => {
-    const res = await API.get('/api/pages/3?populate[Section][populate]=*')
+    const res = await API.get('/api/pages/1?populate[Section][populate]=*')
     if (res) {
       const dataInter = res?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.interior'
