@@ -73,7 +73,7 @@ const project_furniture = [
     desc: "Living' THAO"
   }
 ]
-function Furniture() {
+function DetailProduct() {
   const [homeData, setHomeData]: any = useState([])
   const [interiorData, setInterior]: any = useState([])
   const [furnitureData, setFurnitureData]: any = useState([])
@@ -124,7 +124,7 @@ function Furniture() {
       <div className='mt-8'>
         <div className='md:grid  md:grid-cols-5 mb-10 md:mb-0'>
           <div className='col-span-1 text-white lg:mt-24 md:pr-4 mb-4 md:mb-0 '>
-            <h1 className='text-2xl  md:text-3xl lg:text-3xl tracking-widest font-banmethuot'>Furniture</h1>
+            <h1 className='text-2xl  md:text-3xl lg:text-3xl tracking-widest font-banmethuot'>DETAL</h1>
             <h1 className='text-2xl md:text-3xl lg:text-3xl tracking-widest font-banmethuot'>Modeling</h1>
             <p className='text-sm md:text-base lg:pr-10 tracking-wide md:mt-6'>
               Do you want to know how your Living room or your new interiors will look? We can create a beautiful
@@ -193,4 +193,4 @@ function Furniture() {
   )
 }
 
-export default Furniture
+export default DetailProduct

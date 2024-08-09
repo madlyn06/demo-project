@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { project } from '../Home'
 import p5 from 'src/assets/p5.png'
 import p1 from 'src/assets/p1.png'
 import p2 from 'src/assets/p2.png'
 import p3 from 'src/assets/p3.png'
 import p4 from 'src/assets/p4.png'
-import { REACT_APP_BASE_URL } from 'src/ultils/api'
+import { API, REACT_APP_BASE_URL } from 'src/ultils/api'
 import { Link } from 'react-router-dom'
 const project_interior = [
   {
@@ -34,13 +34,13 @@ function InteriorRendering({ data = project_interior }: any) {
       </div>
       <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-8'>
         {data.map((item: any, index: any) => (
-          <Link to='/project/interior-rendering' key={index}>
+          <Link to='/project/interior-rendering/detail' state={item} key={index}>
             <div className='col-span-1' key={index}>
               <div>
                 <img
-                  src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url}`}
+                  src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.small?.url}`}
                   alt=''
-                  className='aspect-video w-full h-full'
+                  className='aspect-video w-full h-full aspect-video'
                 />
               </div>
               <div className='text-white text-sm sm:text-base lg:text-lg  text-center mt-4'>

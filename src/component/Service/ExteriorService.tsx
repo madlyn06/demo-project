@@ -49,7 +49,6 @@ function ExteriorService() {
     setExterior(arr)
     setBigDeal(arr2)
   }
-  console.log(bigDeal)
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>

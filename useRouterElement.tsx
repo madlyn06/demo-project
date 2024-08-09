@@ -15,6 +15,10 @@ import InteriorService from 'src/component/Service/InteriorService'
 import ExteriorService from 'src/component/Service/ExteriorService'
 import TwoDService from 'src/component/Service/TwoDService'
 import FurnitureService from 'src/component/Service/FurnitureService'
+import DynamicInterior from 'src/component/DynamicProject/DynamicInterior'
+import DynamicFurniture from 'src/component/DynamicProject/DynamicFurniture'
+import DynamicExterior from 'src/component/DynamicProject/DynamicExterior'
+import Dynamic2D from 'src/component/DynamicProject/Dynamic2D'
 const useRouterElements = () => {
   const elements = useRoutes([
     {
@@ -41,20 +45,65 @@ const useRouterElements = () => {
         },
         {
           path: 'interior-rendering',
-          element: <Interior />
+          element: <Outlet />,
+          children: [
+            {
+              path: '',
+              index: true,
+              element: <Interior />
+            },
+            {
+              path: ':name',
+              element: <DynamicInterior />
+            }
+          ]
         },
         {
           path: 'furniture-modeling',
-          element: <Furniture />
+          children: [
+            {
+              path: '',
+              index: true,
+              element: <Furniture />
+            },
+            {
+              path: ':name',
+              element: <DynamicFurniture />
+            }
+          ]
         },
         {
           path: 'exterior-rendering',
-          element: <Exterior />
+          children: [
+            {
+              path: '',
+              index: true,
+              element: <Exterior />
+            },
+            {
+              path: ':name',
+              element: <DynamicExterior />
+            }
+          ]
         },
         {
           path: '2d',
-          element: <PageTwoD />
+          children: [
+            {
+              path: '',
+              index: true,
+              element: <PageTwoD />
+            },
+            {
+              path: ':name',
+              element: <Dynamic2D />
+            }
+          ]
         }
+        // {
+        //   path: ':slug',
+        //   element: <DetailProduct />
+        // }
       ]
     },
     {
