@@ -200,16 +200,18 @@ export const Home = () => {
                 transitionDuration={500}
                 indicators={true}
               >
-                {bannerData?.map((item: any, index: number) => (
-                  <div className='each-slide-effect' key={index}>
-                    <div
-                      style={{
-                        backgroundImage: `url(${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.thumbnail?.url})`
-                      }}
-                      className='aspect-video w-full h-full'
-                    ></div>
-                  </div>
-                ))}
+                {bannerData?.map((item: any, index: number) => {
+                  return (
+                    <div className='each-slide-effect' key={index}>
+                      <div
+                        style={{
+                          backgroundImage: `url(${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.large?.url})`
+                        }}
+                        className='aspect-video w-full h-full'
+                      ></div>
+                    </div>
+                  )
+                })}
               </Slide>
             )}
           </div>
