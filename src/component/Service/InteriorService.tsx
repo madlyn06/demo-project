@@ -34,13 +34,14 @@ function InteriorService() {
   }, [])
   const callApi = async () => {
     const res = await API.get('/api/pages/6?populate[Section][populate]=*')
+    const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
     if (res?.data?.data?.attributes?.Section) {
       const arr = res.data.data.attributes.Section.filter((item: any) => {
         if (item.__component === 'home.big-deal') {
           return item
         }
       })
-      const interiorArr = res.data.data.attributes.Section.filter((item: any) => {
+      const interiorArr = res2.data.data.attributes.Section.filter((item: any) => {
         if (item.__component === 'home.interior') {
           return item
         }

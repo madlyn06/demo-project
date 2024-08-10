@@ -36,7 +36,8 @@ function ExteriorService() {
   }, [])
   const fetchData = async () => {
     const res = await API.get('/api/pages/8?populate[Section][populate]=*')
-    const arr = res.data.data.attributes.Section.filter((item: any) => {
+    const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
+    const arr = res2.data.data.attributes.Section.filter((item: any) => {
       if (item.__component === 'home.exterior') {
         return item
       }

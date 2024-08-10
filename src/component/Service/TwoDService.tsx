@@ -22,7 +22,8 @@ function TwoDService() {
   }, [])
   const fetchData = async () => {
     const res = await API.get('/api/pages/9?populate[Section][populate]=*')
-    const arr = res.data.data.attributes.Section.filter((item: any) => {
+    const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
+    const arr = res2.data.data.attributes.Section.filter((item: any) => {
       if (item.__component === 'home.2d') {
         return item
       }

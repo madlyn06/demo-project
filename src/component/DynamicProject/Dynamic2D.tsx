@@ -136,9 +136,9 @@ function Dynamic2D() {
           </div>
         </div>
         <div className='grid grid-cols-5 text-white mt-4 text-base md:text-lg'>
-          <div className='col-span-1 '>
+          {/* <div className='col-span-1 '>
             <p> {data?.title}</p>
-          </div>
+          </div> */}
           <div className='col-span-4 flex'>
             <p>Addrest: {data?.address}</p>
             <p className='flex-1 text-center'>Client: {data?.client}</p>

@@ -41,17 +41,18 @@ function PageTwoD() {
   const [towDData, setTowDData]: any = useState([])
   const callApi = async () => {
     const res = await API.get('/api/pages/5?populate[Section][populate]=*')
+    const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
     if (res) {
-      const dataInter = res?.data?.data.attributes.Section.filter((item: any) => {
+      const dataInter = res2?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.interior'
       })
-      const furniture = res?.data?.data.attributes.Section.filter((item: any) => {
+      const furniture = res2?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.furniture'
       })
-      const exterior = res?.data?.data.attributes.Section.filter((item: any) => {
+      const exterior = res2?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.exterior'
       })
-      const towD = res?.data?.data.attributes.Section.filter((item: any) => {
+      const towD = res2?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.2d'
       })
       if (dataInter) {
