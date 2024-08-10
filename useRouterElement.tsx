@@ -148,10 +148,6 @@ const useRouterElements = () => {
           <Contact />
         </MainLayout>
       )
-    },
-    {
-      path: 'image-360',
-      element: <Image360 />
     }
   ])
   return elements
