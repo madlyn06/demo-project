@@ -40,7 +40,10 @@ function InteriorRendering({ data = project_interior }: any) {
                 <img
                   src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.small?.url}`}
                   alt=''
-                  className='aspect-video w-full h-full aspect-video'
+                  className=' w-full h-full '
+                  style={{
+                    aspectRatio: '32 / 21'
+                  }}
                 />
               </div>
               <div className='text-white text-sm sm:text-base lg:text-lg  text-center mt-4'>
