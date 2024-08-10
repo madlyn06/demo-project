@@ -18,7 +18,6 @@ import DynamicInterior from 'src/component/DynamicProject/DynamicInterior'
 import DynamicFurniture from 'src/component/DynamicProject/DynamicFurniture'
 import DynamicExterior from 'src/component/DynamicProject/DynamicExterior'
 import Dynamic2D from 'src/component/DynamicProject/Dynamic2D'
-import Image360 from 'src/component/Image360'
 const useRouterElements = () => {
   const elements = useRoutes([
     {
