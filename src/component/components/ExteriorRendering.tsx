@@ -17,8 +17,8 @@ function ExteriorRendering({ data }: any) {
             <div className='col-span-1' key={index}>
               <div>
                 <img
-                  style={{ width: '100%', height: '100%' }}
-                  className='w-full h-full 	aspect-video object-cover'
+                  style={{ width: '100%', height: '100%', aspectRatio: '32 / 21' }}
+                  className='w-full h-full object-cover'
                   src={`${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.small?.url}`}
                   alt=''
                 />

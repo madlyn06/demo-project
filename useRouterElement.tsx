@@ -9,7 +9,6 @@ import Contact from 'src/component/Contact/Contact'
 import Interior from 'src/component/Project/Interior'
 import Furniture from 'src/component/Project/Furniture'
 import Exterior from 'src/component/Project/Exterior'
-import Page2D from 'src/component/Project/2D'
 import PageTwoD from 'src/component/Project/2D'
 import InteriorService from 'src/component/Service/InteriorService'
 import ExteriorService from 'src/component/Service/ExteriorService'
@@ -19,6 +18,7 @@ import DynamicInterior from 'src/component/DynamicProject/DynamicInterior'
 import DynamicFurniture from 'src/component/DynamicProject/DynamicFurniture'
 import DynamicExterior from 'src/component/DynamicProject/DynamicExterior'
 import Dynamic2D from 'src/component/DynamicProject/Dynamic2D'
+import Image360 from 'src/component/Image360'
 const useRouterElements = () => {
   const elements = useRoutes([
     {
@@ -100,10 +100,6 @@ const useRouterElements = () => {
             }
           ]
         }
-        // {
-        //   path: ':slug',
-        //   element: <DetailProduct />
-        // }
       ]
     },
     {
@@ -152,6 +148,10 @@ const useRouterElements = () => {
           <Contact />
         </MainLayout>
       )
+    },
+    {
+      path: 'image-360',
+      element: <Image360 />
     }
   ])
   return elements

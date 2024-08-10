@@ -45,13 +45,14 @@ function FurnitureService() {
 
   const fetchData = async () => {
     const res = await API.get('/api/pages/7?populate[Section][populate]=*')
+    const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
     if (res?.data?.data?.attributes?.Section) {
       const arr = res.data.data.attributes.Section.filter((item: any) => {
         if (item.__component === 'home.complexity') {
           return item
         }
       })
-      const arr2 = res.data.data.attributes.Section.filter((item: any) => {
+      const arr2 = res2.data.data.attributes.Section.filter((item: any) => {
         if (item.__component === 'home.furniture') {
           return item
         }
