@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react'
 import { project } from '../Home'
 import p6 from 'src/assets/p6.png'
@@ -13,7 +14,7 @@ function ExteriorRendering({ data }: any) {
       </div>
       <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-8'>
         {data?.map((item: any, index: number) => (
-          <Link to='/project/exterior-rendering/detail' state={item} key={index}>
+          <Link to={`/project/exterior-rendering/details/${item.id}`} state={item} key={index}>
             <div className='col-span-1' key={index}>
               <div>
                 <img
@@ -28,7 +29,7 @@ function ExteriorRendering({ data }: any) {
                 <div className='text-start'>
                   <p>Client: {item?.client}</p>
                   <p>Addrest: {item?.address}</p>
-                  <p>Client's Website: {item?.clientWebsite}</p>
+                  <p>Space: {item?.clientWebsite}</p>
                 </div>
               </div>
             </div>

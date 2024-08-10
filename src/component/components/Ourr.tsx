@@ -34,7 +34,6 @@ function Ourr({ data = service }: any) {
   return (
     <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4  gap-8 pl-5 lg:mt-8 md:mt-6 mt-2'>
       {data.map((item: any, index: any) => {
-        console.log(item)
         return (
           <Link to={item.route} className='col-span-1' key={index}>
             <div>

@@ -18,7 +18,6 @@ function Contact() {
     inquiries: ''
   })
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    console.log(formData)
     e.preventDefault()
 
     // Your EmailJS service ID, template ID, and Public Key
@@ -43,7 +42,6 @@ function Contact() {
     emailjs
       .send(serviceId, templateId, templateParams, publicKey)
       .then((response) => {
-        console.log('Email sent successfully!', response)
         setFormData({
           name: '',
           email: '',

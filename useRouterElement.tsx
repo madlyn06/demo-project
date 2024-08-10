@@ -52,7 +52,7 @@ const useRouterElements = () => {
               element: <Interior />
             },
             {
-              path: ':name',
+              path: 'details/:name',
               element: <DynamicInterior />
             }
           ]
@@ -66,7 +66,7 @@ const useRouterElements = () => {
               element: <Furniture />
             },
             {
-              path: ':name',
+              path: 'details/:name',
               element: <DynamicFurniture />
             }
           ]
@@ -80,7 +80,7 @@ const useRouterElements = () => {
               element: <Exterior />
             },
             {
-              path: ':name',
+              path: 'details/:name',
               element: <DynamicExterior />
             }
           ]
@@ -94,7 +94,7 @@ const useRouterElements = () => {
               element: <PageTwoD />
             },
             {
-              path: ':name',
+              path: 'details/:name',
               element: <Dynamic2D />
             }
           ]

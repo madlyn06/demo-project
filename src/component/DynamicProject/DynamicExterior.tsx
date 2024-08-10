@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useEffect, useState } from 'react'
 import InteriorRendering from '../components/InteriorRendering'
 import FurnitureModeling from '../components/FurnitureModeling'
@@ -6,7 +7,7 @@ import Page2D from '../components/Page2D'
 
 import Line from '../components/Line'
 import { API, REACT_APP_BASE_URL } from 'src/ultils/api'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { Slide } from 'react-slideshow-image'
 const buttonStyle = {
   width: '30px',
@@ -52,10 +53,13 @@ function DynamicExterior() {
 
   const [bannerIndex, setBannerindex] = useState(0)
   const [data, setData] = useState<any>({})
-  const location = useLocation()
+  const { name } = useParams()
   useEffect(() => {
-    if (location.state) setData(location.state)
-  }, [location])
+    if (exteriorData.length > 0 && name) {
+      const result = exteriorData.find((item: any) => item.id === +name)
+      setData(result)
+    }
+  }, [exteriorData, name])
   const callApi = async () => {
     // const { state } = props.location
     const res = await API.get('/api/pages/1?populate[Section][populate]=*')
@@ -141,7 +145,7 @@ function DynamicExterior() {
           </div>
           <div className='col-span-4 flex'>
             <p>Addrest: {data?.address}</p>
-            <p className='flex-1 text-center'>Client's Website: {data?.clientWebsite}</p>
+            <p className='flex-1 text-center'>Space: {data?.clientWebsite}</p>
           </div>
         </div>
         <ExteriorRendering data={exteriorData} />

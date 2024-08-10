@@ -6,7 +6,7 @@ import Page2D from '../components/Page2D'
 
 import Line from '../components/Line'
 import { API, REACT_APP_BASE_URL } from 'src/ultils/api'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { Slide } from 'react-slideshow-image'
 const buttonStyle = {
   width: '30px',
@@ -52,10 +52,13 @@ function Dynamic2D() {
 
   const [bannerIndex, setBannerindex] = useState(0)
   const [data, setData] = useState<any>({})
-  const location = useLocation()
+  const { name } = useParams()
   useEffect(() => {
-    if (location.state) setData(location.state)
-  }, [location])
+    if (towDData.length > 0 && name) {
+      const result = towDData.find((item: any) => item.id === +name)
+      setData(result)
+    }
+  }, [towDData, name])
   const callApi = async () => {
     // const { state } = props.location
     const res = await API.get('/api/pages/1?populate[Section][populate]=*')
