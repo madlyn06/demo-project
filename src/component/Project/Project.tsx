@@ -105,7 +105,7 @@ function Project() {
                 <p>{item.desc}</p>
                 <div className='text-start'>
                   <p>Clienprojectt:</p>
-                  <p>Addrest</p>
+                  <p>Address</p>
                   <p>{"Client's Website:"}</p>
                 </div>
               </div>
@@ -126,7 +126,7 @@ function Project() {
                 <p>{item.desc}</p>
                 <div className='text-start'>
                   <p>Client:</p>
-                  <p>Addrest</p>
+                  <p>Address</p>
                   <p>{"Client's Website:"}</p>
                 </div>
               </div>
@@ -147,7 +147,7 @@ function Project() {
                 <p>{"Exx' DAT"}</p>
                 <div className='text-start'>
                   <p>Client:</p>
-                  <p>Addrest</p>
+                  <p>Address</p>
                   <p>{"Client's Website:"}</p>
                 </div>
               </div>
@@ -164,7 +164,7 @@ function Project() {
                   <p className='mb-2'>{'Living’ MINH'}</p>
                   <div className='text-start'>
                     <p>Client:</p>
-                    <p>Addrest</p>
+                    <p>Address</p>
                     <p>{"Client's Website:"}</p>
                   </div>
                 </div>

@@ -164,8 +164,8 @@ export const Home = () => {
   return (
     <div className='max-w-7xl w-full mx-auto'>
       <div className='lg:pt-20 md:pt-10 pt-4 lg:px-10 px-4 md:px-6'>
-        <div className='md:grid md:grid-cols-10 '>
-          <div className='md:col-span-4 col-span-10 '>
+        <div className='md:grid md:grid-cols-10'>
+          <div className='md:col-span-3 col-span-10'>
             <div className='flex lg:gap-2 text-4xl md:text-6xl lg:text-8xl text-white/20 font-black items-start'>
               <p className='font-bauhaus'>0</p>
               <p className='font-bauhaus'>{bannerIndex + 1}</p>
@@ -175,11 +175,11 @@ export const Home = () => {
                 <p className='text-white md:text-base text-sm lg:text-xl font-century'>RENDER</p>
                 <p
                   style={{ fontFamily: 'banmethuot' }}
-                  className=' text-white lg:text-8xl tracking-wider font-semibold text-2xl md:text-6xl '
+                  className=' text-white lg:text-6xl tracking-wider font-semibold text-2xl md:text-6xl '
                 >
                   {bannerData[bannerIndex].title}
                 </p>
-                <div className='flex flex-col md:pr-32 pr-10 lg:pr-44 text-white md:text-base text-xs font-normal lg:text-2xl'>
+                <div className='flex flex-col md:pr-32 pr-10 lg:pr-32 text-white md:text-base text-xs font-normal lg:text-2xl'>
                   <p>{bannerData[bannerIndex].description}</p>
                 </div>
               </div>
@@ -190,13 +190,14 @@ export const Home = () => {
               <Button name='More' classnamesButton='py-2 px-4 text-sm md:text-base mt-3 md:mt-5 lg:mt-8 lg:text-xl' />
             </Link>
           </div>
-          <div className='md:col-span-6 mt-10 md:mt-0'>
+          <div className='md:col-span-7 mt-10 md:mt-0'>
             {bannerData.length > 0 && (
               <Slide
                 {...properties}
                 easing='ease'
                 onChange={handleSlideChange}
                 infinite={true}
+                autoplay={false}
                 transitionDuration={500}
                 indicators={true}
               >

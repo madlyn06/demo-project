@@ -25,7 +25,7 @@ const project_interior = [
     desc: "Living' THAO"
   }
 ]
-function InteriorRendering({ data = project_interior }: any) {
+function InteriorRendering({ data = project_interior, id }: any) {
   return (
     <div>
       <div className='flex mt-4 text-white gap-2 md:text-2xl text-lg font-copper font-extrabold'>
@@ -46,11 +46,15 @@ function InteriorRendering({ data = project_interior }: any) {
                   }}
                 />
               </div>
-              <div className='text-white text-sm sm:text-base lg:text-lg  text-center mt-4'>
+              <div
+                className={`text-white text-xs md:text-base text-center mt-4 ${
+                  item.id === id ? '!text-[#c0854f]' : ''
+                }`}
+              >
                 <p className='font-copper font-extrabold'>{item.title}</p>
                 <div className='text-start'>
                   <p>Design by: {item.design}</p>
-                  <p>Addrest: {item.address}</p>
+                  <p>Address: {item.address}</p>
                   <p>Space: {item.space}</p>
                 </div>
               </div>

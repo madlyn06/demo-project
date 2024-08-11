@@ -151,7 +151,7 @@ function DynamicFurniture() {
             <p>Client: {data.client}</p>
           </div>
           <div className='col-span-4 flex'>
-            <p>Addrest: {data.address}</p>
+            <p>Address: {data.address}</p>
             {/* <p className='flex-1 text-center'>Space:</p> */}
           </div>
         </div>

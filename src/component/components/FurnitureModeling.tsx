@@ -46,7 +46,7 @@ function FurnitureModeling({ data = project_furniture }: any) {
                   <p className='font-copper font-semibold'>{item.title}</p>
                   <div className='text-start'>
                     <p>Client: {item?.client}</p>
-                    <p>Addrest: {item?.address}</p>
+                    <p>Address: {item?.address}</p>
                   </div>
                 </div>
               </div>

@@ -171,7 +171,7 @@ function DetailProduct() {
             <p>Design by:</p>
           </div>
           <div className='col-span-4 flex'>
-            <p>Addrest:</p>
+            <p>Address:</p>
             <p className='flex-1 text-center'>Space:</p>
           </div>
         </div>

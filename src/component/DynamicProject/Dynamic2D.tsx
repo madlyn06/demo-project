@@ -125,12 +125,15 @@ function Dynamic2D() {
                 >
                   {data?.images?.data.map((item: any, index: number) => (
                     <div className='each-slide-effect' key={index}>
-                      <div
+                      <img
+                        draggable={false}
                         style={{
-                          backgroundImage: `url(${REACT_APP_BASE_URL}${item?.attributes?.formats?.large?.url})`
+                          aspectRatio: '32 / 21'
                         }}
-                        className='aspect-video w-full h-full'
-                      ></div>
+                        className='w-full h-full object-cover'
+                        src={`${REACT_APP_BASE_URL}${item?.attributes?.formats?.large?.url}`}
+                        alt=''
+                      />
                     </div>
                   ))}
                 </Slide>
@@ -143,11 +146,11 @@ function Dynamic2D() {
             <p> {data?.title}</p>
           </div> */}
           <div className='col-span-4 flex'>
-            <p>Addrest: {data?.address}</p>
+            <p>Address: {data?.address}</p>
             <p className='flex-1 text-center'>Client: {data?.client}</p>
           </div>
         </div>
-        <Page2D data={towDData} />
+        <Page2D data={towDData} id={data?.id} />
         <div className='mt-12'>
           <Line />
         </div>

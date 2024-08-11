@@ -5,7 +5,7 @@ import p6 from 'src/assets/p6.png'
 import { REACT_APP_BASE_URL } from 'src/ultils/api'
 import { Link } from 'react-router-dom'
 
-function ExteriorRendering({ data }: any) {
+function ExteriorRendering({ data, id }: any) {
   return (
     <div>
       <div className='flex mt-4 text-white gap-2 text-lg md:text-2xl font-copper font-extrabold'>
@@ -24,11 +24,15 @@ function ExteriorRendering({ data }: any) {
                   alt=''
                 />
               </div>
-              <div className='text-white text-xs md:text-base text-center mt-4'>
+              <div
+                className={`text-white text-xs md:text-base text-center mt-4 ${
+                  item.id === id ? '!text-[#c0854f]' : ''
+                }`}
+              >
                 <p className=''>{item?.title}</p>
                 <div className='text-start'>
                   <p>Client: {item?.client}</p>
-                  <p>Addrest: {item?.address}</p>
+                  <p>Address: {item?.address}</p>
                   <p>Space: {item?.clientWebsite}</p>
                 </div>
               </div>

@@ -126,12 +126,15 @@ function DynamicExterior() {
                 >
                   {data?.images?.data.map((item: any, index: number) => (
                     <div className='each-slide-effect' key={index}>
-                      <div
+                      <img
+                        draggable={false}
                         style={{
-                          backgroundImage: `url(${REACT_APP_BASE_URL}${item?.attributes?.formats?.large?.url})`
+                          aspectRatio: '32 / 21'
                         }}
-                        className='aspect-video w-full h-full'
-                      ></div>
+                        className='w-full h-full object-cover'
+                        src={`${REACT_APP_BASE_URL}${item?.attributes?.formats?.large?.url}`}
+                        alt=''
+                      />
                     </div>
                   ))}
                 </Slide>
@@ -144,11 +147,11 @@ function DynamicExterior() {
             <p>Client: {data?.client}</p>
           </div>
           <div className='col-span-4 flex'>
-            <p>Addrest: {data?.address}</p>
+            <p>Address: {data?.address}</p>
             <p className='flex-1 text-center'>Space: {data?.clientWebsite}</p>
           </div>
         </div>
-        <ExteriorRendering data={exteriorData} />
+        <ExteriorRendering data={exteriorData} id={data?.id} />
         <div className='mt-12'>
           <Line />
         </div>

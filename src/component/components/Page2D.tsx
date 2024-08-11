@@ -10,7 +10,7 @@ const data_2d = [
     name: 'Living’ MINH'
   }
 ]
-function Page2D({ data = data_2d }: any) {
+function Page2D({ data = data_2d, id }: any) {
   return (
     <div>
       <div className='flex mt-4 text-white gap-2 md:text-2xl text-lg font-copper font-extrabold '>
@@ -29,11 +29,15 @@ function Page2D({ data = data_2d }: any) {
                   aspectRatio: '32 / 21'
                 }}
               />
-              <div className='text-white text-xs md:text-base text-start mt-2 md:mt-4'>
+              <div
+                className={`text-white text-xs md:text-base text-center mt-4 ${
+                  item.id === id ? '!text-[#c0854f]' : ''
+                }`}
+              >
                 <p className='mb-2'>{item.title}</p>
                 <div className='text-start'>
                   <p>Client: {item.client}</p>
-                  <p>Addrest: {item.address}</p>
+                  <p>Address: {item.address}</p>
                 </div>
               </div>
             </div>

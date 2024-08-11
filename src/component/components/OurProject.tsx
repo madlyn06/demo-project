@@ -37,7 +37,7 @@ function OurProject() {
             <p className='font-copper font-semibold'>{item.desc}</p>
             <div className='text-start'>
               <p>Client:</p>
-              <p>Addrest</p>
+              <p>Address</p>
               <p>{"Client's Website:"}</p>
             </div>
           </div>
