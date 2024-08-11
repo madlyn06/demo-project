@@ -100,7 +100,7 @@ function PageTwoD() {
             <p className='flex-1 text-center'>Space:</p>
           </div>
         </div>
-        <Page2D data={towDData} />
+        <Page2D data={towDData} number={true} />
         <div className='my-12'>
           <Line />
         </div>

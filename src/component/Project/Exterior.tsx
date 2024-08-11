@@ -87,7 +87,7 @@ function Exterior() {
           <div className='col-span-4 mt-3 md:mt-0'>
             <div className='text-white  text-base md:text-lg font-semibold  font-copper'>Living’ Dat</div>
             <img
-              src={`${REACT_APP_BASE_URL}${homeData?.data?.attributes?.Section[0]?.image?.data?.attributes?.formats?.thumbnail?.url}`}
+              src={`${REACT_APP_BASE_URL}${homeData?.data?.attributes?.Section[0]?.image?.data?.attributes?.formats?.large?.url}`}
               alt=''
               className='w-full'
             />
@@ -102,7 +102,7 @@ function Exterior() {
             <p className='flex-1 text-center'>Space:</p>
           </div>
         </div>
-        <ExteriorRendering data={exteriorData} />
+        <ExteriorRendering data={exteriorData} number={true} />
         <InteriorRendering data={interiorData} />
         <FurnitureModeling data={furnitureData} />
         <Page2D data={towDData} />

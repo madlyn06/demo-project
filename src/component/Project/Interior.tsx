@@ -137,10 +137,10 @@ function Interior() {
               {homeData?.data?.attributes?.Section[0]?.description}
             </p>
           </div>
-          <div className='col-span-4  '>
+          <div className='col-span-4'>
             <div className='text-white text-lg font-semibold font-copper'>Living’ Dat</div>
             <img
-              src={`${REACT_APP_BASE_URL}${homeData?.data?.attributes?.Section[0]?.image?.data?.attributes?.formats?.thumbnail?.url}`}
+              src={`${REACT_APP_BASE_URL}${homeData?.data?.attributes?.Section[0]?.image?.data?.attributes?.formats?.large?.url}`}
               alt=''
               className='w-full'
             />
@@ -155,7 +155,7 @@ function Interior() {
             <p className='flex-1 text-center'>Space:</p>
           </div>
         </div>
-        <InteriorRendering data={interiorData} />
+        <InteriorRendering data={interiorData} number={true} />
         <div className='mt-12'>
           <Line />
         </div>

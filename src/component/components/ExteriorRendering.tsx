@@ -5,7 +5,8 @@ import p6 from 'src/assets/p6.png'
 import { REACT_APP_BASE_URL } from 'src/ultils/api'
 import { Link } from 'react-router-dom'
 
-function ExteriorRendering({ data, id }: any) {
+function ExteriorRendering({ data, id, number }: any) {
+  const displayedItems = !number ? data.slice(0, 4) : data
   return (
     <div>
       <div className='flex mt-4 text-white gap-2 text-lg md:text-2xl font-copper font-extrabold'>
@@ -13,7 +14,7 @@ function ExteriorRendering({ data, id }: any) {
         <p className='text-[#c0854f]'>Project</p>
       </div>
       <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-8'>
-        {data?.map((item: any, index: number) => (
+        {displayedItems?.map((item: any, index: number) => (
           <Link to={`/project/exterior-rendering/details/${item.id}`} state={item} key={index}>
             <div className='col-span-1' key={index}>
               <div>

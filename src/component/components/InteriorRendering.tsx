@@ -25,7 +25,8 @@ const project_interior = [
     desc: "Living' THAO"
   }
 ]
-function InteriorRendering({ data = project_interior, id }: any) {
+function InteriorRendering({ data = project_interior, id, number }: any) {
+  const displayedItems = !number ? data.slice(0, 4) : data
   return (
     <div>
       <div className='flex mt-4 text-white gap-2 md:text-2xl text-lg font-copper font-extrabold'>
@@ -33,7 +34,7 @@ function InteriorRendering({ data = project_interior, id }: any) {
         <p className='text-[#c0854f]'>Project</p>
       </div>
       <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-8'>
-        {data.map((item: any, index: any) => (
+        {displayedItems.map((item: any, index: any) => (
           <Link to={`/project/interior-rendering/details/${item.id}`} state={item} key={index}>
             <div className='col-span-1' key={index}>
               <div>

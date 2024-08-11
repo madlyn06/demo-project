@@ -1,28 +1,8 @@
 import { Link } from 'react-router-dom'
-import p1 from 'src/assets/p1.png'
-import p2 from 'src/assets/p2.png'
-import p3 from 'src/assets/p3.png'
-import p4 from 'src/assets/p4.png'
 import { REACT_APP_BASE_URL } from 'src/ultils/api'
-const project_furniture = [
-  {
-    image: p1,
-    desc: "Living' DAT"
-  },
-  {
-    image: p2,
-    desc: "Living' SON"
-  },
-  {
-    image: p3,
-    desc: "Living' MINH"
-  },
-  {
-    image: p4,
-    desc: "Living' THAO"
-  }
-]
-function FurnitureModeling({ data = project_furniture }: any) {
+
+function FurnitureModeling({ data, number }: any) {
+  const displayedItems = !number ? data.slice(0, 4) : data
   return (
     <div>
       <div className='flex mt-4 text-white gap-2 font-copper font-extrabold text-lg md:text-2xl '>
@@ -30,7 +10,7 @@ function FurnitureModeling({ data = project_furniture }: any) {
         <p className='text-[#c0854f]'>Project</p>
       </div>
       <div className='grid md:grid-cols-4 grid-cols-2 gap-8 pl-5 mt-8'>
-        {data.map((item: any, index: any) => {
+        {displayedItems?.map((item: any, index: any) => {
           return (
             <Link to={`/project/furniture-modeling/details/${item.id}`} state={item} key={index}>
               <div className='col-span-1' key={index}>

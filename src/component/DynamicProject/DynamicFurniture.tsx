@@ -100,7 +100,7 @@ function DynamicFurniture() {
   const handleSlideChange = (previous: any, next: any) => {
     setBannerindex(next)
   }
-  if (!data?.title) return null
+
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-2 mt-8'>
