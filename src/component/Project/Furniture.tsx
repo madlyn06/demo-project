@@ -176,7 +176,7 @@ function Furniture() {
             <p className='flex-1 text-center'>Space:</p>
           </div>
         </div>
-        <FurnitureModeling data={furnitureData} />
+        <FurnitureModeling data={furnitureData} number={true} />
         <div className='mt-12'>
           <Line />
         </div>

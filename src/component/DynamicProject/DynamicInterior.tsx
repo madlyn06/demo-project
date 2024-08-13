@@ -150,7 +150,7 @@ function DynamicInterior() {
             <p className='flex-1 text-center'>Space: {data?.space}</p>
           </div>
         </div>
-        <InteriorRendering data={interiorData} id={data?.id} />
+        <InteriorRendering data={interiorData} id={data?.id} number={true} />
         <div className='mt-12'>
           <Line />
         </div>

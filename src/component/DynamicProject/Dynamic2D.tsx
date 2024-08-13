@@ -150,7 +150,7 @@ function Dynamic2D() {
             <p className='flex-1 text-center'>Client: {data?.client}</p>
           </div>
         </div>
-        <Page2D data={towDData} id={data?.id} />
+        <Page2D data={towDData} id={data?.id} number={true} />
         <div className='mt-12'>
           <Line />
         </div>

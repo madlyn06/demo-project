@@ -151,7 +151,7 @@ function DynamicExterior() {
             <p className='flex-1 text-center'>Space: {data?.clientWebsite}</p>
           </div>
         </div>
-        <ExteriorRendering data={exteriorData} id={data?.id} />
+        <ExteriorRendering data={exteriorData} id={data?.id} number={true} />
         <div className='mt-12'>
           <Line />
         </div>
