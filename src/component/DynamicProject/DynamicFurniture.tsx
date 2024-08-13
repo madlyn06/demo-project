@@ -107,12 +107,12 @@ function DynamicFurniture() {
         <div className='md:grid  md:grid-cols-5 mb-10 md:mb-0'>
           <div className='col-span-1 text-white lg:mt-24 md:pr-4 mb-4 md:mb-0 '>
             <h1 className='text-2xl  md:text-3xl lg:text-3xl tracking-widest font-banmethuot'>
-              {data.DetailProduct.title}
+              {data?.DetailProduct?.title}
             </h1>
-            <p className='text-sm md:text-base lg:pr-10 tracking-wide md:mt-6'>{data.DetailProduct.description}</p>
+            <p className='text-sm md:text-base lg:pr-10 tracking-wide md:mt-6'>{data?.DetailProduct?.description}</p>
           </div>
           <div className='col-span-4'>
-            <div className='text-white text-lg font-semibold font-copper mb-2 md:mb-0'>{data.DetailProduct.name}</div>
+            <div className='text-white text-lg font-semibold font-copper mb-2 md:mb-0'>{data?.DetailProduct?.name}</div>
             <div className='md:flex  gap-6 md:h-[600px]'>
               <div className='md:max-w-[60%] w-full'>
                 <img
@@ -148,10 +148,10 @@ function DynamicFurniture() {
         </div>
         <div className='grid grid-cols-5 text-white mt-4 text-base md:text-lg'>
           <div className='col-span-1'>
-            <p>Client: {data.client}</p>
+            <p>Client: {data?.client}</p>
           </div>
           <div className='col-span-4 flex'>
-            <p>Address: {data.address}</p>
+            <p>Address: {data?.address}</p>
             {/* <p className='flex-1 text-center'>Space:</p> */}
           </div>
         </div>
