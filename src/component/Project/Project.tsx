@@ -11,6 +11,10 @@ import p5 from 'src/assets/p5.png'
 import { service } from '../Service/Services'
 import foter from 'src/assets/foter.png'
 import { API } from 'src/ultils/api'
+import InteriorRendering from '../components/InteriorRendering'
+import FurnitureModeling from '../components/FurnitureModeling'
+import ExteriorRendering from '../components/ExteriorRendering'
+import Page2D from '../components/Page2D'
 
 const project1 = [
   {
@@ -35,7 +39,7 @@ function Project() {
   const callApi = async () => {
     const res = await API.get('/api/pages/2?populate[Section][populate]=*')
     const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
-    if (res) {
+    if (res2) {
       const dataInter = res2?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.interior'
       })
@@ -66,6 +70,7 @@ function Project() {
   useEffect(() => {
     callApi()
   }, [])
+  console.log(interiorData)
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>
@@ -91,7 +96,7 @@ function Project() {
             </div>
           ))}
         </div>
-        <div className='flex mt-4 text-white gap-2 text-2xl'>
+        {/* <div className='flex mt-4 text-white gap-2 text-2xl'>
           <p>Interior Rendering</p>
           <p className='text-[#c0854f]'>Project</p>
         </div>
@@ -111,8 +116,9 @@ function Project() {
               </div>
             </div>
           ))}
-        </div>
-        <div className='flex mt-4 text-white gap-2 text-2xl'>
+        </div> */}
+        <InteriorRendering data={interiorData} />
+        {/* <div className='flex mt-4 text-white gap-2 text-2xl'>
           <p>Furniture Modeling</p>
           <p className='text-[#c0854f]'>Project</p>
         </div>
@@ -132,8 +138,9 @@ function Project() {
               </div>
             </div>
           ))}
-        </div>
-        <div className='flex mt-4 text-white gap-2 text-2xl'>
+        </div> */}
+        <FurnitureModeling data={furnitureData} />
+        {/* <div className='flex mt-4 text-white gap-2 text-2xl'>
           <p>Exterior Rendering</p>
           <p className='text-[#c0854f]'>Project</p>
         </div>
@@ -153,8 +160,9 @@ function Project() {
               </div>
             </div>
           ))}
-        </div>
-        <div className='grid grid-cols-2 gap-12'>
+        </div> */}
+        <ExteriorRendering data={exteriorData} />
+        {/* <div className='grid grid-cols-2 gap-12'>
           {Array(2)
             .fill(0)
             .map((_, index) => (
@@ -170,7 +178,8 @@ function Project() {
                 </div>
               </div>
             ))}
-        </div>
+        </div> */}
+        <Page2D data={towDData} />
       </div>
     </div>
   )

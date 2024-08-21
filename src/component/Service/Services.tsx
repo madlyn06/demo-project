@@ -53,12 +53,14 @@ function Services() {
   const [exteriorData, setExteriorData] = useState<any>([])
   const [towDData, setTowDData] = useState<any>([])
   const callApi = async () => {
-    const res = await API.get('/api/pages/3?populate[Section][populate]=*')
+    // const res = await API.get('/api/pages/3?populate[Section][populate]=*')
     const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
-    if (res) {
+    console.log(res2)
+    if (res2) {
       const dataInter = res2?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.interior'
       })
+      console.log(dataInter, 'dataInter')
       const furniture = res2?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.furniture'
       })
@@ -80,7 +82,7 @@ function Services() {
       if (towD) {
         setTowDData(towD)
       }
-      setHomeData(res.data)
+      // setHomeData(res.data)
     }
   }
   useEffect(() => {
