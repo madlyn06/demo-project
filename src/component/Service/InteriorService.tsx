@@ -4,8 +4,6 @@ import layerbanner from 'src/assets/about/layer-banner.png'
 import coin from 'src/assets/project/coin.png'
 import calendar from 'src/assets/project/calender.png'
 import star from 'src/assets/project/star.png'
-import { project } from '../Home'
-import p5 from 'src/assets/p5.png'
 import Offer from '../components/Offer'
 import BigDeal from '../components/BigDeal'
 import Button from '../components/Button'
@@ -33,7 +31,7 @@ function InteriorService() {
     callApi()
   }, [])
   const callApi = async () => {
-    const res = await API.get('/api/pages/6?populate[Section][populate]=*')
+    const res = await API.get('/api/pages/2?populate[Section][populate]=*')
     const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
     if (res?.data?.data?.attributes?.Section) {
       const arr = res.data.data.attributes.Section.filter((item: any) => {

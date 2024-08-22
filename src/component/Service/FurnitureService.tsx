@@ -44,7 +44,7 @@ function FurnitureService() {
   }, [])
 
   const fetchData = async () => {
-    const res = await API.get('/api/pages/7?populate[Section][populate]=*')
+    const res = await API.get('/api/pages/3?populate[Section][populate]=*')
     const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
     if (res?.data?.data?.attributes?.Section) {
       const arr = res.data.data.attributes.Section.filter((item: any) => {

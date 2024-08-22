@@ -6,47 +6,42 @@ import layerbanner from 'src/assets/about/layer-banner.png'
 import home2 from 'src/assets/about/home2.png'
 import neb from 'src/assets/about/NEB.png'
 import { content } from '../Contact/Contact'
-import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 import { Link, useNavigate } from 'react-router-dom'
 import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa'
 import { BiLogoLinkedinSquare } from 'react-icons/bi'
 
-const item:any =[
+const item: any = [
   {
-    background:'bg-[#3b5996]',
-    content:<Link
-    className={`text-center text-white md:text-lg text-xs`}
-    to='#'
-    >
-    <FaFacebookF  />
-    </Link>
+    background: 'bg-[#3b5996]',
+    content: (
+      <Link className={`text-center text-white md:text-lg text-xs`} to='#'>
+        <FaFacebookF />
+      </Link>
+    )
   },
   {
-    background:'bg-[#007bbf]',
-    content:<Link
-    className={`text-center text-white md:text-lg text-xs`}
-    to='#'
-    >
-    <BiLogoLinkedinSquare/>
-    </Link>
+    background: 'bg-[#007bbf]',
+    content: (
+      <Link className={`text-center text-white md:text-lg text-xs`} to='#'>
+        <BiLogoLinkedinSquare />
+      </Link>
+    )
   },
   {
-    background:'bg-[#5daff0]',
-    content:<Link
-    className={`text-center text-white text-lg text-xs`}
-    to='#'
-    >
-    <FaTwitter  />
-    </Link>
+    background: 'bg-[#5daff0]',
+    content: (
+      <Link className={`text-center text-white text-lg `} to='#'>
+        <FaTwitter />
+      </Link>
+    )
   },
   {
-    background:'bg-[#714f40]',
-    content:<Link
-    className={`text-center text-white text-lg text-xs`}
-    to='#'
-    >
-    <FaInstagram />
-    </Link>
+    background: 'bg-[#714f40]',
+    content: (
+      <Link className={`text-center text-white text-lg `} to='#'>
+        <FaInstagram />
+      </Link>
+    )
   }
 ]
 function About() {
@@ -56,7 +51,7 @@ function About() {
       <div className='mt-8'>
         <div className='md:grid md:grid-cols-5'>
           <div className='md:col-span-4 relative'>
-            <p className='md:absolute text-white font-banmethuot font-medium md:text-4xl text-xl lg:text-7xl lg:top-20 md:top-10 lg:right-6 md:right-0 right-0 top-10 w-28 md:translate-x-1/2 lg:w-[535px] md:w-[300px]  w-[300px] mb-4 md:mb-0'>
+            <p className='md:absolute text-white font-banmethuot font-medium md:text-4xl text-xl lg:text-7xl lg:top-20 md:top-10 lg:right-6 md:right-0 right-0 top-10  md:translate-x-1/2 lg:w-[535px] md:w-[300px] w-[300px] mb-4 md:mb-0'>
               WHO WE ARE ABOUT US
             </p>
             <img src={banner} alt='' className='w-full md:h-full' />
@@ -86,14 +81,14 @@ function About() {
           </div>
         </div>
       </div>
-      <div className=' md:mt-32 lg:mt-64 md:mt-24'>
+      <div className='lg:mt-64 md:mt-24'>
         <div className='grid lg:grid-cols-6'>
           <div className='col-span-4 relative lg:mt-16 mt-8 md:mt-12'>
             <img src={home2} alt='' className='w-full h-full' />
           </div>
           <div className='col-span-2  mt-10 md:ml-4'>
             <p className='text-white font-bold mt-4 md:mt-0 lg:text-3xl md:text-2xl text-xl'>Building dream spaces</p>
-            <p className='text-white lg:text-xl   md:text-lg text-sm text-justify md:text-left   lg:mt-6 md:mt-4 mt-2 md:pr-12 md:pr-8 lg:pr-20'>
+            <p className='text-white lg:text-xl   md:text-lg text-sm text-justify md:text-left   lg:mt-6 md:mt-4 mt-2 md:pr-8 lg:pr-20'>
               When it comes to interior rendering, we understand the importance of creating a space that reflects your
               personal style and meets your functional needs. Whether you’re looking to update a single room or renovate
               an entire home or office, our skilled team will work closely with you to bring your vision to life. From
@@ -116,14 +111,19 @@ function About() {
                   className='absolute text-dark translate-y-1/2 top-2/3 w-full -translate-x-1/2 left-1/2 text-center'
                 >
                   <p className='font-bold text-sm md:text-xl  lg:text-2xl font-copper'>{content.name}</p>
-                  <p className='text-xs lg:text-xl md:text-xl  font-century font-extrabold md:mt-2'>{content.position}</p>
+                  <p className='text-xs lg:text-xl md:text-xl  font-century font-extrabold md:mt-2'>
+                    {content.position}
+                  </p>
                 </div>
                 <div className='flex justify-center font-extrabold absolute md:bottom-[16px] bottom-[6px] w-full gap-4 '>
                   {Array(4)
                     .fill(0)
                     .map((_, index) => (
-                      <div className={`${item[index].background} color-white md:w-7 md:h-7 w-4 h-4 rounded-full flex items-center justify-center`} key={index}>
-                          {item[index].content}
+                      <div
+                        className={`${item[index].background} color-white md:w-7 md:h-7 w-4 h-4 rounded-full flex items-center justify-center`}
+                        key={index}
+                      >
+                        {item[index].content}
                       </div>
                     ))}
                 </div>

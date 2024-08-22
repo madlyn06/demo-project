@@ -1,37 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import p5 from 'src/assets/p5.png'
-import { project } from '../Home'
 import InteriorRendering from '../components/InteriorRendering'
 import FurnitureModeling from '../components/FurnitureModeling'
 import ExteriorRendering from '../components/ExteriorRendering'
 import Page2D from '../components/Page2D'
 import { API, REACT_APP_BASE_URL } from 'src/ultils/api'
-const data = [
-  {
-    name: 'Living’ MINH'
-  },
-  {
-    name: 'Living’ MINH'
-  },
-  {
-    name: 'Living’ MINH'
-  },
-  {
-    name: 'Living’ MINH'
-  },
-  {
-    name: 'Living’ MINH'
-  },
-  {
-    name: 'Living’ MINH'
-  },
-  {
-    name: 'Living’ MINH'
-  },
-  {
-    name: 'Living’ MINH'
-  }
-]
+
 function Exterior() {
   const [homeData, setHomeData]: any = useState([])
   const [interiorData, setInterior]: any = useState([])
@@ -39,19 +12,18 @@ function Exterior() {
   const [exteriorData, setExteriorData]: any = useState([])
   const [towDData, setTowDData]: any = useState([])
   const callApi = async () => {
-    const res = await API.get('/api/pages/4?populate[Section][populate]=*')
-    const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
-    if (res) {
-      const dataInter = res2?.data?.data.attributes.Section.filter((item: any) => {
+    const res = await API.get('/api/pages/1?populate[Section][populate]=*')
+    if (res.data) {
+      const dataInter = res?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.interior'
       })
-      const furniture = res2?.data?.data.attributes.Section.filter((item: any) => {
+      const furniture = res?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.furniture'
       })
-      const exterior = res2?.data?.data.attributes.Section.filter((item: any) => {
+      const exterior = res?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.exterior'
       })
-      const towD = res2?.data?.data.attributes.Section.filter((item: any) => {
+      const towD = res?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.2d'
       })
       if (dataInter) {
@@ -78,16 +50,16 @@ function Exterior() {
         <div className='grid md:grid-cols-5'>
           <div className='col-span-1 text-white lg:mt-24 '>
             <h1 className='lg:text-3xl md:text-2xl text-xl tracking-widest'>
-              {homeData?.data?.attributes?.Section[0]?.title}
+              {homeData?.data?.attributes?.Section[1]?.title}
             </h1>
             <p className='text-sm lg:text-base pr-10 tracking-wide'>
-              {homeData?.data?.attributes?.Section[0]?.description}
+              {homeData?.data?.attributes?.Section[1]?.description}
             </p>
           </div>
           <div className='col-span-4 mt-3 md:mt-0'>
             <div className='text-white  text-base md:text-lg font-semibold  font-copper'>Living’ Dat</div>
             <img
-              src={`${REACT_APP_BASE_URL}${homeData?.data?.attributes?.Section[0]?.image?.data?.attributes?.formats?.large?.url}`}
+              src={`${REACT_APP_BASE_URL}${homeData?.data?.attributes?.Section[1]?.image?.data?.attributes?.formats?.large?.url}`}
               alt=''
               className='w-full'
             />

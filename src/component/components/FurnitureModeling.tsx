@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { REACT_APP_BASE_URL } from 'src/ultils/api'
 
-function FurnitureModeling({ data, number }: any) {
+function FurnitureModeling({ data, number, id }: any) {
   const displayedItems = !number ? data.slice(0, 4) : data
   return (
     <div>
@@ -22,7 +22,11 @@ function FurnitureModeling({ data, number }: any) {
                     alt=''
                   />
                 </div>
-                <div className='text-white text-xs md:text-base text-center mt-2 md:mt-4'>
+                <div
+                  className={`text-white text-xs md:text-base text-center mt-4 ${
+                    item.id === id ? '!text-[#c0854f]' : ''
+                  }`}
+                >
                   <p className='font-copper font-semibold'>{item.title}</p>
                   <div className='text-start'>
                     <p>Client: {item?.client}</p>

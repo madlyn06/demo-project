@@ -1,35 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import banner from 'src/assets/about/banner.png'
-import layerbanner from 'src/assets/about/layer-banner.png'
-import coin from 'src/assets/project/coin.png'
-import calendar from 'src/assets/project/calender.png'
-import p6 from 'src/assets/p6.png'
-
-import star from 'src/assets/project/star.png'
-import { project } from '../Home'
-import p5 from 'src/assets/p5.png'
 import { service } from '../Service/Services'
-import foter from 'src/assets/foter.png'
 import { API } from 'src/ultils/api'
 import InteriorRendering from '../components/InteriorRendering'
 import FurnitureModeling from '../components/FurnitureModeling'
 import ExteriorRendering from '../components/ExteriorRendering'
 import Page2D from '../components/Page2D'
 
-const project1 = [
-  {
-    img: coin,
-    title: 'Reasonable Price '
-  },
-  {
-    img: calendar,
-    title: 'Quick Turnaround Timet'
-  },
-  {
-    img: star,
-    title: 'Realistic Quality'
-  }
-]
 function Project() {
   const [homeData, setHomeData] = useState<any>([])
   const [interiorData, setInterior] = useState<any>([])
@@ -70,7 +46,6 @@ function Project() {
   useEffect(() => {
     callApi()
   }, [])
-  console.log(interiorData)
   return (
     <div className='px-10 mx-auto max-w-7xl'>
       <div className='mt-8'>

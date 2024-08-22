@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import slider from '../../assets/contact/background.png'
-import neb from '../../assets/contact/NEB.png'
 export const content = {
   name: 'NEB TRAN',
   position: 'CEO AND FOUNDER',
@@ -37,7 +36,6 @@ function Contact() {
       inquiries: inquiries
     }
 
-    // Send the email using EmailJS
     // eslint-disable-next-line import/no-named-as-default-member
     emailjs
       .send(serviceId, templateId, templateParams, publicKey)
@@ -72,6 +70,7 @@ function Contact() {
             <p className='text-[#c1984f] font-century text-base -rotate-90 absolute right-[-92px] bottom-[-35px] hidden md:block'>
               {'<----  SCROLL DOWN'}
             </p>
+            abc
           </div>
           <div className='lg:col-span-1 lg:mt-2 ml-2'>
             <p className='text-[#c1984f] text-2xl font-century font-extrabold my-2'>Unix Visual</p>
@@ -99,15 +98,15 @@ function Contact() {
               </div>
             ))}
         </div> */}
-        <div className='flex justify-center mt-40'>
+        <div className='flex justify-center lg:mt-40 mt-20'>
           <form action='' onSubmit={handleSubmit}>
-            <div className='flex lg:gap-16 gap-6 flex-wrap'>
+            <div className='flex lg:gap-28 gap-6 flex-wrap'>
               <div className='flex flex-col gap-6'>
                 <input
                   type='text'
                   name='name'
                   value={formData.name}
-                  className='bg-transparent max-w-[195px] border-b-2 border-[#eeeeee80] outline-none text-white pb-[2px]'
+                  className='bg-transparent text-2xl max-w-[300px] border-b-2 border-[#eeeeee80] outline-none text-white pb-[2px]'
                   onChange={handleChange}
                   placeholder={'Name:'}
                 />
@@ -115,7 +114,7 @@ function Contact() {
                   type='text'
                   name='whatsapp'
                   value={formData.whatsapp}
-                  className='bg-transparent max-w-[195px] border-b-2 border-[#eeeeee80] outline-none text-white pb-[2px]'
+                  className='bg-transparent text-2xl max-w-[300px] border-b-2 border-[#eeeeee80] outline-none text-white pb-[2px]'
                   onChange={handleChange}
                   placeholder={'Whatsapp:'}
                 />
@@ -123,7 +122,7 @@ function Contact() {
                   type='text'
                   name='inquiries'
                   value={formData.inquiries}
-                  className='bg-transparent max-w-[195px] border-b-2 border-[#eeeeee80] outline-none text-white pb-[2px]'
+                  className='bg-transparent text-2xl max-w-[300px] border-b-2 border-[#eeeeee80] outline-none text-white pb-[2px]'
                   onChange={handleChange}
                   placeholder={'Inquiries:'}
                 />
@@ -131,7 +130,7 @@ function Contact() {
                   type='text'
                   name='other'
                   value={formData.other}
-                  className='bg-transparent max-w-[195px] border-b-2 border-[#eeeeee80] outline-none text-white pb-[2px]'
+                  className='bg-transparent text-2xl max-w-[300px] border-b-2 border-[#eeeeee80] outline-none text-white pb-[2px]'
                   onChange={handleChange}
                   placeholder={'Other:'}
                 />
@@ -141,7 +140,7 @@ function Contact() {
                   type='text'
                   name='email'
                   value={formData.email}
-                  className='bg-transparent max-w-[195px] border-b-2 border-[#eeeeee80] outline-none text-white pb-[2px]'
+                  className='bg-transparent text-2xl max-w-[300px] border-b-2 border-[#eeeeee80] outline-none text-white pb-[2px]'
                   onChange={handleChange}
                   placeholder={'Email:'}
                 />
@@ -149,7 +148,7 @@ function Contact() {
                   type='text'
                   name='address'
                   value={formData.address}
-                  className='bg-transparent max-w-[195px] border-b-2 border-[#eeeeee80] outline-none text-white pb-[2px]'
+                  className='bg-transparent text-2xl max-w-[300px] border-b-2 border-[#eeeeee80] outline-none text-white pb-[2px]'
                   onChange={handleChange}
                   placeholder={'Address:'}
                 />
@@ -158,7 +157,7 @@ function Contact() {
 
             {/* <input type='text' name='whatsapp' onChange={handleChange} /> */}
             <div className='flex justify-center'>
-              <button className='text-[#c1984f] italic mx-auto'>Send...</button>
+              <button className='text-[#c1984f] text-3xl mt-8 italic mx-auto'>Send...</button>
             </div>
           </form>
         </div>

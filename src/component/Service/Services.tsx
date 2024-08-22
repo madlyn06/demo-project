@@ -3,10 +3,6 @@ import s1 from 'src/assets/s-1.png'
 import s2 from 'src/assets/s-2.png'
 import s3 from 'src/assets/s-3.png'
 import s4 from 'src/assets/s-4.png'
-import p6 from 'src/assets/p6.png'
-import p5 from 'src/assets/p5.png'
-import { project } from '../Home'
-import foter from 'src/assets/foter.png'
 import InteriorRendering from '../components/InteriorRendering'
 import Line from '../components/Line'
 import FurnitureModeling from '../components/FurnitureModeling'
@@ -15,14 +11,7 @@ import Page2D from '../components/Page2D'
 import Ourr from '../components/Ourr'
 import { useLocation } from 'react-router-dom'
 import { API } from 'src/ultils/api'
-const data = [
-  {
-    name: 'Living’ MINH'
-  },
-  {
-    name: 'Living’ MINH'
-  }
-]
+
 export const service = [
   {
     image: s1,
@@ -53,14 +42,11 @@ function Services() {
   const [exteriorData, setExteriorData] = useState<any>([])
   const [towDData, setTowDData] = useState<any>([])
   const callApi = async () => {
-    // const res = await API.get('/api/pages/3?populate[Section][populate]=*')
     const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
-    console.log(res2)
     if (res2) {
       const dataInter = res2?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.interior'
       })
-      console.log(dataInter, 'dataInter')
       const furniture = res2?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.furniture'
       })

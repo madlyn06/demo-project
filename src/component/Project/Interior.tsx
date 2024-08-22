@@ -1,90 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import p5 from 'src/assets/p5.png'
-import { project } from '../Home'
+import { useEffect, useState } from 'react'
 import InteriorRendering from '../components/InteriorRendering'
 import FurnitureModeling from '../components/FurnitureModeling'
 import ExteriorRendering from '../components/ExteriorRendering'
 import Page2D from '../components/Page2D'
-import p1 from 'src/assets/p1.png'
-import p2 from 'src/assets/p2.png'
-import p3 from 'src/assets/p3.png'
-import p4 from 'src/assets/p4.png'
+
 import Line from '../components/Line'
 import { API, REACT_APP_BASE_URL } from 'src/ultils/api'
-const data = [
-  {
-    name: 'Living’ MINH'
-  },
-  {
-    name: 'Living’ MINH'
-  }
-]
-const project_interior = [
-  {
-    image: p1,
-    desc: "Living' DAT"
-  },
-  {
-    image: p2,
-    desc: "Living' SON"
-  },
-  {
-    image: p3,
-    desc: "Living' MINH"
-  },
-  {
-    image: p4,
-    desc: "Living' THAO"
-  },
-  {
-    image: p1,
-    desc: "Living' DAT"
-  },
-  {
-    image: p2,
-    desc: "Living' SON"
-  },
-  {
-    image: p3,
-    desc: "Living' MINH"
-  },
-  {
-    image: p4,
-    desc: "Living' THAO"
-  },
-  {
-    image: p1,
-    desc: "Living' DAT"
-  },
-  {
-    image: p2,
-    desc: "Living' SON"
-  },
-  {
-    image: p3,
-    desc: "Living' MINH"
-  },
-  {
-    image: p4,
-    desc: "Living' THAO"
-  },
-  {
-    image: p1,
-    desc: "Living' DAT"
-  },
-  {
-    image: p2,
-    desc: "Living' SON"
-  },
-  {
-    image: p3,
-    desc: "Living' MINH"
-  },
-  {
-    image: p4,
-    desc: "Living' THAO"
-  }
-]
 function Interior() {
   const [homeData, setHomeData]: any = useState([])
   const [interiorData, setInterior]: any = useState([])
@@ -94,7 +15,7 @@ function Interior() {
   // pass data through Link
   const callApi = async () => {
     const res = await API.get('/api/pages/1?populate[Section][populate]=*')
-    if (res) {
+    if (res.data) {
       const dataInter = res?.data?.data.attributes.Section.filter((item: any) => {
         return item.__component == 'home.interior'
       })
@@ -127,7 +48,7 @@ function Interior() {
   }, [])
   return (
     <div className='px-10 mx-auto max-w-7xl'>
-      <div className='mt-2 mt-8'>
+      <div className='mt-8'>
         <div className='grid md:grid-cols-5'>
           <div className='col-span-1 mb-6 lg:mb-0 text-white lg:mt-24 mr-6 md:mr-0'>
             <h1 className='lg:text-3xl md:text-2xl text-xl  tracking-widest font-banmethuot font-black'>
@@ -138,7 +59,7 @@ function Interior() {
             </p>
           </div>
           <div className='col-span-4'>
-            <div className='text-white text-lg font-semibold font-copper'>Living’ Dat</div>
+            {/* <div className='text-white text-lg font-semibold font-copper'>Living’ Dat</div> */}
             <img
               src={`${REACT_APP_BASE_URL}${homeData?.data?.attributes?.Section[0]?.image?.data?.attributes?.formats?.large?.url}`}
               alt=''

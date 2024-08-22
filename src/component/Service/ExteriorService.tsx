@@ -4,15 +4,11 @@ import layerbanner from 'src/assets/about/layer-banner.png'
 import coin from 'src/assets/project/coin.png'
 import calendar from 'src/assets/project/calender.png'
 import star from 'src/assets/project/star.png'
-import { project } from '../Home'
-import p5 from 'src/assets/p5.png'
-import p6 from 'src/assets/p6-big.png'
 import ExteriorRendering from '../components/ExteriorRendering'
 import Offer from '../components/Offer'
 import Button from '../components/Button'
 import Line from '../components/Line'
 import { API, REACT_APP_BASE_URL } from 'src/ultils/api'
-import BigDeal from '../components/BigDeal'
 const project1 = [
   {
     img: coin,
@@ -35,7 +31,7 @@ function ExteriorService() {
     fetchData()
   }, [])
   const fetchData = async () => {
-    const res = await API.get('/api/pages/8?populate[Section][populate]=*')
+    const res = await API.get('/api/pages/2?populate[Section][populate]=*')
     const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
     const arr = res2.data.data.attributes.Section.filter((item: any) => {
       if (item.__component === 'home.exterior') {
@@ -101,7 +97,7 @@ function ExteriorService() {
               className='w-full h-full'
               alt=''
             />
-            <div className='md:absolute bg-[#000]/50 py-3 md:top-1/2  w-10/12 md:w-fit  md:mt-0 -translate-y-1/3 md:-translate-y-1/2 md:translate-x-1/2 pl-10 pr-24 rounded-2xl md:right-6 md:right-0 text-white'>
+            <div className='md:absolute bg-[#000]/50 py-3 md:top-1/2  w-10/12 md:w-fit  md:mt-0 -translate-y-1/3 md:-translate-y-1/2 md:translate-x-1/2 pl-10 pr-24 rounded-2xl md:right-0 text-white'>
               <h1 className='font-semibold m-0 text-base md:text-lg italic'>{bigDeal[0]?.title}</h1>
               <p className='md:w-[300px] w-[160px] text-sm md:text-base'>{bigDeal[0]?.description}</p>
             </div>

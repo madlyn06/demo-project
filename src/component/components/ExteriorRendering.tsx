@@ -1,7 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react'
-import { project } from '../Home'
-import p6 from 'src/assets/p6.png'
 import { REACT_APP_BASE_URL } from 'src/ultils/api'
 import { Link } from 'react-router-dom'
 

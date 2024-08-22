@@ -1,34 +1,8 @@
-import p1 from 'src/assets/p1.png'
-import p2 from 'src/assets/p2.png'
-import p3 from 'src/assets/p3.png'
-import p4 from 'src/assets/p4.png'
 import Ourr from './components/Ourr'
 import Button from './components/Button'
 import { Slide } from 'react-slideshow-image'
 import 'react-slideshow-image/dist/styles.css'
-export const project = [
-  {
-    image: p1,
-    desc: "Living' DAT"
-  },
-  {
-    image: p2,
-    desc: "Living' SON"
-  },
-  {
-    image: p3,
-    desc: "Living' MINH"
-  },
-  {
-    image: p4,
-    desc: "Living' THAO"
-  }
-]
-const images = [
-  'https://images.unsplash.com/photo-1509721434272-b79147e0e708?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
-  'https://images.unsplash.com/photo-1506710507565-203b9f24669b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1536&q=80',
-  'https://images.unsplash.com/photo-1536987333706-fc9adfb10d91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80'
-]
+
 import s1 from 'src/assets/s-1.png'
 import s2 from 'src/assets/s-2.png'
 import s3 from 'src/assets/s-3.png'
@@ -41,42 +15,8 @@ import FurnitureModeling from './components/FurnitureModeling'
 import ExteriorRendering from './components/ExteriorRendering'
 import Page2D from './components/Page2D'
 import { Link } from 'react-router-dom'
-const buttonStyle = {
-  width: '30px',
-  background: 'none',
-  border: '0px'
-}
+import { properties } from 'src/constant/constant'
 
-const properties = {
-  prevArrow: (
-    <button style={{ ...buttonStyle }}>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        fill='none'
-        viewBox='0 0 24 24'
-        strokeWidth={1.5}
-        stroke='white'
-        className='size-6'
-      >
-        <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5 8.25 12l7.5-7.5' />
-      </svg>
-    </button>
-  ),
-  nextArrow: (
-    <button style={{ ...buttonStyle }}>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        fill='none'
-        viewBox='0 0 24 24'
-        strokeWidth={1.5}
-        stroke='white'
-        className='size-6'
-      >
-        <path strokeLinecap='round' strokeLinejoin='round' d='m8.25 4.5 7.5 7.5-7.5 7.5' />
-      </svg>
-    </button>
-  )
-}
 const service = [
   {
     image: s1,
@@ -103,9 +43,7 @@ const service = [
     route: 'services/2d'
   }
 ]
-//  api roi do code trên nahnhs ni luôn đi
 export const Home = () => {
-  const [homeData, setHomeData] = useState<any>([])
   const [interiorData, setInterior] = useState<any>([])
   const [furnitureData, setFurnitureData] = useState<any>([])
   const [exteriorData, setExteriorData] = useState<any>([])
@@ -151,13 +89,11 @@ export const Home = () => {
       if (towD) {
         setTowDData(towD)
       }
-      setHomeData(res.data)
     }
   }
   useEffect(() => {
     callApi()
   }, [])
-  const indicators = (index: any) => <div className='indicator h-1 w-1 rounded-full'></div>
   const handleSlideChange = (previous: any, next: any) => {
     setBannerindex(next)
   }

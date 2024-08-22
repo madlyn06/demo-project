@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import banner from 'src/assets/about/banner.png'
 import layerbanner from 'src/assets/about/layer-banner.png'
-import coin from 'src/assets/project/coin.png'
-import calendar from 'src/assets/project/calender.png'
-import star from 'src/assets/project/star.png'
-import { project } from '../Home'
-import p5 from 'src/assets/p5.png'
-import p6 from 'src/assets/p6-big.png'
-import ExteriorRendering from '../components/ExteriorRendering'
 import Page2D from '../components/Page2D'
 import Offer from '../components/Offer'
 import Button from '../components/Button'
@@ -21,7 +14,6 @@ function TwoDService() {
     fetchData()
   }, [])
   const fetchData = async () => {
-    const res = await API.get('/api/pages/9?populate[Section][populate]=*')
     const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
     const arr = res2.data.data.attributes.Section.filter((item: any) => {
       if (item.__component === 'home.2d') {

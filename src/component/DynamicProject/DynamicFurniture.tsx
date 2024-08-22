@@ -8,45 +8,9 @@ import Page2D from '../components/Page2D'
 
 import Line from '../components/Line'
 import { API, REACT_APP_BASE_URL } from 'src/ultils/api'
-import { useLocation, useParams } from 'react-router-dom'
-import { Slide } from 'react-slideshow-image'
-const buttonStyle = {
-  width: '30px',
-  background: 'none',
-  border: '0px'
-}
-const properties = {
-  prevArrow: (
-    <button style={{ ...buttonStyle }}>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        fill='none'
-        viewBox='0 0 24 24'
-        strokeWidth={1.5}
-        stroke='white'
-        className='size-6'
-      >
-        <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 19.5 8.25 12l7.5-7.5' />
-      </svg>
-    </button>
-  ),
-  nextArrow: (
-    <button style={{ ...buttonStyle }}>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        fill='none'
-        viewBox='0 0 24 24'
-        strokeWidth={1.5}
-        stroke='white'
-        className='size-6'
-      >
-        <path strokeLinecap='round' strokeLinejoin='round' d='m8.25 4.5 7.5 7.5-7.5 7.5' />
-      </svg>
-    </button>
-  )
-}
+import { useParams } from 'react-router-dom'
+
 function DynamicFurniture() {
-  const [homeData, setHomeData]: any = useState([])
   const [interiorData, setInterior]: any = useState([])
   const [furnitureData, setFurnitureData]: any = useState([])
   const [exteriorData, setExteriorData]: any = useState([])
@@ -54,7 +18,6 @@ function DynamicFurniture() {
 
   const [imagePreview, setImagePreview]: any = useState('')
 
-  const [bannerIndex, setBannerindex] = useState(0)
   const [data, setData] = useState<any>({})
   const { name } = useParams()
   useEffect(() => {
@@ -64,7 +27,6 @@ function DynamicFurniture() {
     }
   }, [furnitureData, name])
   const callApi = async () => {
-    // const { state } = props.location
     const res = await API.get('/api/pages/1?populate[Section][populate]=*')
     if (res) {
       const dataInter = res?.data?.data.attributes.Section.filter((item: any) => {
@@ -91,19 +53,14 @@ function DynamicFurniture() {
       if (towD) {
         setTowDData(towD)
       }
-      setHomeData(res.data)
     }
   }
   useEffect(() => {
     callApi()
   }, [])
-  const handleSlideChange = (previous: any, next: any) => {
-    setBannerindex(next)
-  }
-
   return (
     <div className='px-10 mx-auto max-w-7xl'>
-      <div className='mt-2 mt-8'>
+      <div className='mt-8'>
         <div className='md:grid  md:grid-cols-5 mb-10 md:mb-0'>
           <div className='col-span-1 text-white lg:mt-24 md:pr-4 mb-4 md:mb-0 '>
             <h1 className='text-2xl  md:text-3xl lg:text-3xl tracking-widest font-banmethuot'>
@@ -156,7 +113,7 @@ function DynamicFurniture() {
           </div>
         </div>
 
-        <FurnitureModeling data={furnitureData} number={true} />
+        <FurnitureModeling data={furnitureData} number={true} id={data?.id} />
         <div className='mt-12'>
           <Line />
         </div>
