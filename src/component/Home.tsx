@@ -142,7 +142,8 @@ export const Home = () => {
                     <div className='each-slide-effect' key={index}>
                       <div
                         style={{
-                          backgroundImage: `url(${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.large?.url})`
+                          backgroundImage: `url(${REACT_APP_BASE_URL}${item?.image?.data?.attributes?.formats?.large?.url})`,
+                          aspectRatio: '32 / 21'
                         }}
                         className='aspect-video w-full h-full'
                       ></div>
