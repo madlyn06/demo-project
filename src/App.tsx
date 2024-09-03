@@ -1,22 +1,46 @@
 import './App.css'
 import useRouterElements from '../useRouterElement'
-import { useEffect } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { CustomSwitch } from './component/LoadingBar/LoadingBar'
+import LoadingBar from 'react-top-loading-bar'
+import { useLocation } from 'react-router-dom'
 function App() {
   const element = useRouterElements()
+  const [progress, setProgress] = useState(0)
+  const loadingBarRef = useRef<any>(null)
+  const location = useLocation()
+
   useEffect(() => {
     function handleContextMenu(e: any) {
-      e.preventDefault() // prevents the default right-click menu from appearing
+      e.preventDefault()
     }
-    // add the event listener to the component's root element
     const rootElement = document.getElementById('my-component')
     rootElement?.addEventListener('contextmenu', handleContextMenu)
-    // remove the event listener when the component is unmounted
 
     return () => {
       rootElement?.removeEventListener('contextmenu', handleContextMenu)
     }
   }, [])
-  return <div className='App'>{element}</div>
+  useEffect(() => {
+    loadingBarRef.current.continuousStart()
+    const timer = setTimeout(() => {
+      loadingBarRef.current.complete()
+    }, 500)
+    return () => clearTimeout(timer)
+  }, [location.pathname])
+  console.log()
+  return (
+    <div className='App'>
+      <LoadingBar
+        color='#ccc'
+        loaderSpeed={500}
+        height={3}
+        ref={loadingBarRef}
+        onLoaderFinished={() => setProgress(0)}
+      />
+      <div>{element}</div>
+    </div>
+  )
 }
 
 export default App

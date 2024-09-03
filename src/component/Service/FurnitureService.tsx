@@ -3,42 +3,16 @@ import layerbanner from 'src/assets/about/layer-banner.png'
 import FurnitureModeling from '../components/FurnitureModeling'
 import Offer from '../components/Offer'
 import Line from '../components/Line'
-import p1 from 'src/assets/service/model/1.png'
-import p2 from 'src/assets/service/model/2.png'
-import p3 from 'src/assets/service/model/3.png'
-import p4 from 'src/assets/service/model/4.png'
 import { useEffect, useState } from 'react'
 import { API, REACT_APP_BASE_URL } from 'src/ultils/api'
-const project = [
-  {
-    image: p1,
-    heading: 'Low Complexity',
-    rate: 'Hourly Rate: $12/hour',
-    estimate: 'Estimated working hours: 2-4 hours'
-  },
-  {
-    image: p2,
-    heading: 'Medium Complexity',
-    rate: 'Hourly Rate: $12/hour',
-    estimate: 'Estimated working hours: 5-8 hours'
-  },
-  {
-    image: p3,
-    heading: 'High Complexity',
-    rate: 'Hourly Rate: $12/hour',
-    estimate: 'Estimated working hours: 9-12 hours'
-  },
-  {
-    image: p4,
-    heading: 'Very High Complexity',
-    rate: 'Hourly Rate: $12/hour',
-    estimate: 'Estimated working hours: From 13h'
-  }
-]
+import { ServiceType } from './ServiceType'
+import useStripe from 'src/hooks/useStripe'
+import { convertImg } from 'src/ultils/utils'
+
 function FurnitureService() {
   const [model, setModel] = useState<any>([])
   const [funiture, setFurniture] = useState<any>([])
-
+  const data = useStripe<ServiceType>('/api/services/3?populate=*')
   useEffect(() => {
     fetchData()
   }, [])
@@ -69,31 +43,25 @@ function FurnitureService() {
         </h1>
         <div className='grid lg:grid-cols-5'>
           <div className='col-span-1  mt-6 ml-2'>
-            <p className='text-[#fff] text-lg  md:text-xl lg:text-2xl  font-century'>Visualize Your Ideas</p>
+            <p className='text-[#fff] text-lg  md:text-xl lg:text-2xl  font-century'>{data.title}</p>
           </div>
           <div className='col-span-4 relative'>
-            <img src={banner} alt='' />
+            <img src={convertImg(data?.image)} alt='' />
             <img
-              src={layerbanner}
+              src={convertImg(data?.subImage)}
               className='absolute bottom-0 translate-y-1/2 max-w-[250px] -translate-x-1/2 left-1/2 hidden lg:block'
               alt=''
             />
             <div className='lg:absolute lg:ml-20 lg:top-20 lg:left-10 md:top-16 md:left-32 left-48 top-20 lg:-translate-x-1/2 lg:w-[535px]'>
               <p className=' mt-8 text-white font-medium text-3xl  md:text-4xl lg:text-5xl font-banmethuot'>
-                Create Stunning Furniture with 3D Modeling
+                {data.heading}
               </p>
-              <p className='text-white font-medium text-base  md:text-lg lg:text-xl  mt-4'>
-                Do you want to know how your Living room or your new interiors will look? We can create a beautiful
-                Interior Render based on your floor plan.
-              </p>
+              <p className='text-white font-medium text-base  md:text-lg lg:text-xl  mt-4'>{data.description}</p>
             </div>
 
             <div className='hidden lg:block md:absolute -bottom-[171px] pb-32 text-[#fff]/40  w-[350px] pr-20 right-12 bg-[#000]/70 pl-2 pt-2'>
-              <h1 className='font-bold text-xl md:text-2xl '>SAMPLE”</h1>
-              <p className=' text-base  md:text-lg lg:text-xl '>
-                Do you want to know how your Living room or your new interiors will look? We can create a beautiful
-                Interior Render based on your floor plan.
-              </p>
+              <h1 className='font-bold text-xl md:text-2xl '>{data.titleSub}</h1>
+              <p className=' text-base  md:text-lg lg:text-xl '>{data.descriptionSub}</p>
               <div className='absolute bg-black/20 h-full w-[700px] top-0 -left-[200%]'></div>
             </div>
 
@@ -103,7 +71,7 @@ function FurnitureService() {
           </div>
         </div>
       </div>
-      <Offer />
+      <Offer data={data.OfferItem && data.OfferItem[0]} />
 
       <div className='grid grid-cols-2 md:grid-cols-4 gap-8 pl-5 mt-8'>
         {model.length > 0 &&

@@ -1,32 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import banner from 'src/assets/about/banner.png'
-import layerbanner from 'src/assets/about/layer-banner.png'
-import coin from 'src/assets/project/coin.png'
-import calendar from 'src/assets/project/calender.png'
-import star from 'src/assets/project/star.png'
+
 import ExteriorRendering from '../components/ExteriorRendering'
 import Offer from '../components/Offer'
 import Button from '../components/Button'
 import Line from '../components/Line'
 import { API, REACT_APP_BASE_URL } from 'src/ultils/api'
-const project1 = [
-  {
-    img: coin,
-    title: 'Reasonable Price '
-  },
-  {
-    img: calendar,
-    title: 'Quick Turnaround Timet'
-  },
-  {
-    img: star,
-    title: 'Realistic Quality'
-  }
-]
+import { ServiceType } from './ServiceType'
+import useStripe from 'src/hooks/useStripe'
+import { convertImg } from 'src/ultils/utils'
+
 function ExteriorService() {
   const [exterior, setExterior] = useState([])
   const [bigDeal, setBigDeal] = useState<any>([])
-
+  const data = useStripe<ServiceType>('/api/services/2?populate=*')
   useEffect(() => {
     fetchData()
   }, [])
@@ -54,31 +40,25 @@ function ExteriorService() {
         </h1>
         <div className='grid lg:grid-cols-5'>
           <div className='col-span-1  mt-6 ml-2'>
-            <p className='text-[#fff] text-lg  md:text-xl lg:text-2xl  font-century'>Let’s Start</p>
+            <p className='text-[#fff] text-lg  md:text-xl lg:text-2xl  font-century'>{data.title}</p>
           </div>
           <div className='col-span-4 relative'>
-            <img src={banner} alt='' />
+            <img src={convertImg(data?.image)} alt='' />
             <img
-              src={layerbanner}
+              src={convertImg(data?.subImage)}
               className='absolute bottom-0 translate-y-1/2 max-w-[250px] -translate-x-1/2 left-1/2 hidden lg:block'
               alt=''
             />
             <div className='lg:absolute lg:ml-20 lg:top-20 lg:left-10 md:top-16 md:left-32 left-48 top-20 lg:-translate-x-1/2 lg:w-[535px]'>
               <p className=' mt-8 text-white font-medium text-3xl  md:text-4xl lg:text-5xl font-banmethuot'>
-                Realistic Interior Close-Up Views Rendering
+                {data.heading}
               </p>
-              <p className='text-white font-medium text-base  md:text-lg lg:text-xl  mt-4'>
-                Do you want to know how your Living room or your new interiors will look? We can create a beautiful
-                Interior Render based on your floor plan.
-              </p>
+              <p className='text-white font-medium text-base  md:text-lg lg:text-xl  mt-4'>{data.description}</p>
             </div>
 
             <div className='hidden lg:block md:absolute -bottom-[171px] pb-32 text-[#fff]/40  w-[350px] pr-20 right-12 bg-[#000]/70 pl-2 pt-2'>
-              <h1 className='font-bold text-xl md:text-2xl '>SAMPLE”</h1>
-              <p className=' text-base  md:text-lg lg:text-xl '>
-                Do you want to know how your Living room or your new interiors will look? We can create a beautiful
-                Interior Render based on your floor plan.
-              </p>
+              <h1 className='font-bold text-xl md:text-2xl '>{data.titleSub}</h1>
+              <p className=' text-base  md:text-lg lg:text-xl '>{data.descriptionSub}</p>
               <div className='absolute bg-black/20 h-full w-[700px] top-0 -left-[200%]'></div>
             </div>
 
@@ -88,7 +68,7 @@ function ExteriorService() {
           </div>
         </div>
       </div>
-      <Offer />
+      <Offer data={data.OfferItem && data.OfferItem[0]} />
       <div className='mt-16'>
         <div className='grid md:grid-cols-4'>
           <div className='col-span-3 relative flex items-center flex-col justify-center md:block mt-4'>

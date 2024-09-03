@@ -2,6 +2,7 @@ import React from 'react'
 import coin from 'src/assets/project/coin.png'
 import calendar from 'src/assets/project/calender.png'
 import star from 'src/assets/project/star.png'
+import { OfferItem } from '../Service/ServiceType'
 const offer = [
   {
     img: coin,
@@ -16,13 +17,11 @@ const offer = [
     title: 'Realistic Quality'
   }
 ]
-function Offer() {
+function Offer({ data }: { data: OfferItem }) {
   return (
     <div className='lg:mt-64 mt-10 text-white text-center'>
-      <h1 className='text-xl md:text-2xl font-banmethuot'>What we can offer you</h1>
-      <p className='font-century text-lg md:text-xl'>
-        Additional view in a room at just only $30 to showcase meticulously every detail in your space
-      </p>
+      <h1 className='text-xl md:text-2xl font-banmethuot'>{data?.title}</h1>
+      <p className='font-century text-lg md:text-xl'>{data?.description}</p>
       <div className='text-white flex justify-between items-center mt-16'>
         {offer.map((item, index) => (
           <div key={index} className='flex flex-col items-center gap-4'>

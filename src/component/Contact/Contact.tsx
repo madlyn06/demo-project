@@ -7,6 +7,8 @@ export const content = {
   phone: '+84 78 566 2222'
 }
 import emailjs from '@emailjs/browser'
+import useStripe from 'src/hooks/useStripe'
+import { AboutUsType } from '../About/AboutType'
 function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -16,6 +18,7 @@ function Contact() {
     other: '',
     inquiries: ''
   })
+  const data = useStripe<AboutUsType>('/api/about-uses/2?populate=*')
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
@@ -65,19 +68,15 @@ function Contact() {
           <div className=' mx-2 md:col-span-4 md:relative'>
             <img src={slider} alt='' className='w-full' />
             <p className=' lg:absolute font-banmethuot mt-8 md:mt-0 text-white font-bold text-4xl md:text-5xl lg:text-7xl top-12 right-0 lg:translate-x-1/2 sm:w-[535px] w-[360px]'>
-              Contact us via email or phone
+              {data.title}
             </p>
             <p className='text-[#c1984f] font-century text-base -rotate-90 absolute right-[-92px] bottom-[-35px] hidden md:block'>
               {'<----  SCROLL DOWN'}
             </p>
-            abc
           </div>
           <div className='lg:col-span-1 lg:mt-2 ml-2'>
-            <p className='text-[#c1984f] text-2xl font-century font-extrabold my-2'>Unix Visual</p>
-            <p className='text-white text-base  md:text-lg lg:text-xl lg:mt-44'>
-              Do you want to know how your Living room or your new interiors will look? We can create a beautiful
-              Interior Render based on your floor plan.
-            </p>
+            <p className='text-[#c1984f] text-2xl font-century font-extrabold my-2'> {data.since} </p>
+            <p className='text-white text-base  md:text-lg lg:text-xl lg:mt-44'>{data.description}</p>
           </div>
         </div>
         {/* <div className='grid  grid-cols-1 lg:grid-cols-4 mt-10 md:mt-40 gap-8'>
