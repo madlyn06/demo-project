@@ -36,39 +36,28 @@ export const service = [
 ]
 
 function Services() {
-  const [homeData, setHomeData] = useState<any>([])
   const [interiorData, setInterior] = useState<any>([])
   const [furnitureData, setFurnitureData] = useState<any>([])
   const [exteriorData, setExteriorData] = useState<any>([])
   const [towDData, setTowDData] = useState<any>([])
   const callApi = async () => {
-    const res2 = await API.get('/api/pages/1?populate[Section][populate]=*')
-    if (res2) {
-      const dataInter = res2?.data?.data.attributes.Section.filter((item: any) => {
-        return item.__component == 'home.interior'
-      })
-      const furniture = res2?.data?.data.attributes.Section.filter((item: any) => {
-        return item.__component == 'home.furniture'
-      })
-      const exterior = res2?.data?.data.attributes.Section.filter((item: any) => {
-        return item.__component == 'home.exterior'
-      })
-      const towD = res2?.data?.data.attributes.Section.filter((item: any) => {
-        return item.__component == 'home.2d'
-      })
-      if (dataInter) {
-        setInterior(dataInter)
-      }
-      if (furniture) {
-        setFurnitureData(furniture)
-      }
-      if (exterior) {
-        setExteriorData(exterior)
-      }
-      if (towD) {
-        setTowDData(towD)
-      }
-      // setHomeData(res.data)
+    const result_interior = await API.get('/api/interiors/1?populate[InteriorItem][populate]=*')
+    const result_exterior = await API.get('/api/exteriors/1?populate[Exterior][populate]=*')
+    const result_furniture = await API.get('/api/furnitures/1?populate[Furniture][populate]=*')
+    const result_cartoon = await API.get('/api/cartoons/1?populate[Cartoon][populate]=*')
+    if (result_interior?.data) {
+      setInterior(result_interior?.data?.data.attributes.InteriorItem)
+    }
+
+    if (result_furniture?.data) {
+      setFurnitureData(result_furniture?.data?.data.attributes.Furniture)
+    }
+    if (result_exterior?.data) {
+      setExteriorData(result_exterior?.data?.data.attributes.Exterior)
+    }
+
+    if (result_cartoon?.data) {
+      setTowDData(result_cartoon?.data?.data.attributes.Cartoon)
     }
   }
   useEffect(() => {
