@@ -83,10 +83,10 @@ function About() {
           </div>
           <div className='col-span-2  mt-10 md:ml-4'>
             <p className='text-white font-bold mt-4 md:mt-0 lg:text-3xl md:text-2xl text-xl'>
-              {data.ItemPreview[0]?.title}
+              {data.ItemPreview && data.ItemPreview[0]?.title}
             </p>
             <p className='text-white lg:text-xl   md:text-lg text-sm text-justify md:text-left   lg:mt-6 md:mt-4 mt-2 md:pr-8 lg:pr-20'>
-              {data.ItemPreview[0]?.description}
+              {data.ItemPreview && data.ItemPreview[0]?.description}
             </p>
           </div>
         </div>
@@ -128,10 +128,10 @@ function About() {
         <div className='grid lg:grid-cols-6'>
           <div className='col-span-2 mr-6'>
             <p className='text-[#fff] font-bold lg:text-3xl md:text-2xl text-xl md:pr-32'>
-              {data.ItemPreview[1]?.title}
+              {data.ItemPreview && data.ItemPreview[1]?.title}
             </p>
             <p className='text-white lg:text-xl text-justify md:text-left md:text-lg text-sm mt-6 '>
-              {data.ItemPreview[1]?.description}
+              {data.ItemPreview && data.ItemPreview[1]?.description}
             </p>
           </div>
           <div className='col-span-4 relative mt-4 md:mt-24'>
@@ -146,10 +146,10 @@ function About() {
           </div>
           <div className='col-span-2 mt-4 md:ml-4'>
             <p className='text-[#fff] font-bold lg:text-3xl md:text-2xl mt-4 md:mt-0 text-xl pr-20'>
-              {data.ItemPreview[2]?.title}
+              {data.ItemPreview && data.ItemPreview[2]?.title}
             </p>
             <p className='text-white  lg:text-xl text-justify md:text-left  md:text-lg text-sm mt-4 md:pr-20'>
-              {data.ItemPreview[2]?.description}
+              {data.ItemPreview && data.ItemPreview[2]?.description}
             </p>
           </div>
         </div>
