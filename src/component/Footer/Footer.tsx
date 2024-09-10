@@ -42,6 +42,7 @@ export default function Footer() {
         <p>3D RENDERING | UNIXVISUAL</p>
         <p>No.29, 1H Alley, Tran Quang Dieu Street, O Cho Dua Ward, Dong Da District, Hanoi, Vietnam</p>
         <p>Whatsapp: +84 96 345 5103 | Email: Johan@unixvisual.com</p>
+        <p>Whatsapp: +84 35 921 9631 | Email: Emily@unixvisuals.com</p>
         <p className='my-4'>Architectural 3D Rendering | Interior 3D Rendering | Furniture 3D Modeling</p>
         <div>
           <div>
